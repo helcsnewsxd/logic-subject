@@ -4,7 +4,9 @@ El presente repositorio contiene todo el material correspondiente a la cursada d
 
 ## Información general
 
-El equipo docente de la materia está compuesto por:
+Los _temas_ que trata la materia se pueden ver en el [Programa](./subject_information/study_program.pdf).
+
+El _equipo docente_ está compuesto por:
 
 - Diego Vaggione
 - Miguel Campercholi
