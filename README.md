@@ -18,5 +18,5 @@ El _equipo docente_ está compuesto por:
 
 | Unidad | Tema | Material | Resumen | Ejercicios |
 | ------ | ---- | -------- | ------- | ---------- |
-| | | | | |
+| 1 | Relaciones de equivalencia | [Guía 1](./classes/guides/guide_1.pdf) | | |
 
