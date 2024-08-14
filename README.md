@@ -16,7 +16,7 @@ El _equipo docente_ está compuesto por:
 
 ### Guías, resúmenes y ejercicios resueltos
 
-| Unidad | Tema | Material | Resumen | Ejercicios |
-| ------ | ---- | -------- | ------- | ---------- |
-| 1 | Relaciones de equivalencia y particiones | [Teoría](./classes/guide_1/theory.pdf) | [Markdown](./classes/guide_1/summary.md) y [PDF](./classes/guide_1/summary.pdf) | |
+| Unidad | Tema | Material | Resumen | Soluciones a ejercicios |
+| ------ | ---- | -------- | ------- | ----------------------- |
+| 1 | Relaciones de equivalencia y particiones | [Teoría](./classes/guide_1/theory.pdf) | [Markdown](./classes/guide_1/summary.md) y [PDF](./classes/guide_1/summary.pdf) | [Markdown](./classes/guide_1/exercises.md) y [PDF](./classes/guide_1/exercises.pdf) |
 
