@@ -13,10 +13,12 @@
 - **Clases de equivalencia**: sea $R$ una relación de equivalencia sobre $A$ y $a\in A$, definimos la clase de equivalencia de $a$ con respecto a $R$ como $a/R=\{ b\in A:aRb\}$
   - **Cociente de $A$ por $R$**: $A/R=\{ a/R:a\in A\}$
   - **Proyección canónica (respecto de $R$)**: $\pi_R:A\to A/R$ con $\pi_R(a)=a/R\ \forall a\in A$.
-  - _Propiedades_: Sea $R$ una relación de equivalencia sobre $A$, y $a,b\in A$, entonces:
-    - $a\in a/R$
-    - $aRb\Leftrightarrow a/R=b/R$
-    - $a/R\cap b/R=\emptyset\wedge a/R=b/R$
+  - _Propiedades_:
+    - Sea $R$ una relación de equivalencia sobre $A$, y $a,b\in A$, entonces:
+      - $a\in a/R$
+      - $aRb\Leftrightarrow a/R=b/R$
+      - $a/R\cap b/R=\emptyset\wedge a/R=b/R$
+    - Sea $R$ una relación de equivalencia sobre $A\neq\emptyset$, entonces $|A/R|=1\iff R=A^2$
   
 ## Correspondencia entre relaciones de equivalencia y particiones
 
