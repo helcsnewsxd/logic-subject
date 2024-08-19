@@ -4,7 +4,7 @@ El presente repositorio contiene todo el material correspondiente a la cursada d
 
 ## Información general
 
-Los _temas_ que trata la materia se pueden ver en el [Programa](./subject_information/study_program.pdf).
+Los _temas_ que trata la materia se pueden ver en el [Programa](./subject_information/study_program.pdf). Y todo el _material_ se puede encontrar en la siguiente [carpeta de Drive](https://drive.google.com/drive/folders/1AJYhNeH_wqp3iEyuiD5CA52X4l3sVLgN).
 
 El _equipo docente_ está compuesto por:
 
@@ -19,4 +19,4 @@ El _equipo docente_ está compuesto por:
 | Unidad | Tema | Material | Resumen | Soluciones a ejercicios |
 | ------ | ---- | -------- | ------- | ----------------------- |
 | 1 | Relaciones de equivalencia y particiones | [Teoría](./classes/guide_1/theory.pdf) | [Markdown](./classes/guide_1/summary.md) y [PDF](./classes/guide_1/summary.pdf) | [Markdown](./classes/guide_1/exercises.md) y [PDF](./classes/guide_1/exercises.pdf) |
-
+| 2 | Posets y reticulados | [Teoría](./classes/guide_2/theory.pdf) | | |
