@@ -21,3 +21,4 @@ El _equipo docente_ está compuesto por:
 | 1 | Relaciones de equivalencia y particiones | [Teoría](./classes/guide_1/theory.pdf) | [Markdown](./classes/guide_1/summary.md) y [PDF](./classes/guide_1/summary.pdf) | [Markdown](./classes/guide_1/exercises.md) y [PDF](./classes/guide_1/exercises.pdf) |
 | 2 | Posets | [Teoría](./classes/guide_2/theory.pdf) | | |
 | 3 | Reticulados | [Teoría](./classes/guide_3/theory.pdf) | | |
+| 4 | Reticulados Terna | [Teoría](./classes/guide_4/theory.pdf) | | |
