@@ -19,4 +19,5 @@ El _equipo docente_ está compuesto por:
 | Unidad | Tema | Material | Resumen | Soluciones a ejercicios |
 | ------ | ---- | -------- | ------- | ----------------------- |
 | 1 | Relaciones de equivalencia y particiones | [Teoría](./classes/guide_1/theory.pdf) | [Markdown](./classes/guide_1/summary.md) y [PDF](./classes/guide_1/summary.pdf) | [Markdown](./classes/guide_1/exercises.md) y [PDF](./classes/guide_1/exercises.pdf) |
-| 2 | Posets y reticulados | [Teoría](./classes/guide_2/theory.pdf) | | |
+| 2 | Posets | [Teoría](./classes/guide_2/theory.pdf) | | |
+| 3 | Reticulados | [Teoría](./classes/guide_3/theory.pdf) | | |
