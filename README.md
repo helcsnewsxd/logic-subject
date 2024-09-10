@@ -23,4 +23,4 @@ El _equipo docente_ está compuesto por:
 | 2 | Posets e isomorfismo | [Teoría](./classes/guide_2/theory.pdf) | [Markdown](./classes/guide_2/summary.md) y [PDF](./classes/guide_2/summary.pdf) | [Markdown](./classes/guide_2/exercises.md) y [PDF](./classes/guide_2/exercises.pdf) |
 | 3 | Reticulados par | [Teoría](./classes/guide_3/theory.pdf) | [Markdown](./classes/guide_3/summary.md) y [PDF](./classes/guide_3/summary.pdf) | [Markdown](./classes/guide_3/exercises.md) y [PDF](./classes/guide_3/exercises.pdf) |
 | 4 | Reticulados Terna | [Teoría](./classes/guide_4/theory.pdf) | [Markdown](./classes/guide_4/summary.md) y [PDF](./classes/guide_4/summary.pdf) | [Markdown](./classes/guide_4/exercises.md) y [PDF](./classes/guide_4/exercises.pdf) |
-| 5 | Reticulados acotados, complementados y distributivos + Álgebra de Boole | [Teoría](./classes/guide_5/theory.pdf) | | |
+| 5 | Reticulados acotados, complementados y distributivos + Álgebra de Boole | [Teoría](./classes/guide_5/theory.pdf) | | [Markdown](./classes/guide_5/exercises.md) y [PDF](./classes/guide_5/exercises.pdf) |
