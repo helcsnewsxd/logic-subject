@@ -22,4 +22,4 @@ El _equipo docente_ está compuesto por:
 | 1 | Relaciones de equivalencia y particiones | [Teoría](./classes/guide_1/theory.pdf) | [Markdown](./classes/guide_1/summary.md) y [PDF](./classes/guide_1/summary.pdf) | [Markdown](./classes/guide_1/exercises.md) y [PDF](./classes/guide_1/exercises.pdf) |
 | 2 | Posets e isomorfismo | [Teoría](./classes/guide_2/theory.pdf) | [Markdown](./classes/guide_2/summary.md) y [PDF](./classes/guide_2/summary.pdf) | [Markdown](./classes/guide_2/exercises.md) y [PDF](./classes/guide_2/exercises.pdf) |
 | 3 | Reticulados par | [Teoría](./classes/guide_3/theory.pdf) | [Markdown](./classes/guide_3/summary.md) y [PDF](./classes/guide_3/summary.pdf) | [Markdown](./classes/guide_3/exercises.md) y [PDF](./classes/guide_3/exercises.pdf) |
-| 4 | Reticulados Terna | [Teoría](./classes/guide_4/theory.pdf) | | |
+| 4 | Reticulados Terna | [Teoría](./classes/guide_4/theory.pdf) | | [Markdown](./classes/guide_4/exercises.md) y [PDF](./classes/guide_4/exercises.pdf) |
