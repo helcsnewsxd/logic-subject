@@ -415,7 +415,9 @@ Las posibles congruencias de este reticulado terna las podemos ver gráficamente
 
 ## Ejercicio 20
 
-Las posibles congruencias del diamante las obtenemos del ejercicio anterior sin considerar el elemento $12$.
+En el caso del diamante, tenemos las siguientes dos posibles congruencias nomás:
+
+![ej20](./assets/ej20.png)
 
 ## Ejercicio 21
 
