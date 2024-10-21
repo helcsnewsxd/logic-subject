@@ -1,3 +1,7 @@
+---
+geometry: margin=3cm
+---
+
 # Guía 7: _Estructuras y su lenguaje elemental asociado_
 
 - Para las definiciones de fórmula elemental para alguno de los anteriores tipos de estructuras vistos, consideraremos solo aquellas que se puedan construir usando solo los símbolos distinguidos del tipo de estructura en cuestión más la lista de símbolos clásicos:

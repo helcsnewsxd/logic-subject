@@ -1,3 +1,7 @@
+---
+geometry: margin=3cm
+---
+
 # Guía 5: Reticulados acotados, complementados y distributivos, y Álgebras de Boole
 
 ## Reticulados acotados

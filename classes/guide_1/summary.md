@@ -1,3 +1,7 @@
+---
+geometry: margin=3cm
+---
+
 # Guía 1: Relaciones de equivalencia y particiones
 
 ## Relaciones de equivalencia
@@ -19,7 +23,7 @@
       - $aRb\Leftrightarrow a/R=b/R$
       - $a/R\cap b/R=\emptyset\lor a/R=b/R$
     - Sea $R$ una relación de equivalencia sobre $A\neq\emptyset$, entonces $|A/R|=1\iff R=A^2$
-  
+
 ## Correspondencia entre relaciones de equivalencia y particiones
 
 - **Partición**: dado un conjunto $A$, una partición de $A$ es un conjunto $\mathcal{P}$ tal que:
@@ -32,12 +36,14 @@
     - Sea $\mathcal{P}$ una partición de $A$, entonces $R_\mathcal{P}$ es una relación de equivalencia sobre $A$
     - Sea $R$ una relación de equivalencia sobre $A$, entonces $A/R$ es una partición de $A$
   - **Teorema**: sea $A$ un conjunto cualquiera, y sean $Part=\{\text{particiones de }A\}, ReEq=\{\text{relaciones de equivalencia de }A\}$, entonces las funciones:
-    $$\begin{aligned}
+    $$
+    \begin{aligned}
         Part&\to ReEq&\quad ReEq&\to Part\\
         \mathcal{P}&\to R_\mathcal{P}&\quad R&\to A/R
-    \end{aligned}$$
+    \end{aligned}
+    $$
     son biyecciones una inversa de la otra.
-      - Es decir, a nivel de información es lo mismo tener una relación de equivalencia sobre $A$ que una partición de $A$.
+    - Es decir, a nivel de información es lo mismo tener una relación de equivalencia sobre $A$ que una partición de $A$.
 
 ## Funciones con dominio $A/R$
 

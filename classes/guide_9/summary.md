@@ -1,3 +1,7 @@
+---
+geometry: margin=3cm
+---
+
 # Guía 9: _Modelo matemático de la sintaxis elemental_
 
 ## Variables
@@ -23,7 +27,7 @@
     2. $t=f(t_1,\dots,t_n)$ con $f\in\mathcal{F}_n,\ n\geq 1$ y $t_1,\dots,t_n\in T_{k-1}^\tau$
   - Si $t\in T^\tau-(Var\cup\mathcal{C})$ entonces $|t|\geq 4$
   - Si $t\in T^\tau$ es tal que en $t$ ocurre el símbolo $)$, entonces $t=f(t_1,\dots,t_n)$ con $f\in\mathcal{F}_n,\ n\geq 1$ y $t_1,\dots,t_n\in T^\tau$
-  - Si $t\in T^\tau$ y $[t]_i=)$, con $i\lt |t|$, entonces $[t]_{i+1}=,$ o $[t]_{i+1}=)$
+  - Si $t\in T^\tau$ y $[t]_i=)$, con $i<|t|$, entonces $[t]_{i+1}=,$ o $[t]_{i+1}=)$
   - En un término nunca puede ocurrir la palabra $(,$
   - Si un término comienza con $\mathsf{X}$, entonces debe ser una variable
 

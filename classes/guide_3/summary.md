@@ -1,3 +1,7 @@
+---
+geometry: margin=3cm
+---
+
 # Guía 3: Reticulados par
 
 ## Definición inicial y algunas propiedades

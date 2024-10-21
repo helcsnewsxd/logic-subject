@@ -1,15 +1,19 @@
+---
+geometry: margin=3cm
+---
+
 # Guía 2: Posets e isomorfismos
 
 ## Órdenes parciales
 
 - **Orden parcial**: una relación binaria $R$ sobre un conjunto $A$ es un orden parcial sobre $A$ si es reflexiva, transitiva y antisimétrica respecto de $A$.
   - El orden parcial se denota con $\leq$
-  - $\lt=\{(a,b)\in A^2:a\leq b\wedge a\neq b\}$
-  - **Cubrir**: $\prec=\{(a,b)\in A^2:a\lt b\wedge\nexists z|a\lt z\lt b\}$
+  - $<=\{(a,b)\in A^2:a\leq b\wedge a\neq b\}$
+  - **Cubrir**: $\prec=\{(a,b)\in A^2:a< b\wedge\nexists z|a< z< b\}$
     - Cuando se de $a\prec b$, diremos que $b$ cubre a $a$ (respecto de $\leq$ ).
-  - **Tapar**: Dado un poset $(P,\leq)$ y $a,b\in P$, diremos que $b$ tapa a $a$ cuando $a\lt b\wedge b\leq c\forall c\in P:a\leq c$
+  - **Tapar**: Dado un poset $(P,\leq)$ y $a,b\in P$, diremos que $b$ tapa a $a$ cuando $a< b\wedge b\leq c\forall c\in P:a\leq c$
     - Si $b$ tapa a $a$, entonces $b$ cubre a $a$. _Pero no se cumple la recíproca_
-  - **Poset denso**: un poset $(P,\leq)$ es denso si $\forall a,b\in P:a\lt b\Rightarrow\exists c\in P:a\lt c\wedge c\lt b$
+  - **Poset denso**: un poset $(P,\leq)$ es denso si $\forall a,b\in P:a< b\Rightarrow\exists c\in P:a< c\wedge c< b$
 - **Orden total**: un orden total sobre $A$ es un orden parcial $\leq$ sobre $A$ que cumple $x\leq y\lor y\leq x\forall x,y\in A$.
 - **Poset (conjunto parcialmente ordenado)**: Un poset es un par $(P,\leq)$ donde $P$ es un conjunto no vacío y $\leq$ es un orden parcial sobre $P$
 - **Conjunto totalmente ordenado**: es un par $(P,\leq)$ donde $P$ es un conjunto no vacío y $\leq$ es un orden total sobre $P$
@@ -29,7 +33,7 @@
 - **Máximo y mínimo**: Sea $(P,\leq)$ un poset, diremos que $a\in P$ es un elemento máximo de $(P,\leq)$ si $b\leq a\forall b\in P$. Análogamente se define el mínimo.
   - Hay a lo sumo un máximo o mínimo (pero puede no haber)
   - El máximo se denota con $1$ y el mínimo con $0$.
-- **Maximal y minimal**: Sea $(P,\leq)$ un poset, diremos que $a\in P$ es un elemento maximal de $(P,\leq)$ si $\nexists b\in P:a\lt b$. De forma análoga se define el minimal.
+- **Maximal y minimal**: Sea $(P,\leq)$ un poset, diremos que $a\in P$ es un elemento maximal de $(P,\leq)$ si $\nexists b\in P:a< b$. De forma análoga se define el minimal.
   - No siempre hay maximales o minimales en un poset
   - Todo máximo (resp. mínimo) es un elemento maximal (resp. minimal) del poset
   - Si un poset no tiene elementos maximales, entonces es infinito
@@ -74,7 +78,7 @@
   - Escribiremos $(P,\leq)\cong (P',\leq')$ cuando exista un isomorfismo entre $(P,\leq), (P',\leq')$ y, en este caso, diremos que son isomorfos
 - _Propiedades_:
   - **Lema (isomorfismos conservan todas las propiedades matemáticas)**: Sean $(P,\leq),(P',\leq')$ posets y $F$ un isomorfismo de $(P,\leq)$ en $(P',\leq')$:
-    - $\forall x,y\in P, x\lt y\iff F(x)\lt' F(y)$
+    - $\forall x,y\in P, x< y\iff F(x)<' F(y)$
     - $\forall x\in P$, $x$ es máximo (resp. mínimo) de $(P,\leq)$ $\iff$ $F(x)$ es máximo (resp. mínimo) de $(P',\leq')$
     - $\forall x\in P$, $x$ es maximal (resp. minimal) en $(P,\leq)\iff F(x)$ es maximal (resp. minimal) en $(P',\leq')$
     - $\forall x,y,z\in P,z=sup\{x,y\}\iff F(z)=sup\{F(x),F(y)\}$

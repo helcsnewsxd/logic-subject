@@ -1,3 +1,7 @@
+---
+geometry: margin=3cm
+---
+
 # Guía 4: Reticulados terna
 
 ## Definición y propiedades iniciales

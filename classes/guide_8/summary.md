@@ -1,3 +1,7 @@
+---
+geometry: margin=3cm
+---
+
 # Guía 8: _Lógica matemática_
 
 ## Programa de lógica matemática

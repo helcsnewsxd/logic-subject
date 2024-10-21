@@ -1,3 +1,7 @@
+---
+geometry: margin=3cm
+---
+
 # Guía 10: _Modelo matemático del valor de verdad de una fórmula_
 
 ## El valor de un término en una estructura

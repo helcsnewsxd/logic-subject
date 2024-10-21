@@ -1,3 +1,7 @@
+---
+geometry: margin=3cm
+---
+
 # Guía 6:_Reticulados cuaterna y su lenguaje elemental_
 
 ## Definición
