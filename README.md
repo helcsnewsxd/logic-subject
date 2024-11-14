@@ -4,7 +4,7 @@ El presente repositorio contiene todo el material correspondiente a la cursada d
 
 ## Información general
 
-Los _temas_ que trata la materia se pueden ver en el [Programa](./subject_information/study_program.pdf). Y todo el _material_ se puede encontrar en la siguiente [carpeta de Drive](https://drive.google.com/drive/folders/1AJYhNeH_wqp3iEyuiD5CA52X4l3sVLgN).
+Los _temas_ que trata la materia se pueden ver en el [Programa](./subject_information/study_program.pdf). Y todo el _material_ se puede encontrar en la siguiente [carpeta de Drive](https://drive.google.com/drive/folders/1AJYhNeH_wqp3iEyuiD5CA52X4l3sVLgN) y en el [Gran Lógico](https://granlogico.com/).
 
 El _equipo docente_ está compuesto por:
 
