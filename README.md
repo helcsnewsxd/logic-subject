@@ -31,6 +31,6 @@ El _equipo docente_ está compuesto por:
 | 9 | Modelo matemático de la sintaxis elemental | [Teoría](./classes/guide_9/theory.pdf) | [Markdown](./classes/guide_9/summary.md) y [PDF](./classes/guide_9/summary.pdf) |
 | 10 | Modelo matemático del valor de verdad de una fórmula | [Teoría](./classes/guide_10/theory.pdf) | [Markdown](./classes/guide_10/summary.md) y [PDF](./classes/guide_10/summary.pdf) |
 | 11 | Notación declaratoria | [Teoría](./classes/guide_11/theory.pdf) | [Markdown](./classes/guide_11/summary.md) y [PDF](./classes/guide_11/summary.pdf) |
-| 12 | Teorías de primer orden | [Teoría](./classes/guide_12/theory.pdf) | |
+| 12 | Teorías de primer orden | [Teoría](./classes/guide_12/theory.pdf) | [Markdown](./classes/guide_12/summary.md) y [PDF](./classes/guide_12/summary.pdf) |
 | 13 | El álgebra de Lindenbaum | [Teoría](./classes/guide_13/theory.pdf) | |
 | 14 | Teorema de completitud | [Teoría](./classes/guide_14/theory.pdf) | |
