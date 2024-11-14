@@ -16,11 +16,21 @@ El _equipo docente_ está compuesto por:
 
 ### Guías, resúmenes y ejercicios resueltos
 
-| Unidad | Tema | Material | Resumen | Soluciones a ejercicios |
-| ------ | ---- | -------- | ------- | ----------------------- |
-| 0 | Conceptos iniciales | [Teoría](./classes/guide_0/theory.pdf) | | |
-| 1 | Relaciones de equivalencia y particiones | [Teoría](./classes/guide_1/theory.pdf) | [Markdown](./classes/guide_1/summary.md) y [PDF](./classes/guide_1/summary.pdf) | [Markdown](./classes/guide_1/exercises.md) y [PDF](./classes/guide_1/exercises.pdf) |
-| 2 | Posets e isomorfismo | [Teoría](./classes/guide_2/theory.pdf) | [Markdown](./classes/guide_2/summary.md) y [PDF](./classes/guide_2/summary.pdf) | [Markdown](./classes/guide_2/exercises.md) y [PDF](./classes/guide_2/exercises.pdf) |
-| 3 | Reticulados par | [Teoría](./classes/guide_3/theory.pdf) | [Markdown](./classes/guide_3/summary.md) y [PDF](./classes/guide_3/summary.pdf) | [Markdown](./classes/guide_3/exercises.md) y [PDF](./classes/guide_3/exercises.pdf) |
-| 4 | Reticulados Terna | [Teoría](./classes/guide_4/theory.pdf) | [Markdown](./classes/guide_4/summary.md) y [PDF](./classes/guide_4/summary.pdf) | [Markdown](./classes/guide_4/exercises.md) y [PDF](./classes/guide_4/exercises.pdf) |
-| 5 | Reticulados acotados, complementados y distributivos + Álgebra de Boole | [Teoría](./classes/guide_5/theory.pdf) | [Markdown](./classes/guide_5/summary.md) y [PDF](./classes/guide_5/summary.pdf) | [Markdown](./classes/guide_5/exercises.md) y [PDF](./classes/guide_5/exercises.pdf) |
+<!-- prettier-ignore -->
+| Unidad | Tema | Material | Resumen |
+| ------ | ---- | -------- | ------- |
+| 0 | Conceptos iniciales | [Teoría](./classes/guide_0/theory.pdf) | |
+| 1 | Relaciones de equivalencia y particiones | [Teoría](./classes/guide_1/theory.pdf) | [Markdown](./classes/guide_1/summary.md) y [PDF](./classes/guide_1/summary.pdf) |
+| 2 | Posets e isomorfismo | [Teoría](./classes/guide_2/theory.pdf) | [Markdown](./classes/guide_2/summary.md) y [PDF](./classes/guide_2/summary.pdf) |
+| 3 | Reticulados par | [Teoría](./classes/guide_3/theory.pdf) | [Markdown](./classes/guide_3/summary.md) y [PDF](./classes/guide_3/summary.pdf) |
+| 4 | Reticulados Terna | [Teoría](./classes/guide_4/theory.pdf) | [Markdown](./classes/guide_4/summary.md) y [PDF](./classes/guide_4/summary.pdf) |
+| 5 | Reticulados acotados, complementados y distributivos + Álgebra de Boole | [Teoría](./classes/guide_5/theory.pdf) | [Markdown](./classes/guide_5/summary.md) y [PDF](./classes/guide_5/summary.pdf) |
+| 6 | Reticulados cuaterna y su lenguaje elemental | [Teoría](./classes/guide_6/theory.pdf) | [Markdown](./classes/guide_6/summary.md) y [PDF](./classes/guide_6/summary.pdf) |
+| 7 | Estructuras y su lenguaje elemental asociado | [Teoría](./classes/guide_7/theory.pdf) | [Markdown](./classes/guide_7/summary.md) y [PDF](./classes/guide_7/summary.pdf) |
+| 8 | Programa de lógica matemática | [Teoría](./classes/guide_8/theory.pdf) | [Markdown](./classes/guide_8/summary.md) y [PDF](./classes/guide_8/summary.pdf) |
+| 9 | Modelo matemático de la sintaxis elemental | [Teoría](./classes/guide_9/theory.pdf) | [Markdown](./classes/guide_9/summary.md) y [PDF](./classes/guide_9/summary.pdf) |
+| 10 | Modelo matemático del valor de verdad de una fórmula | [Teoría](./classes/guide_10/theory.pdf) | [Markdown](./classes/guide_10/summary.md) y [PDF](./classes/guide_10/summary.pdf) |
+| 11 | Notación declaratoria | [Teoría](./classes/guide_11/theory.pdf) | [Markdown](./classes/guide_11/summary.md) y [PDF](./classes/guide_11/summary.pdf) |
+| 12 | Teorías de primer orden | [Teoría](./classes/guide_12/theory.pdf) | |
+| 13 | El álgebra de Lindenbaum | [Teoría](./classes/guide_13/theory.pdf) | |
+| 14 | Teorema de completitud | [Teoría](./classes/guide_14/theory.pdf) | |
