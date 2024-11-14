@@ -2,7 +2,7 @@
 geometry: margin=3cm
 ---
 
-# Guía 11:
+# Guía 11: Notación declaratoria
 
 ## Notación declaratoria para términos
 
