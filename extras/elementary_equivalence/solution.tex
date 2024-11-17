@@ -1,0 +1,277 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=20mm,
+ top=20mm,
+ }
+\usepackage{graphicx}
+\usepackage{titling}
+\usepackage{lipsum}  
+\usepackage{lmodern}
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\title{Equivalencia elemental entre $(\mathbb{R},\leq)$ y $(\mathbb{Q},\leq)$}
+\author{Emanuel Nicolás Herrador}
+\date{November 2024}
+ 
+\makeatletter
+\def\@maketitle{%
+  \newpage
+  \null
+  \vskip 1em%
+  \begin{center}%
+  \let \footnote \thanks
+    {\LARGE \@title \par}%
+    \vskip 1em%
+    {\large \@date}%
+  \end{center}%
+  \par
+  \vskip 1em}
+\makeatother
+
+\begin{document}
+
+\maketitle
+
+\noindent\begin{tabular}{@{}ll}
+  Estudiante & \theauthor     \\
+  Profesor   & Diego Vaggione \\
+\end{tabular}
+
+\section*{Consideraciones previas}
+Sea $(\Sigma,\tau)$ una teoría elemental y $N,M$ dos modelos de ella, decimos que $N$ y $M$ son \textbf{elementalmente equivalentes} si cumplen que para cada sentencia de primer orden sobre $(\Sigma,\tau)$ se satisface en $N$ sii se satisface en $M$. Es decir:
+\begin{equation*}
+  \forall\varphi\in S^\tau,\ (N\vDash\varphi\iff M\vDash\varphi)
+\end{equation*}
+Cuando $N,M$ sean elementalmente equivalentes, lo denotaremos como $N\equiv M$.
+\vspace{0.5cm}\newline
+Sean $\tau=(\emptyset,\emptyset,\{\leq\},\{(\leq,2)\})$ el tipo de los posets y $\Sigma$ el conjunto formado por las siguientes tres sentencias elementales de tipo $\tau$:
+\begin{itemize}
+  \item $\forall x\ (x\leq x)$
+  \item $\forall x,y,z\ ((x\leq y\wedge y\leq z)\to x\leq z)$
+  \item $\forall x,y\ ((x\leq y\wedge y\leq x)\to x=y)$
+\end{itemize}
+Consideraremos los modelos $\mathbf{R}=(\mathbb{R},\leq)$ y $\mathbf{Q}=(\mathbb{Q},\leq)$ de la \textit{teoría elemental de los posets} $(\Sigma,\tau)$.
+
+\section*{Enunciado del Teorema}
+Los modelos $\mathbf{R}$ y $\mathbf{Q}$ son elementalmente equivalentes. Es decir:
+$$\forall\varphi\in S^\tau,\ (\mathbf{R}\vDash\varphi\iff\mathbf{Q}\vDash\varphi)$$
+
+\section*{Herramientas a utilizar}
+Antes de demostrar el teorema, consideraré algunas definiciones y lemas que nos serán de suma utilidad luego.
+
+\subsection*{Definición: Asignaciones ordenadamente equivalentes}
+Sea $(A,\leq)$ un modelo de $(\Sigma,\tau)$, y sean $\vec{a},\vec{b}\in A^N$ dos asignaciones de $\textbf{A}$. Definimos que $\vec{a},\vec{b}$ son \textbf{ordenadamente equivalentes} respecto a $I\subseteq\mathbb{N}$ si:
+$$\forall i,j\in I,\ ((a_i\leq a_j)\iff(b_i\leq b_j))$$
+Cuando $\vec{a},\vec{b}$ sean ordenadamente equivalentes respecto a un conjunto $I\subseteq\mathbb{N}$, lo denotaremos como $\vec{a}\sim_I\vec{b}$.
+
+\subsection*{Lema 1: Para las asignaciones a fórmulas solo me importan los valores asignados a las variables libres}
+Sea $(A,\leq)$ un modelo de $(\Sigma,\tau)$ y sea $\varphi\in F^\tau$. Sean $\vec{a},\vec{b}\in A^N$ dos asignaciones de $\mathbf{A}$, tales que si $x_i\in Li(\varphi)$ entonces $a_i=b_i$. Entonces:
+\begin{equation*}
+  \mathbf{A}\vDash\varphi[\vec{a}]\iff\mathbf{A}\vDash\varphi[\vec{b}]
+\end{equation*}
+
+\subsubsection*{Demostración}
+Es el \textit{Lema 2} de la Guía 10 (página 7). Allí se encuentra su demostración por inducción.
+
+\subsection*{Lema 2: Asignaciones ordenadamente equivalentes en R preservan satisfacibilidad de fórmulas}
+Sea $\varphi\in F^\tau$ y sea $I\subseteq\mathbb{N}$ el conjunto finito de índices de las variables libres de $\varphi$. Si $\vec{a},\vec{b}\in R^N$ tal que $\vec{a}\sim_I\vec{b}$, entonces:
+\begin{equation*}
+  \mathbf{R}\vDash\varphi[\vec{a}]\iff \mathbf{R}\vDash\varphi[\vec{b}]
+\end{equation*}
+
+\subsubsection*{Demostración}
+Sea $\varphi\in F^\tau$ y sea $I\subseteq\mathbb{N}$ el conjunto finito de índices de las variables libres de $\varphi$.
+Sean $\vec{a},\vec{b}\in R^N$ fijos pero arbitrarios tales que $\vec{a}\sim_I\vec{b}$.
+\newline
+Consideremos $n=|Li(\varphi)|$ y $\{r_1,\dots,r_n\}$ la permutación de los índices de $I$ tal que $a_{r_1}\leq\dots\leq a_{r_n}$. Como $\vec{a}\sim_I\vec{b}$, por definición está claro también que $b_{r_1}\leq\dots\leq b_{r_n}$.
+\newline
+Veamos cada uno de los casos en función de $n$:
+\begin{itemize}
+  \item Si $n=0$, claramente se cumple porque son sentencias.
+  \item Si $n=1$, consideremos $f:R\to R$ tal que $f(x)=b_{r_1}+(x-a_{r_1})=x-(a_{r_1}-b_{r_1})$ \newline
+        \hspace*{0.5cm} Notemos que $f$ es una función biyectiva y se cumple que $\forall x,y\in R,\ (x\leq y\iff f(x)\leq f(y))$ \newline
+        \hspace*{0.5cm} Para demostrar lo último, sean $x,y\in R$ fijos pero arbitrarios, veamos que:
+        \begin{equation*}
+          \begin{aligned}
+            f(x)\leq f(y) & \iff x-(a_{r_1}-b_{r_1})\leq y-(a_{r_1}-b_{r_1}) & \text{por def. de }f \\
+                          & \iff x\leq y
+          \end{aligned}
+        \end{equation*}
+        \hspace*{0.5cm} Como $x,y$ eran fijos pero arbitrarios, se puede extender para todo $x,y\in R$. Luego, se demuestra que $f$ es un isomorfismo en $R$. \newline
+        \hspace*{0.5cm} Por propiedad de isomorfismo, sabemos que $\forall\vec{a}\in R^N, (\mathbf{R}\vDash\varphi[\vec{a}]\iff\mathbf{R}\vDash\varphi[(f(a_1),f(a_2),\dots)])$. \newline
+        \hspace*{0.5cm} Sin embargo, como $\forall i\in I,\ f(a_i)=b_i$, por el \textit{Lema 1} tenemos que $\forall\vec{a}\in R^N,\ (\mathbf{R}\vDash\varphi[\vec{a}]\iff\mathbf{R}\vDash\varphi[\vec{b}])$ porque podemos cambiar todos los valores asignados a las variables no libres de $\varphi$. \newline
+        \hspace*{0.5cm} Con ello, se demuestra para este caso.
+  \item Si $n\geq 2$, consideraremos $f:R\to R$ tal que:
+        \begin{equation*}
+          f(x) = \begin{cases}
+            b_{r_i}+\frac{b_{r_{i+1}}-b_{r_i}}{a_{r_{i+1}}-a_{r_i}}(x-a_{r_i}) & \text{si }a_{r_i}\leq x\leq a_{r_{i+1}}\text{ para }i\in\{1,\dots,n\} \\
+            b_{r_1}+\frac{b_{r_2}-b_{r_1}}{a_{r_2}-a_{r_1}}(x-a_{r_1})         & \text{si }x<a_{r_1}                                                   \\
+            b_{r_n}+\frac{b_{r_n}-b_{r_{n-1}}}{a_{r_n}-a_{r_{n-1}}}(x-a_{r_n}) & \text{si }a_{r_n}<x
+          \end{cases}
+        \end{equation*}
+        \hspace*{0.5cm} Primero, notemos que $f$ es \textit{inyectiva} porque es estrictamente creciente ya que para todo $k\in\{1,\dots,n\}$, por def. $a_{r_{k+1}}\geq a_{r_k}$ y $b_{r_{k+1}}\geq b_{r_k}$ y por ende las pendientes de las rectas entre cada punto $(a_{r_k},b_{r_k})$ y $(a_{r_{k+1}},b_{r_{k+1}})$ son positivas \newline
+        \hspace*{0.5cm} Luego, al ser estrictamente creciente, continua y tener $\lim\limits_{x\to-\infty}f(x)=-\infty$ y $\lim\limits_{x\to\infty}f(x)=\infty$, tenemos que $f$ es \textit{suryectiva}. \newline
+        \hspace*{0.5cm} Al ser inyectiva y suryectiva, $f$ es \textit{biyectiva}. \newline
+        \hspace*{0.5cm} Teniendo esto, solo queda demostrar que $\forall x,y\in R,\ (x\leq y\iff f(x)\leq f(y))$. Sin embargo, esta es una consecuencia del hecho de que $f$ sea estrictamente creciente, por lo que se cumple. \newline
+        \hspace*{0.5cm} Ahora, por definición, entonces, tenemos que $f$ es un isomorfismo en $R$. De forma totalmente análoga al caso anterior, podemos llegar a que $\forall\vec{a}\in R^N,\ (\mathbf{R}\vDash\varphi[\vec{a}]\iff\mathbf{R}\vDash\varphi[\vec{b}])$ ya que podemos cambiar todos los valores asignados a las variables no libres de $\varphi$ por el \textit{Lema 1}.
+\end{itemize}
+Con ello, como se demostró para todo $n$ posible y para $\vec{a},\vec{b}$ fijos pero arbitrarios, se llega a que $\vec{a}\sim_I\vec{b}\Rightarrow(\mathbf{R}\vDash\varphi[\vec{a}]\iff\mathbf{R}\vDash\varphi[\vec{b}])$ y se demuestra el lema. $\blacksquare$
+
+\subsection*{Lema 3: Agregar a la asignación un racional es igual a agregar un real}
+Sean $\varphi\in F^\tau$, $\vec{a}\in\mathbb{Q}^N$ e $i\in\mathbb{N}$. Entonces:
+\begin{equation*}
+  \begin{aligned}
+    (\forall a\in\mathbb{Q},\ \mathbf{R}\vDash\varphi[\downarrow^a_i(\vec{a})])\iff(\forall a\in R,\ \mathbf{R}\vDash\varphi[\downarrow^a_i(\vec{a})]) \\
+    (\exists a\in\mathbb{Q},\ \mathbf{R}\vDash\varphi[\downarrow^a_i(\vec{a})])\iff(\exists a\in R,\ \mathbf{R}\vDash\varphi[\downarrow^a_i(\vec{a})]) \\
+  \end{aligned}
+\end{equation*}
+
+\subsubsection*{Demostración}
+Sean $\varphi\in F^\tau$, $\vec{a}\in\mathbb{Q}^N$ e $i\in\mathbb{N}$.
+Sea $I$ el conjunto de índices de las variables libres de $\varphi$ y $n=|Li(\varphi)|$, consideraremos $\{r_1,\dots,r_n\}$ a la permutación de los índices de $I$ tal que $a_{r_1}\leq\dots\leq a_{r_n}$.
+\newline
+Vamos a separar la demostración en dos casos:
+\begin{itemize}
+  \item \textbf{De racionales a reales}: Sea $b\in\mathbb{Q}$ fijo pero arbitrario, podemos notar que:
+        \begin{itemize}
+          \item Si $\exists k\in\{1,\dots,n-1\}:a_{r_k}\leq b\leq a_{r_{k+1}}$, entonces $\forall c\in [a_{r_k},a_{r_{k+1}}],(\downarrow^b_i(\vec{a})\sim_{I\cup\{i\}}\downarrow^c_i(\vec{a}))$ \newline
+                \hspace*{0.5cm} Sea $c\in [a_{r_k},a_{r_{k+1}}]$ fijo pero arbitrario, primero notemos que siempre existe por densidad de $\mathbf{R}$. \newline
+                \hspace*{0.5cm} Ahora, como claramente $\vec{a}\sim_{I}\vec{a}$, nos interesa ver únicamente las relaciones con la asignación para $x_i$ \newline
+                \hspace*{0.5cm} Por ello, tenemos que ver que $\forall j\in I,(a_j\leq[\downarrow^b_i(\vec{a})]_i\iff a_j\leq[\downarrow^c_i(\vec{a})]_i)$ \newline
+                \hspace*{0.5cm} Esto es equivalente a ver que $\forall j\in I,(a_j\leq b\iff a_j\leq c)$ \newline
+                \hspace*{0.5cm} Como $a_{r_k}\leq b,c\leq a_{r_{k+1}}$, tenemos que $(a_j\leq b\iff a_j\leq a_{r_k})$ y $(a_j\leq c\iff a_j\leq a_{r_k})$. \newline
+                \hspace*{0.5cm} Luego, juntando lo anterior, llegamos a lo que queríamos: $\forall j\in I,(a_j\leq b\iff a_j\leq c)$ \newline
+                \hspace*{0.5cm} Por ello, se demuestra para este caso y, como lo consideramos fijo pero arbitrario, se puede extender para el intervalo $[a_{r_k},a_{r_{k+1}}]$.
+          \item Si $b\leq a_{r_1}$, entonces $\forall c\in(-\infty,a_{r_1}],(\downarrow^b_i(\vec{a})\sim_{I\cup\{i\}}\downarrow^c_i(\vec{a}))$ \newline
+                \hspace*{0.5cm} Sea $c\in(-\infty,a_{r_1}]$ fijo pero arbitrario, primero notemos que siempre existe porque $\mathbf{R}$ no tiene extremos. \newline
+                \hspace*{0.5cm} Ahora, como $b,c\leq a_{r_1}$, entonces esto significa que $b,c\leq a_{r_l}\forall l\in\{1,\dots,n\}$, por lo que se mantiene el orden. \newline
+                \hspace*{0.5cm} Luego, se demuestra también para este caso y, como lo consideramos fijo pero arbitrario, se puede extender para el intervalo $(-\infty,a_{r_1}]$.
+          \item Si $a_{r_n}\leq b$, entonces $\forall c\in[a_{r_n},\infty),(\downarrow^b_i(\vec{a})\sim_{I\cup\{i\}}\downarrow^c_i(\vec{a}))$ \newline
+                \hspace*{0.5cm} La demostración es análoga al caso anterior, pero con el otro extremo.
+        \end{itemize}
+        Con ello, entonces, podemos ver que siempre se mantiene el orden en cada caso. \newline
+        Por el \textit{Lema 2}, eso significa que en cada uno de los casos se mantiene la satisfacibilidad de $\varphi$. \newline
+        Como $b$ era fijo pero arbitrario, se cumple $\forall b\in\mathbb{Q}$. Además, como la unión de los intervalos de cada caso es igual a $\mathbb{R}$ y siempre existe el $c$ en los intervalos, llegamos a que:
+        \begin{equation*}
+          \begin{aligned}
+            (\forall b\in\mathbb{Q},\ \mathbf{R}\vDash\varphi[\downarrow^b_i(\vec{a})])\Rightarrow(\forall c\in R,\ \mathbf{R}\vDash\varphi[\downarrow^c_i(\vec{a})]) \\
+            (\exists b\in\mathbb{Q},\ \mathbf{R}\vDash\varphi[\downarrow^b_i(\vec{a})])\Rightarrow(\exists c\in R,\ \mathbf{R}\vDash\varphi[\downarrow^c_i(\vec{a})]) \\
+          \end{aligned}
+        \end{equation*}
+        Con ello, se demuestra la ida.
+  \item \textbf{De reales a racionales}: La demostración es análoga pero considerando intervalos de racionales. Notar que se cumple siempre que en un intervalo hay elementos por densidad de $\mathbf{Q}$.
+\end{itemize}
+Con ello, se demostró ida y vuelta, por lo que se llega a la doble implicación y se demuestra el lema. $\blacksquare$
+
+\subsection*{Lema 4: Equivalencia elemental entre $\mathbf{R}$ y $\mathbf{Q}$ para fórmulas con asignación de racionales}
+Sean $\varphi\in F^\tau$ y $\vec{a}\in\mathbb{Q}^N$. Entonces:
+\begin{equation*}
+  \mathbf{R}\vDash\varphi[\vec{a}]\iff\mathbf{Q}\vDash\varphi[\vec{a}]
+\end{equation*}
+
+\subsubsection*{Demostración}
+Sean $\varphi\in F^\tau$ y $\vec{a}\in\mathbb{Q}^N$.
+Lo demostraremos por inducción en $k\in\mathbb{N}_0$:
+\begin{itemize}
+  \item \textbf{Caso base} $k=0$: Tenemos $\varphi\in F^\tau_0$
+        \newline
+        Supongamos $\vec{a}\in\mathbb{Q}^N$. Como por definición las fórmulas atómicas de tipo $\tau$ son:
+        \begin{itemize}
+          \item $v_1=v_2$
+          \item $v_1\leq v_2$
+        \end{itemize}
+        Para $v_1,v_2\in Var$. Entonces, es trivial notar que $\mathbf{R}\vDash\varphi[\vec{a}]\iff\mathbf{Q}\vDash\varphi[\vec{a}]$.
+        \newline
+        Luego, se demuestra para $k=0$.
+  \item \textbf{Hipótesis inductiva:} Suponemos $k\in\mathbb{N}_0$ tal que $\forall\varphi\in F^\tau_k$, si $\vec{a}\in\mathbb{Q}^N$, entonces $\mathbf{R}\vDash\varphi[\vec{a}]\iff\mathbf{Q}\vDash\varphi[\vec{a}]$.
+  \item \textbf{Paso inductivo} $k+1$: Tenemos $\varphi\in F^\tau_{k+1}$. Luego, si $\vec{a}\in\mathbb{Q}^N$, hay varios casos a considerar por separado:
+        \begin{itemize}
+          \item \textbf{Misma fórmula} $\varphi=\psi$ para $\psi\in F^\tau_k$: \newline
+                \hspace*{0.5cm} Trivial por Hipótesis Inductiva.
+          \item \textbf{Negación} $\varphi=\neg\psi$ para $\psi\in F^\tau_k$: \newline
+                \hspace*{0.5cm} Por definición de $\vDash$ sabemos que $\mathbf{R}\vDash\varphi[\vec{a}]\iff\mathbf{R}\not\vDash\psi[\vec{a}]$ y $\mathbf{Q}\vDash\varphi[\vec{a}]\iff\mathbf{Q}\not\vDash\psi[\vec{a}]$ \newline
+                \hspace*{0.5cm} Por Hipótesis Inductiva, $\mathbf{R}\vDash\psi[\vec{a}]\iff\mathbf{Q}\vDash\psi[\vec{a}]$. Luego, por contrarrecíproca dos veces, $\mathbf{R}\not\vDash\psi[\vec{a}]\iff\mathbf{Q}\not\vDash\psi[\vec{a}]$ \newline
+                \hspace*{0.5cm} Juntando lo anterior, llegamos a $\mathbf{R}\vDash\varphi[\vec{a}]\iff\mathbf{R}\not\vDash\psi[\vec{a}]\iff\mathbf{Q}\not\vDash\psi[\vec{a}]\iff\mathbf{Q}\vDash\varphi[\vec{a}]$ \newline
+                \hspace*{0.5cm} Luego, se demuestra para este caso.
+          \item \textbf{Disyunción} $\varphi=\psi\lor\Phi$ para $\psi,\Phi\in F^\tau_k$: \newline
+                \hspace*{0.5cm} Por definición de $\vDash$ sabemos que $\mathbf{R}\vDash\varphi[\vec{a}]\iff(\mathbf{R}\vDash\psi[\vec{a}]\lor\mathbf{R}\vDash\Phi[\vec{a}])$ y $\mathbf{Q}\vDash\varphi[\vec{a}]\iff(\mathbf{Q}\vDash\psi[\vec{a}]\lor\mathbf{Q}\vDash\Phi[\vec{a}])$ \newline
+                \hspace*{0.5cm} Por Hipótesis Inductiva, $\mathbf{R}\vDash\psi[\vec{a}]\iff\mathbf{Q}\vDash\psi[\vec{a}]$ y $\mathbf{R}\vDash\Phi[\vec{a}]\iff\mathbf{Q}\vDash\Phi[\vec{a}]$. \newline
+                \hspace*{0.5cm} Luego, por lo anterior podemos llegar a que $\mathbf{R}\vDash\varphi[\vec{a}]\iff(\mathbf{Q}\vDash\psi[\vec{a}]\lor\mathbf{Q}\vDash\Phi[\vec{a}])$ \newline
+                \hspace*{0.5cm} Aplicando la definición de $\vDash$ nuevamente, llegamos a que $\mathbf{R}\vDash\varphi[\vec{a}]\iff\mathbf{Q}\vDash\varphi[\vec{a}]$ \newline
+                \hspace*{0.5cm} Por ello, se demuestra para este caso.
+          \item \textbf{Conjunción} $\varphi=\psi\wedge\Phi$ para $\psi,\Phi\in F^\tau_k$: \newline
+                \hspace*{0.5cm} Por definición de $\vDash$ sabemos que $\mathbf{R}\vDash\varphi[\vec{a}]\iff(\mathbf{R}\vDash\psi[\vec{a}]\land\mathbf{R}\vDash\Phi[\vec{a}])$ y $\mathbf{Q}\vDash\varphi[\vec{a}]\iff(\mathbf{Q}\vDash\psi[\vec{a}]\land\mathbf{Q}\vDash\Phi[\vec{a}])$ \newline
+                \hspace*{0.5cm} Por Hipótesis Inductiva, $\mathbf{R}\vDash\psi[\vec{a}]\iff\mathbf{Q}\vDash\psi[\vec{a}]$ y $\mathbf{R}\vDash\Phi[\vec{a}]\iff\mathbf{Q}\vDash\Phi[\vec{a}]$. \newline
+                \hspace*{0.5cm} Luego, por lo anterior podemos llegar a que $\mathbf{R}\vDash\varphi[\vec{a}]\iff(\mathbf{Q}\vDash\psi[\vec{a}]\land\mathbf{Q}\vDash\Phi[\vec{a}])$ \newline
+                \hspace*{0.5cm} Aplicando la definición de $\vDash$ nuevamente, llegamos a que $\mathbf{R}\vDash\varphi[\vec{a}]\iff\mathbf{Q}\vDash\varphi[\vec{a}]$ \newline
+                \hspace*{0.5cm} Por ello, se demuestra para este caso.
+          \item \textbf{Implicación} $\varphi=\psi\to\Phi$ para $\psi,\Phi\in F^\tau_k$: \newline
+                \hspace*{0.5cm} Por definición de $\vDash$ sabemos que $\mathbf{R}\vDash\varphi[\vec{a}]\iff(\mathbf{R}\not\vDash\psi[\vec{a}]\lor\mathbf{R}\vDash\Phi[\vec{a}])$ y $\mathbf{Q}\vDash\varphi[\vec{a}]\iff(\mathbf{Q}\not\vDash\psi[\vec{a}]\lor\mathbf{Q}\vDash\Phi[\vec{a}])$ \newline
+                \hspace*{0.5cm} Por Hipótesis Inductiva, $\mathbf{R}\vDash\psi[\vec{a}]\iff\mathbf{Q}\vDash\psi[\vec{a}]$ y $\mathbf{R}\vDash\Phi[\vec{a}]\iff\mathbf{Q}\vDash\Phi[\vec{a}]$. \newline
+                \hspace*{0.5cm} Luego, por contrarrecíproca dos veces, $\mathbf{R}\not\vDash\psi[\vec{a}]\iff\mathbf{Q}\not\vDash\psi[\vec{a}]$ \newline
+                \hspace*{0.5cm} Si usamos los últimos dos resultados en la definición de $\vDash$ para $\mathbf{R}$, tenemos que $\mathbf{R}\vDash\varphi[\vec{a}]\iff(\mathbf{Q}\not\vDash\psi[\vec{a}]\lor\mathbf{Q}\vDash\Phi[\vec{a}])$ \newline
+                \hspace*{0.5cm} Aplicando la definición de $\vDash$ nuevamente pero para $\mathbf{Q}$, llegamos a que $\mathbf{R}\vDash\varphi[\vec{a}]\iff\mathbf{Q}\vDash\varphi[\vec{a}]$ \newline
+                \hspace*{0.5cm} Por ello, se demuestra para este caso.
+          \item \textbf{Equivalencia (doble implica)} $\varphi=\psi\leftrightarrow\Phi$ para $\psi,\Phi\in F^\tau_k$: \newline
+                \hspace*{0.5cm} Por definición de $\vDash$ sabemos que $\mathbf{R}\vDash\varphi[\vec{a}]\iff((\mathbf{R}\vDash\psi[\vec{a}]\land\mathbf{R}\vDash\Phi[\vec{a}])\lor(\mathbf{R}\not\vDash\psi[\vec{a}]\land\mathbf{R}\not\vDash\Phi[\vec{a}]))$ y $\mathbf{Q}\vDash\varphi[\vec{a}]\iff((\mathbf{Q}\vDash\psi[\vec{a}]\land\mathbf{Q}\vDash\Phi[\vec{a}])\lor(\mathbf{Q}\not\vDash\psi[\vec{a}]\land\mathbf{Q}\not\vDash\Phi[\vec{a}]))$ \newline
+                \hspace*{0.5cm} Por Hipótesis Inductiva, $\mathbf{R}\vDash\psi[\vec{a}]\iff\mathbf{Q}\vDash\psi[\vec{a}]$ y $\mathbf{R}\vDash\Phi[\vec{a}]\iff\mathbf{Q}\vDash\Phi[\vec{a}]$. \newline
+                \hspace*{0.5cm} Luego, por contrarrecíproca dos veces, $\mathbf{R}\not\vDash\psi[\vec{a}]\iff\mathbf{Q}\not\vDash\psi[\vec{a}]$ y $\mathbf{R}\not\vDash\Phi[\vec{a}]\iff\mathbf{Q}\not\vDash\Phi[\vec{a}]$ \newline
+                \hspace*{0.5cm} Si usamos los últimos dos resultados en la definición de $\vDash$ para $\mathbf{R}$, tenemos que $\mathbf{R}\vDash\varphi[\vec{a}]\iff((\mathbf{Q}\vDash\psi[\vec{a}]\land\mathbf{Q}\vDash\Phi[\vec{a}])\lor(\mathbf{Q}\not\vDash\psi[\vec{a}]\land\mathbf{Q}\not\vDash\Phi[\vec{a}]))$ \newline
+                \hspace*{0.5cm} Aplicando la definición de $\vDash$ nuevamente pero para $\mathbf{Q}$, llegamos a que $\mathbf{R}\vDash\varphi[\vec{a}]\iff\mathbf{Q}\vDash\varphi[\vec{a}]$ \newline
+                \hspace*{0.5cm} Por ello, se demuestra para este caso.
+          \item \textbf{Para todo} $\varphi=\forall x_i\psi$ para $\psi\in F^\tau_k, x_i\in Var$: \newline
+                \hspace*{0.5cm} Por definición de $\vDash$ sabemos que $\mathbf{R}\vDash\varphi[\vec{a}]\iff(\forall a\in R,\ \mathbf{R}\vDash\psi[\downarrow^a_i(\vec{a})])$ y $\mathbf{Q}\vDash\varphi[\vec{a}]\iff(\forall a\in Q,\ \mathbf{Q}\vDash\psi[\downarrow^a_i(\vec{a})])$ \newline
+                \hspace*{0.5cm} Por Hipótesis Inductiva, $\forall b\in\mathbb{Q},(\mathbf{R}\vDash\psi[\downarrow^b_i(\vec{a})]\iff\mathbf{Q}\vDash\psi[\downarrow^b_i(\vec{a})])$. \newline
+                \hspace*{0.5cm} Luego, tenemos:
+                \begin{equation*}
+                  \begin{aligned}
+                    \mathbf{Q}\vDash\varphi[\vec{a}] & \iff(\forall a\in Q,\ \mathbf{Q}\vDash\psi[\downarrow^a_i(\vec{a})])         & \text{por def.}   \\
+                                                     & \iff(\forall a\in\mathbb{Q},\ \mathbf{R}\vDash\psi[\downarrow^a_i(\vec{a})]) & \text{por HI}     \\
+                                                     & \iff(\forall a\in R,\ \mathbf{R}\vDash\psi[\downarrow^a_i(\vec{a})])         & \text{por Lema 3} \\
+                                                     & \iff\mathbf{R}\vDash\varphi[\vec{a}]                                         & \text{por def.}
+                  \end{aligned}
+                \end{equation*}
+                \hspace*{0.5cm} Por ello, se demuestra para este caso.
+          \item \textbf{Existe} $\varphi=\exists v\psi$ para $\psi\in F^\tau_k, v\in Var$: \newline
+                \hspace*{0.5cm} Por definición de $\vDash$ sabemos que $\mathbf{R}\vDash\varphi[\vec{a}]\iff(\exists a\in R:\mathbf{R}\vDash\psi[\downarrow^a_i(\vec{a})])$ y $\mathbf{Q}\vDash\varphi[\vec{a}]\iff(\exists a\in Q:\mathbf{Q}\vDash\psi[\downarrow^a_i(\vec{a})])$ \newline
+                \hspace*{0.5cm} Por Hipótesis Inductiva, $\forall b\in\mathbb{Q},(\mathbf{R}\vDash\psi[\downarrow^b_i(\vec{a})]\iff\mathbf{Q}\vDash\psi[\downarrow^b_i(\vec{a})])$. \newline
+                \hspace*{0.5cm} Luego, tenemos:
+                \begin{equation*}
+                  \begin{aligned}
+                    \mathbf{Q}\vDash\varphi[\vec{a}] & \iff(\exists a\in Q,\ \mathbf{Q}\vDash\psi[\downarrow^a_i(\vec{a})])         & \text{por def.}   \\
+                                                     & \iff(\exists a\in\mathbb{Q},\ \mathbf{R}\vDash\psi[\downarrow^a_i(\vec{a})]) & \text{por HI}     \\
+                                                     & \iff(\exists a\in R,\ \mathbf{R}\vDash\psi[\downarrow^a_i(\vec{a})])         & \text{por Lema 3} \\
+                                                     & \iff\mathbf{R}\vDash\varphi[\vec{a}]                                         & \text{por def.}
+                  \end{aligned}
+                \end{equation*}
+                \hspace*{0.5cm} Por ello, se demuestra para este caso.
+        \end{itemize}
+        Con todo esto, se demuestra para el paso inductivo.
+\end{itemize}
+Finalmente, por inducción, se demuestra el lema. $\blacksquare$
+
+\section*{Demostración del Teorema}
+Sea $\varphi\in S^\tau$ una sentencia fija pero arbitraria. Por el \textit{Lema 4} tenemos que, sea $\vec{a}\in\mathbb{Q}^N$:
+\begin{equation*}
+  \mathbf{R}\vDash\varphi[\vec{a}]\iff\mathbf{Q}\vDash\varphi[\vec{a}]
+\end{equation*}
+Al ser una sentencia, por propiedad, tenemos entonces que:
+\begin{equation*}
+  \begin{aligned}
+    \forall\vec{b},\vec{c}\in R^N,\ (\mathbf{R}\vDash\varphi[\vec{b}]\iff\mathbf{R}\vDash\varphi[\vec{c}]) \\
+    \forall\vec{b},\vec{c}\in Q^N,\ (\mathbf{Q}\vDash\varphi[\vec{b}]\iff\mathbf{Q}\vDash\varphi[\vec{c}])
+  \end{aligned}
+\end{equation*}
+Por lo cual llegamos a que:
+\begin{equation*}
+  \mathbf{R}\vDash\varphi\iff\mathbf{Q}\vDash\varphi
+\end{equation*}
+Luego, como $\varphi$ era arbitraria, tenemos que $\forall\varphi\in S^\tau,\ (\mathbf{R}\vDash\varphi\iff\mathbf{Q}\vDash\varphi)$, lo que por definición significa que son elementalmente equivalentes.
+Por ello, $\mathbf{R}\equiv\mathbf{Q}$ y se demuestra el teorema. $\blacksquare$
+
+\end{document}

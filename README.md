@@ -34,3 +34,9 @@ El _equipo docente_ está compuesto por:
 | 12 | Teorías de primer orden | [Teoría](./classes/guide_12/theory.pdf) | [Markdown](./classes/guide_12/summary.md) y [PDF](./classes/guide_12/summary.pdf) |
 | 13 | El álgebra de Lindenbaum | [Teoría](./classes/guide_13/theory.pdf) | |
 | 14 | Teorema de completitud | [Teoría](./classes/guide_14/theory.pdf) | |
+
+### Ejercicios Extras
+
+| Ejercicio              | Solución                                                                                                    |
+| ---------------------- | ----------------------------------------------------------------------------------------------------------- |
+| Equivalencia elemental | [LaTeX](./extras/elementary_equivalence/solution.tex) y [PDF](./extras/elementary_equivalence/solution.pdf) |
