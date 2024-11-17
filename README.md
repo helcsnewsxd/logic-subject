@@ -33,7 +33,7 @@ El _equipo docente_ está compuesto por:
 | 11 | Notación declaratoria | [Teoría](./classes/guide_11/theory.pdf) | [Markdown](./classes/guide_11/summary.md) y [PDF](./classes/guide_11/summary.pdf) |
 | 12 | Teorías de primer orden | [Teoría](./classes/guide_12/theory.pdf) | [Markdown](./classes/guide_12/summary.md) y [PDF](./classes/guide_12/summary.pdf) |
 | 13 | El álgebra de Lindenbaum | [Teoría](./classes/guide_13/theory.pdf) | [Markdown](./classes/guide_13/summary.md) y [PDF](./classes/guide_13/summary.pdf) |
-| 14 | Teorema de completitud | [Teoría](./classes/guide_14/theory.pdf) | |
+| 14 | Teorema de completitud | [Teoría](./classes/guide_14/theory.pdf) | [Markdown](./classes/guide_14/summary.md) y [PDF](./classes/guide_14/summary.pdf) |
 
 ### Ejercicios Extras
 
