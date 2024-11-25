@@ -1,2 +1,7 @@
 .obsidian
 .vscode
+.log
+.aux
+.fdb_latexmk
+.fls
+.synctex.gz
