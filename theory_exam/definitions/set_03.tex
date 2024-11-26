@@ -1,0 +1,91 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=20mm,
+ top=2mm,
+ }
+\usepackage{graphicx}
+\usepackage{titling}
+\usepackage{lipsum}  
+\usepackage{lmodern}
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\title{Combo 3 de definiciones y convenciones notacionales}
+\author{Emanuel Nicolás Herrador}
+\date{November 2024}
+ 
+\makeatletter
+\def\@maketitle{%
+  \newpage
+  \null
+  \vskip 1em%
+  \begin{center}%
+  \let \footnote \thanks
+    {\LARGE \@title \par}%
+    \vskip 1em%
+    {\large \@author\quad-\quad \@date}%
+  \end{center}%
+  \par
+  \vskip 1em}
+\makeatother
+
+\begin{document}
+
+\maketitle
+
+\section{$t^\mathbf{A}[a_1,\dots,a_n]$}
+\begin{quote}
+  Dados $t=_d t(v_1,\dots,v_n)\in T^\tau$, $\mathbf{A}$ una estructura de tipo $\tau$ y $a_1,\dots,a_n\in A$, defina $t^\mathbf{A}[a_1,\dots,a_n]$ (i.e., convención notacional $2$)
+\end{quote}
+Dados $t=_d t(v_1,\dots,v_n)\in T^\tau$, $\mathbf{A}$ un estructura de tipo $\tau$ y $a_1,\dots,a_n\in A$, con $t^\mathbf{A}[a_1,\dots,a_n]$ denotaremos al elemento $t^\mathbf{A}[\vec{b}]$ donde $\vec{b}$ es una asignación tal que a cada $v_i$ le asigna el valor $a_i$.
+
+\section{$F$ es un homomorfismo de $(L,s,i,\ ^c,0,1)$ en $(L',s',i',\ ^{c'},0',1')$}
+\begin{quote}
+  Defina "$F$ es un homomorfismo de $(L,s,i,\ ^c,0,1)$ en $(L',s',i',\ ^{c'},0',1')$"
+\end{quote}
+Sean $(L,s,i,\ ^c,0,1)$ y $(L',s',i',\ ^{c'},0',1')$ reticulados complementados. Una función $F:L\to L'$ será llamada un homomorfismo de $(L,s,i,\ ^c,0,1)$ en $(L',s',i',\ ^{c'},0',1')$ si para todo $x,y\in L$ se cumple que:
+\begin{equation*}
+  \begin{aligned}
+    F(x\ s\ y) & = F(x)\ s'\ F(y) \\
+    F(x\ i\ y) & = F(x)\ i'\ F(y) \\
+    F(x^c)     & = F(x)^{c'}      \\
+    F(0)       & = 0'             \\
+    F(1)       & = 1'
+  \end{aligned}
+\end{equation*}
+
+\section{Filtro generado por $S$ en $(L,s,i)$}
+\begin{quote}
+  Defina "filtro generado por $S$ en $(L,s,i)$"
+\end{quote}
+Un filtro de un reticulado terna $(L,s,i)$ será un subconjunto $F\subseteq L$ tal que:
+\begin{enumerate}
+  \item $F\neq\emptyset$
+  \item $x,y\in F\Rightarrow x\ i\ y\in F$
+  \item $x\in F$ y $x\leq y\Rightarrow y\in F$
+\end{enumerate}
+Dado un conjunto $S\subseteq L$, denotaremos con $[S)$ el siguiente conjunto:
+\begin{equation*}
+  \{y\in L:y\geq s_1\ i\ \dots\ i\ s_n,\text{ para algunos }s_1,\dots,s_n\in S,n\geq 1\}
+\end{equation*}
+Por \textit{lema} sabemos que: Supongamos $S$ es no vacío, entonces $[S)$ es un filtro. Más aún, si $F$ es un filtro y $F\supseteq S$, entonces $F\supseteq [S)$. Es decir, $[S)$ es el menor filtro que contiene a $S$.
+\newline
+Llamaremos a $[S)$ el filtro generado por $S$
+
+\section{$\mathbf{J}\in Just^+$ es balanceada}
+\begin{quote}
+  Defina cuándo $\mathbf{J}\in Just^+$ es balanceada (no hace falta que defina $\mathcal{B}^\mathbf{J}$)
+\end{quote}
+Diremos que $\mathbf{J}\in Just^+$ es balanceada si se dan las siguientes:
+\begin{enumerate}
+  \item Por cada $k\in N$ a lo sumo hay un $i$ tal que $\mathbf{J}_i=\text{HIPOTESIS}\bar{k}$ y a lo sumo hay un $j$ tal que $\mathbf{J}_j=\text{TESIS}\bar{k}\alpha$, con $\alpha\in JustBas$
+  \item Si $\mathbf{J}_i=\text{HIPOTESIS}\bar{k}$, entonces hay un $l>i$ tal que $\mathbf{J}_l=\text{TESIS}\bar{k}\alpha$, con $\alpha\in JustBas$
+  \item Si $\mathbf{J}_i=\text{TESIS}\bar{k}\alpha$, con $\alpha\in JustBas$, entonces hay un $l<i$ tal que $\mathbf{J}_l=\text{HIPOTESIS}\bar{k}$
+  \item Si $B_1,B_2\in\mathcal{B}^\mathbf{J}$, entonces $B_1\cap B_2=\emptyset$ o $B_1\subseteq B_2$ o $B_2\subseteq B_1$
+\end{enumerate}
+
+\end{document}
