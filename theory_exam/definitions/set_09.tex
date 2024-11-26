@@ -1,0 +1,117 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=20mm,
+ top=10mm,
+ }
+\usepackage{graphicx}
+\usepackage{titling}
+\usepackage{lipsum}  
+\usepackage{lmodern}
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\title{Combo 9 de definiciones y convenciones notacionales}
+\author{Emanuel Nicolás Herrador}
+\date{November 2024}
+ 
+\makeatletter
+\def\@maketitle{%
+  \newpage
+  \null
+  \vskip 1em%
+  \begin{center}%
+  \let \footnote \thanks
+    {\LARGE \@title \par}%
+    \vskip 1em%
+    {\large \@author\quad-\quad \@date}%
+  \end{center}%
+  \par
+  \vskip 1em}
+\makeatother
+
+\begin{document}
+
+\maketitle
+
+\section{Término elemental de tipo $\tau$}
+\begin{quote}
+  Defina "término elemental de tipo $\tau$"
+\end{quote}
+Dado un tipo $\tau=(\mathcal{C},\mathcal{F},\mathcal{R},a)$, definimos los términos elementales de tipo $\tau$ del siguiente modo:
+\begin{itemize}
+  \item Cada palabra de $\mathcal{C}$ es un término elemental de tipo $\tau$
+  \item Cada variable es un término elemental de tipo $\tau$
+  \item Cada nombre de elemento fijo es un término elemental de tipo $\tau$
+  \item Si $f\in\mathcal{F}_n$, con $n\geq 1$ y $t_1,\dots,t_n$ términos elementales de tipo $\tau$, entonces $f(t_1,\dots,t_n)$ es un término elemental de tipo $\tau$
+  \item Una palabra es un término elemental de tipo $\tau$ sii se puede construir usando las cláusulas anteriores
+\end{itemize}
+
+\section{$\dashv\vdash_T$}
+\begin{quote}
+  Defina $\dashv\vdash_T$
+\end{quote}
+Sea $T=(\Sigma,\tau)$ una teoría, podemos definir la siguiente relación binaria sobre $S^\tau$:
+\begin{equation*}
+  \varphi\dashv\vdash_T\psi\text{ sii }T\vdash(\varphi\leftrightarrow\psi)
+\end{equation*}
+Es decir, $\dashv\vdash_T$ es una relación de equivalencia dada por:
+\begin{equation*}
+  \dashv\vdash_T=\{(\varphi,\psi)\in S^\tau:T\vdash(\varphi\leftrightarrow\psi)\}
+\end{equation*}
+
+\section{$s^T$}
+\begin{quote}
+  Defina $s^T$ (explique por qué la definición es inambigua)
+\end{quote}
+Dada una teoría $T=(\Sigma,\tau)$, definiremos sobre $S^\tau/\dashv\vdash_T$ la siguiente operación binaria $s^T$:
+\begin{equation*}
+  [\varphi]_T\ s^T\ [\psi]_T = [(\varphi\lor\psi)]_T
+\end{equation*}
+Para mostrar que es inambigua, debemos demostrar la siguiente propiedad:
+\begin{equation*}
+  ([\varphi]_T=[\varphi']_T\text{ y }[\psi]_T=[\psi']_T)\Rightarrow[(\varphi\lor\psi)]_T=[(\varphi'\lor\psi')]_T
+\end{equation*}
+Es decir, debemos probar que:
+\begin{equation*}
+  (T\vdash(\varphi\leftrightarrow\varphi')\text{ y }T\vdash(\psi\leftrightarrow\psi'))\Rightarrow T\vdash((\varphi\lor\psi)\leftrightarrow(\varphi'\lor\psi'))
+\end{equation*}
+Para ello, sea $(\Sigma\cup\{(\varphi\leftrightarrow\varphi'),(\psi\leftrightarrow\psi')\},\tau)$, podemos considerar la siguiente prueba formal:
+\begin{equation*}
+  \begin{alignedat}{2}
+    1. & \quad (\varphi\leftrightarrow\varphi')                      &  & \qquad \text{AXIOMAPROPIO}   \\
+    2. & \quad (\psi\leftrightarrow\psi')                            &  & \qquad \text{AXIOMAPROPIO}   \\
+    3. & \quad ((\varphi\lor\psi)\leftrightarrow(\varphi\lor\psi))   &  & \qquad \text{AXIOMALOGICO}   \\
+    4. & \quad ((\varphi\lor\psi)\leftrightarrow(\varphi'\lor\psi))  &  & \qquad \text{REEMPLAZO}(1,3) \\
+    5. & \quad ((\varphi\lor\psi)\leftrightarrow(\varphi'\lor\psi')) &  & \qquad \text{REEMPLAZO}(2,4) \\
+  \end{alignedat}
+\end{equation*}
+Con ello, se atestigua que $(\Sigma\cup\{(\varphi\leftrightarrow\varphi'),(\psi\leftrightarrow\psi')\},\tau)\vdash((\varphi\lor\psi)\leftrightarrow(\varphi'\lor\psi'))$.
+\newline
+Finalmente, entonces, se demuestra que $s^T$ es inambigua.
+
+\section{$\mathcal{A}_T$}
+\begin{quote}
+  Defina $\mathcal{A}_T$
+\end{quote}
+Dada una teoría $T=(\Sigma,\tau)$, denotaremos con $\mathcal{A}_T$ al álgebra de Boole $(S^\tau/\dashv\vdash_T,s^T,i^T,\ ^{c^T},0^T,1^T)$. El álgebra $\mathcal{A}_T$ será llamada el álgebra de Lindenbaum de la teoría $T$.
+\newline
+Notar que:
+\begin{itemize}
+  \item $[\varphi]_T\ s^T\ [\psi]_T = [(\varphi\lor\psi)]_T$
+  \item $[\varphi]_T\ i^T\ [\psi]_T = [(\varphi\land\psi)]_T$
+  \item $([\varphi]_T)^{c^T}=[\neg\varphi]_T$
+  \item $0^T=\{\varphi\in S^\tau:\varphi\text{ es refutable en }T\}$ ($\varphi$ es refutable en $T$ si $T\vdash\neg\varphi$)
+  \item $1^T=\{\varphi\in S^\tau:\varphi\text{ es un teorema de }T\}$
+\end{itemize}
+
+\section{Subuniverso de un reticulado complementado}
+\begin{quote}
+  Defina "$S$ es un subuniverso del reticulado complementado $(L,s,i,\ ^c,0,1)$"
+\end{quote}
+Sea $(L,s,i,\ ^c,0,1)$ un reticulado complementado. Un conjunto $S\subseteq L$ es llamado subuniverso de $(L,s,i,\ ^c,0,1)$ si $0,1\in S$ y además $S$ es cerrado bajo las operaciones $s,i,\ ^c$.
+
+\end{document}
