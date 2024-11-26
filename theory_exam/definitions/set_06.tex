@@ -1,0 +1,65 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=20mm,
+ top=2mm,
+ }
+\usepackage{graphicx}
+\usepackage{titling}
+\usepackage{lipsum}  
+\usepackage{lmodern}
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\title{Combo 6 de definiciones y convenciones notacionales}
+\author{Emanuel Nicolás Herrador}
+\date{November 2024}
+ 
+\makeatletter
+\def\@maketitle{%
+  \newpage
+  \null
+  \vskip 1em%
+  \begin{center}%
+  \let \footnote \thanks
+    {\LARGE \@title \par}%
+    \vskip 1em%
+    {\large \@author\quad-\quad \@date}%
+  \end{center}%
+  \par
+  \vskip 1em}
+\makeatother
+
+\begin{document}
+
+\maketitle
+
+\section{Notación declaratoria para fórmulas}
+\begin{quote}
+  Explique la notación declaratoria para fórmulas con sus $3$ convenciones notacionales (convenciones $3,4,6$ de la guía $11$). Puede asumir la notación declaratoria para términos.
+\end{quote}
+Si $\varphi$ es una fórmula de tipo $\tau$, entonces escribiremos $\varphi=_d\varphi(v_1,\dots,v_n)$ para declarar que $v_1,\dots,v_n$ son variables distintas (con $n\geq 1$) y tales que $Li(\varphi)\subseteq\{v_1,\dots,v_n\}$.
+\newline
+El uso de declaraciones de la forma $\varphi=_d\varphi(v_1,\dots,v_n)$ será muy útil cuando se combina con ciertas convenciones notacionales que describiremos a continuación:
+\begin{itemize}
+  \item \textit{Convención 3}: Cuando hayamos hecho la declaración $\varphi=_d\varphi(v_1,\dots,v_n)$, si $P_1,\dots,P_n$ son palabras cualesquiera, entonces $\varphi(P_1,\dots,P_n)$ denotará la palabra que resulta de reemplazar (simultáneamente) cada ocurrencia libre de $v_1$ en $\varphi$ por $P_1$, cada ocurrencia libre $v_2$ en $\varphi$ por $P_2$, etc.
+        \newline
+        Notar que cuando las palabras $P_i$ son términos, entonces $\varphi(P_1,\dots,P_n)$ es una fórmula.
+  \item \textit{Convención 4}: Cuando hayamos declarado $\varphi=_d\varphi(v_1,\dots,v_n)$, si $\mathbf{A}$ es un modelo de tipo $\tau$ y $a_1,\dots,a_n\in A$, entonces $\mathbf{A}\vDash\varphi[a_1,\dots,a_n]$ significará que $\mathbf{A}\vDash\varphi[\vec{b}]$, donde $\vec{b}$ es una asignación tal que a cada $v_i$ le asigna el valor $a_i$.
+        \newline
+        En general, $\mathbf{A}\nvDash\varphi[a_1,\dots,a_n]$ significará que no sucede $\mathbf{A}\vDash\varphi[a_1,\dots,a_n]$
+  \item \textit{Convención 6}: Cuando hayamos declarado $\varphi=_d\varphi(v_1,\dots,v_n)$, entonces:
+        \begin{itemize}
+          \item Si $\varphi=(t\equiv s)$, con $t,s\in T^\tau$ únicos, supondremos tácitamente que también hemos hecho las declaraciones $t=_d t(v_1,\dots,v_n)$ y $s=_d s(v_1,\dots,v_n)$
+          \item Si $\varphi=r(t_1,\dots,t_m)$, con $r\in\mathcal{R}_m$ y $t_1,\dots,t_m\in T^\tau$ únicos, supondremos tácitamente que también hemos hecho las declaraciones $t_1=_d t_1(v_1,\dots,v_n),\dots,t_m=_d t_m(v_1,\dots,v_n)$
+          \item Si $\varphi=(\varphi_1\eta\varphi_2)$, con $\eta\in\{\land,\lor,\to,\leftrightarrow\}$ y $\varphi_1,\varphi_2\in F^\tau$ únicas, supondremos tácitamente que también hemos hecho las declaraciones $\varphi_1=_d\varphi_1(v_1,\dots,v_n)$ y $\varphi_2=_d\varphi_2(v_1,\dots,v_n)$
+          \item Si $\varphi=\neg\varphi_1$, con $\varphi_1\in F^\tau$ única, supondremos tácitamente que también hemos hecho la declaración $\varphi_1=_d\varphi_1(v_1,\dots,v_n)$
+          \item Si $\varphi=Qv_j\varphi_1$, con $Q\in\{\forall,\exists\}$, $v_j\in\{v_1,\dots,v_n\}$ y $\varphi_1\in F^\tau$ únicas, supondremos tácitamente que también hemos hecho la declaración $\varphi_1=_d\varphi_1(v_1,\dots,v_n)$
+          \item Si $\varphi=Qv\varphi_1$, con $Q\in\{\forall,\exists\}$, $v\in Var-\{v_1,\dots,v_n\}$ y $\varphi_1\in F^\tau$ únicas, supondremos tácitamente que también hemos hecho la declaración $\varphi_1=_d\varphi_1(v_1,\dots,v_n,v)$
+        \end{itemize}
+\end{itemize}
+
+\end{document}
