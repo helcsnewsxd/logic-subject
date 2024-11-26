@@ -1,0 +1,85 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=20mm,
+ top=2mm,
+ }
+\usepackage{graphicx}
+\usepackage{titling}
+\usepackage{lipsum}  
+\usepackage{lmodern}
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\title{Combo 8 de definiciones y convenciones notacionales}
+\author{Emanuel Nicolás Herrador}
+\date{November 2024}
+ 
+\makeatletter
+\def\@maketitle{%
+  \newpage
+  \null
+  \vskip 1em%
+  \begin{center}%
+  \let \footnote \thanks
+    {\LARGE \@title \par}%
+    \vskip 1em%
+    {\large \@author\quad-\quad \@date}%
+  \end{center}%
+  \par
+  \vskip 1em}
+\makeatother
+
+\begin{document}
+
+\maketitle
+
+\section{$(L,s,i,\ ^c,0,1)/\theta$}
+\begin{quote}
+  Defina $(L,s,i,\ ^c,0,1)/\theta$ ($\theta$ una congruencia del reticulado complementado $(L,s,i,\ ^c,0,1)$)
+\end{quote}
+Sea $(L,s,i,\ ^c,0,1)$ un reticulado complementado. Una congruencia sobre $(L,s,i,\ ^c,0,1)$ será una relación de equivalencia sobre $L$ la cual cumpla:
+\begin{enumerate}
+  \item $\theta$ es una congruencia sobre $(L,s,i,0,1)$
+  \item $x/\theta=y/\theta$ implica $x^c/\theta=y^c/\theta$
+\end{enumerate}
+Las condiciones anteriores nos permiten definir sobre $L/\theta$ dos operaciones binarias $\tilde{s}$ e $\tilde{i}$, y una operación unaria $^{\tilde{c}}$ de la siguiente manera:
+\begin{equation*}
+  \begin{aligned}
+    x/\theta\ \tilde{s}\ y/\theta & = (x\ s\ y)/\theta \\
+    x/\theta\ \tilde{i}\ y/\theta & = (x\ i\ y)/\theta \\
+    (x/\theta)^{\tilde{c}}        & = x^c/\theta
+  \end{aligned}
+\end{equation*}
+La $6$-upla $(L/\theta,\tilde{s},\tilde{i},\ ^{\tilde{c}},0/\theta,1/\theta)$ es llamada el cociente de $(L,s,i,\ ^c,0,1)$ sobre $\theta$ y la denotaremos con $(L,s,i,\ ^c,0,1)/\theta$.
+
+\section{$\mathbf{A}\vDash\varphi[a_1,\dots,a_n]$}
+\begin{quote}
+  Dados $\varphi=_d\varphi(v_1,\dots,v_n)$, $\mathbf{A}$ una estructura de tipo $\tau$ y $a_1,\dots,a_n\in A$, defina qué significa $\mathbf{A}\vDash\varphi[a_1,\dots,a_n]$ (i.e., convención notacional $4$)
+\end{quote}
+Dados $\varphi=_d\varphi(v_1,\dots,v_n)$, $\mathbf{A}$ una estructura de tipo $\tau$ y $a_1,\dots,a_n\in A$, entonces $\mathbf{A}\vDash\varphi[a_1,\dots,a_n]$ significará que $\mathbf{A}\vDash\varphi[\vec{b}]$ donde $\vec{b}$ es una asignación tal que a cada $v_i$ le asigna el valor $a_i$.
+\newline
+En general, $\mathbf{A}\nvDash\varphi[a_1,\dots,a_n]$ significará que no sucede $\mathbf{A}\vDash\varphi[a_1,\dots,a_n]$
+
+\section{Supremo de $S$ en $(P,\leq)$}
+\begin{quote}
+  Dado un poset $(P,\leq)$, defina "$a$ es supremo de $S$ en $(P,\leq)$"
+\end{quote}
+Sea $(P,\leq)$ un poset. Dado $S\subseteq P$, diremos que un elemento $a\in P$ es cota superior de $S$ en $(P,\leq)$ cuando $\forall b\in S,\ b\leq a$.
+\newline
+Un elemento $a\in P$ será llamado supremo de $S$ en $(P,\leq)$ cuando se den las siguientes dos propiedades:
+\begin{enumerate}
+  \item $a$ es cota superior de $S$ en $(P,\leq)$
+  \item $\forall b\in P$, si $b$ es una cota superior de $S$ en $(P,\leq)$, entonces $a\leq b$
+\end{enumerate}
+
+\section{$i$ es anterior a $j$ en $(\varphi,\mathbf{J})$}
+\begin{quote}
+  Defina "$i$ es anterior a $j$ en $(\varphi,\mathbf{J})$" (no hace falta que defina $\mathcal{B}^\mathbf{J}$)
+\end{quote}
+Sea $(\varphi,\mathbf{J})$ un par adecuado de tipo $\tau$, y sean $i,j\in\langle 1,n(\varphi)\rangle$. Diremos que $i$ es anterior a $j$ en $(\varphi,\mathbf{J})$ si $i<j$ y además $\forall B\in\mathcal{B}^\mathbf{J},\ (i\in B\Rightarrow j\in B)$.
+
+\end{document}
