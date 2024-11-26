@@ -1,0 +1,76 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=20mm,
+ top=2mm,
+ }
+\usepackage{graphicx}
+\usepackage{titling}
+\usepackage{lipsum}  
+\usepackage{lmodern}
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\title{Combo 11 de definiciones y convenciones notacionales}
+\author{Emanuel Nicolás Herrador}
+\date{November 2024}
+ 
+\makeatletter
+\def\@maketitle{%
+  \newpage
+  \null
+  \vskip 1em%
+  \begin{center}%
+  \let \footnote \thanks
+    {\LARGE \@title \par}%
+    \vskip 1em%
+    {\large \@author\quad-\quad \@date}%
+  \end{center}%
+  \par
+  \vskip 1em}
+\makeatother
+
+\begin{document}
+
+\maketitle
+
+\section{Programa de Lógica Matemática}
+\begin{quote}
+  Enuncie el programa de Lógica Matemática dado al final de la guía $8$ y explique brevemente con qué definiciones matemáticas se van resolviendo los tres primeros puntos y qué teoremas garantizan la resolución del 4to punto de dicho programa.
+\end{quote}
+El programa de lógica matemática dado es el siguiente:
+\begin{enumerate}
+  \item Dar un modelo matemático del concepto de fórmula elemental de tipo $\tau$
+        \begin{itemize}
+          \item \textit{Variables}
+          \item \textit{Términos y subtérminos + Unicidad de la lectura de términos + Ocurrencia y reemplazos}
+          \item \textit{Fórmulas y subfórmulas + Unicidad de la lectura de fórmulas + Ocurrencias}
+          \item \textit{Variables libres + Ocurrencias}
+        \end{itemize}
+  \item Dar una definición matemática de cuándo una fórmula elemental de tipo $\tau$ es verdadera en una estructura de tipo $\tau$ para una asignación dada de valores a las variables libres y a los nombres de constantes fijas de la fórmula
+        \begin{itemize}
+          \item \textit{Asignación + Valor de un término en una estructura para una asignación + Reemplazo} $\downarrow^a_i$
+          \item \textit{Relación} $\vDash$
+        \end{itemize}
+  \item Dar un modelo matemático del concepto de prueba elemental en una teoría elemental de tipo $\tau$. A estos objetos matemáticos los llamaremos pruebas formales de tipo $\tau$
+        \begin{itemize}
+          \item \textit{Notación declaratoria de términos y fórmulas}
+          \item \textit{Teoría de primer orden}
+          \item \textit{Axiomas propios + modelos}
+          \item \textit{Reglas (Part, Exist, Evoc, Absur, ConjElim, EquivElim, DisjInt, Conm, ModPon, ConjInt, EquivInt, DisjElim, DivPorCas, Reemp, Trans, Generaliz, Elec)}
+          \item \textit{Axiomas lógicos}
+          \item \textit{Justificaciones básicas + Justificaciones + Bloques + Concatenaciones balanceadas de justificaciones}
+          \item \textit{Pares adecuados + Hipótesis y tesis + Dependencia de constantes en pares adecuados}
+          \item \textit{Prueba formal + Teorema}
+        \end{itemize}
+  \item Intenta probar matemáticamente que nuestro concepto de prueba formal de tipo $\tau$ es una correcta modelización matemática de la idea intuitiva de prueba elemental en una teoría elemental de tipo $\tau$
+        \begin{itemize}
+          \item \textit{Teorema de Corrección}: $(\Sigma,\tau)\vdash\varphi$ implica $(\Sigma,\tau)\vDash\varphi$
+          \item \textit{Teorema de Completitud}: $(\Sigma,\tau)\vDash\varphi$ implica $(\Sigma,\tau)\vdash\varphi$
+        \end{itemize}
+\end{enumerate}
+
+\end{document}
