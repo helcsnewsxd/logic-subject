@@ -1,0 +1,87 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=20mm,
+ top=2mm,
+ }
+\usepackage{graphicx}
+\usepackage{titling}
+\usepackage{lipsum}  
+\usepackage{lmodern}
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\title{Combo 1 de definiciones y convenciones notacionales}
+\author{Emanuel Nicolás Herrador}
+\date{November 2024}
+ 
+\makeatletter
+\def\@maketitle{%
+  \newpage
+  \null
+  \vskip 1em%
+  \begin{center}%
+  \let \footnote \thanks
+    {\LARGE \@title \par}%
+    \vskip 1em%
+    {\large \@author\quad-\quad \@date}%
+  \end{center}%
+  \par
+  \vskip 1em}
+\makeatother
+
+\begin{document}
+
+\maketitle
+
+\section{$n(\mathbf{J})$}
+\begin{quote}
+    Defina $n(\mathbf{J})$ (para $\mathbf{J}\in Just^+$)
+\end{quote}
+Por \textit{lema} sabemos que: Sea $\mathbf{J}\in Just^+$, hay únicos $n\geq 1$ y $J_1,\dots,J_n\in Just$ tales que $\mathbf{J}=J_1\dots J_n$.
+\newline
+Dada $\mathbf{J}\in Just^+$, usaremos $n(\mathbf{J})$ para denotar al único $n$ cuya existencia garantiza el lema anterior.
+
+\section{Par adecuado de tipo $\tau$}
+\begin{quote}
+    Defina "par adecuado de tipo $\tau$" (no hace falta que defina cuando $\mathbf{J}\in Just^+$ es balanceada)
+\end{quote}
+Un par adecuado de tipo $\tau$ es un par $(\varphi,\mathbf{J})\in S^\tau\times Just^+$ tal que $n(\varphi)=n(\mathbf{J})$ y $\mathbf{J}$ es balanceada.
+
+\section{$Mod_T(\varphi)$}
+\begin{quote}
+    Defina $Mod_T(\varphi)$
+\end{quote}
+Sea $T=(\Sigma,\tau)$ una teoría. Dada $\varphi\in S^\tau$ definamos $Mod_T(\varphi)=\{\mathbf{A}:\mathbf{A}\text{ es modelo de }T\text{ y }\mathbf{A}\vDash\varphi\}$
+
+\section{$\mathbf{A}\vDash\varphi[a_1,\dots,a_n]$}
+\begin{quote}
+    Dados $\varphi=_d\varphi(v_1,\dots,v_n)$, $\mathbf{A}$ una estructura de tipo $\tau$ y $a_1,\dots,a_n\in A$, defina qué significa $\mathbf{A}\vDash\varphi[a_1,\dots,a_n]$ (i.e., convención notacional $4$)
+\end{quote}
+Dados $\varphi=_d\varphi(v_1,\dots,v_n)$, $\mathbf{A}$ una estructura de tipo $\tau$ y $a_1,\dots,a_n\in A$, entonces $\mathbf{A}\vDash\varphi[a_1,\dots,a_n]$ significará que $\mathbf{A}\vDash\varphi[\vec{b}]$ donde $\vec{b}$ es una asignación tal que a cada $v_i$ le asigna el valor $a_i$.
+\newline
+En general, $\mathbf{A}\nvDash\varphi[a_1,\dots,a_n]$ significará que no sucede $\mathbf{A}\vDash\varphi[a_1,\dots,a_n]$
+
+\section{$(L,s,i,\ ^c,0,1)/\theta$}
+\begin{quote}
+    Defina $(L,s,i,\ ^c,0,1)/\theta$ ($\theta$ una congruencia del reticulado complementado $(L,s,i,\ ^c,0,1)$)
+\end{quote}
+Sea $(L,s,i,\ ^c,0,1)$ un reticulado complementado. Una congruencia sobre $(L,s,i,\ ^c,0,1)$ será una relación de equivalencia sobre $L$ la cual cumpla:
+\begin{enumerate}
+    \item $\theta$ es una congruencia sobre $(L,s,i,0,1)$
+    \item $x/\theta=y/\theta$ implica $x^c/\theta=y^c/\theta$
+\end{enumerate}
+Las condiciones anteriores nos permiten definir sobre $L/\theta$ dos operaciones binarias $\tilde{s}$ e $\tilde{i}$, y una operación unaria $^{\tilde{c}}$ de la siguiente manera:
+\begin{equation*}
+    \begin{aligned}
+        x/\theta\ \tilde{s}\ y/\theta & = (x\ s\ y)/\theta \\
+        x/\theta\ \tilde{i}\ y/\theta & = (x\ i\ y)/\theta \\
+        (x/\theta)^{\tilde{c}}        & = x^c/\theta
+    \end{aligned}
+\end{equation*}
+La $6$-upla $(L/\theta,\tilde{s},\tilde{i},\ ^{\tilde{c}},0/\theta,1/\theta)$ es llamada el cociente de $(L,s,i,\ ^c,0,1)$ sobre $\theta$ y la denotaremos con $(L,s,i,\ ^c,0,1)/\theta$.
+
+\end{document}
