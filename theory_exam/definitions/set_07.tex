@@ -1,0 +1,86 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=20mm,
+ top=2mm,
+ }
+\usepackage{graphicx}
+\usepackage{titling}
+\usepackage{lipsum}  
+\usepackage{lmodern}
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\title{Combo 7 de definiciones y convenciones notacionales}
+\author{Emanuel Nicolás Herrador}
+\date{November 2024}
+ 
+\makeatletter
+\def\@maketitle{%
+  \newpage
+  \null
+  \vskip 1em%
+  \begin{center}%
+  \let \footnote \thanks
+    {\LARGE \@title \par}%
+    \vskip 1em%
+    {\large \@author\quad-\quad \@date}%
+  \end{center}%
+  \par
+  \vskip 1em}
+\makeatother
+
+\begin{document}
+
+\maketitle
+
+\section{$v$ es sustituible por $w$ en $\varphi$}
+\begin{quote}
+  Defina recursivamente la relación "$v$ es sustituible por $w$ en $\varphi$"
+\end{quote}
+Definiremos recursivamente la relación "$v$ es sustituible por $w$ en $\varphi$" del siguiente modo:
+\begin{enumerate}
+  \item Si $\varphi$ es atómica, entonces $v$ es sustituible por $w$ en $\varphi$
+  \item Si $\varphi=(\varphi_1\eta\varphi_2)$ con $\eta\in\{\land,\lor,\to,\leftrightarrow\}$, entonces $v$ es sustituible por $w$ en $\varphi$ sii $v$ es sustituible por $w$ en $\varphi_1$ y en $\varphi_2$
+  \item Si $\varphi=\neg\varphi_1$, entonces $v$ es sustituible por $w$ en $\varphi$ sii $v$ es sustituible por $w$ en $\varphi_1$
+  \item Si $\varphi=Qv\varphi_1$ con $Q\in\{\forall,\exists\}$, entonces $v$ es sustituible por $w$ en $\varphi$
+  \item Si $\varphi=Qw\varphi_1$ con $Q\in\{\forall,\exists\}$ y $v\in Li(\varphi_1)$, entonces $v$ no es sustituible por $w$ en $\varphi$
+  \item Si $\varphi=Qw\varphi_1$ con $Q\in\{\forall,\exists\}$ y $v\notin Li(\varphi_1)$, entonces $v$ es sustituible por $w$ en $\varphi$
+  \item Si $\varphi=Qu\varphi_1$ con $Q\in\{\forall,\exists\}$, con $u\neq v$ y $u\neq w$, entonces $v$ es sustituible por $w$ en $\varphi$ sii $v$ es sustituible por $w$ en $\varphi_1$
+\end{enumerate}
+
+\section{$\mathbf{J}\in Just^+$ es balanceada}
+\begin{quote}
+  Defina cuándo $\mathbf{J}\in Just^+$ es balanceada (no hace falta que defina $\mathcal{B}^\mathbf{J}$)
+\end{quote}
+Diremos que $\mathbf{J}\in Just^+$ es balanceada si se dan las siguientes:
+\begin{enumerate}
+  \item Por cada $k\in N$ a lo sumo hay un $i$ tal que $\mathbf{J}_i=\text{HIPOTESIS}\bar{k}$ y a lo sumo hay un $j$ tal que $\mathbf{J}_j=\text{TESIS}\bar{k}\alpha$, con $\alpha\in JustBas$
+  \item Si $\mathbf{J}_i=\text{HIPOTESIS}\bar{k}$, entonces hay un $l>i$ tal que $\mathbf{J}_l=\text{TESIS}\bar{k}\alpha$, con $\alpha\in JustBas$
+  \item Si $\mathbf{J}_i=\text{TESIS}\bar{k}\alpha$, con $\alpha\in JustBas$, entonces hay un $l<i$ tal que $\mathbf{J}_l=\text{HIPOTESIS}\bar{k}$
+  \item Si $B_1,B_2\in\mathcal{B}^\mathbf{J}$, entonces $B_1\cap B_2=\emptyset$ o $B_1\subseteq B_2$ o $B_2\subseteq B_1$
+\end{enumerate}
+
+\section{Filtro del reticulado terna $(L,s,i)$}
+\begin{quote}
+  Defina "filtro del reticulado terna $(L,s,i)$"
+\end{quote}
+Un filtro de un reticulado terna $(L,s,i)$ será un subconjunto $F\subseteq L$ tal que:
+\begin{enumerate}
+  \item $F\neq\emptyset$
+  \item $x,y\in F\Rightarrow x\ i\ y\in F$
+  \item $x\in F$ y $x\leq y\Rightarrow y\in F$
+\end{enumerate}
+
+\section{Teoría elemental}
+\begin{quote}
+  Defina "teoría elemental"
+\end{quote}
+Una teoría elemental será un par $(\Sigma,\tau)$ tal que $\tau$ es un tipo cualquiera y $\Sigma$ es un conjunto de sentencias elementales de tipo $\tau$, las cuales no tienen nombres de elementos fijos.
+\newline
+Un modelo de $(\Sigma,\tau)$ será una estructura de tipo $\tau$ la cual haga verdaderos a todos los elementos de $\Sigma$.
+
+\end{document}
