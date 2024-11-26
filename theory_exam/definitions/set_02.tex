@@ -1,0 +1,84 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=20mm,
+ top=2mm,
+ }
+\usepackage{graphicx}
+\usepackage{titling}
+\usepackage{lipsum}  
+\usepackage{lmodern}
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\title{Combo 2 de definiciones y convenciones notacionales}
+\author{Emanuel Nicolás Herrador}
+\date{November 2024}
+ 
+\makeatletter
+\def\@maketitle{%
+  \newpage
+  \null
+  \vskip 1em%
+  \begin{center}%
+  \let \footnote \thanks
+    {\LARGE \@title \par}%
+    \vskip 1em%
+    {\large \@author\quad-\quad \@date}%
+  \end{center}%
+  \par
+  \vskip 1em}
+\makeatother
+
+\begin{document}
+
+\maketitle
+
+\section{$(\Sigma,\tau)\vDash\varphi$}
+\begin{quote}
+  Defina $(\Sigma,\tau)\vDash\varphi$
+\end{quote}
+Dada $(\Sigma,\tau)$ una teoría, escribiremos $(\Sigma,\tau)\vDash\varphi$ cuando $\varphi$ sea verdadera en todo modelo de $(\Sigma,\tau)$.
+
+\section{Partición de $A$, $R_\mathcal{P}$}
+\begin{quote}
+  Defina "partición de $A$" y $R_\mathcal{P}$
+\end{quote}
+Dado un conjunto $A$, por una partición de $A$ entenderemos un conjunto $\mathcal{P}$ tal que:
+\begin{itemize}
+  \item Cada elemento de $\mathcal{P}$ es un subconjunto no vacío de $A$
+  \item Si $S_1,S_2\in\mathcal{P}$ y $S_1\neq S_2$, entonces $S_1\cap S_2=\emptyset$
+  \item $A=\{a:a\in S,\text{ para algún }S\in\mathcal{P}\}$.
+\end{itemize}
+Dada una partición $\mathcal{P}$ de un conjunto $A$ podemos definir una relación binaria asociada a $\mathcal{P}$ de la siguiente manera:
+\begin{equation*}
+  R_\mathcal{P}=\{(a,b)\in A^2:a,b\in S,\text{ para algún }S\in\mathcal{P}\}
+\end{equation*}
+
+\section{$\varphi_i$ está bajo la hipótesis $\varphi_l$ en $(\varphi,\mathbf{J})$}
+\begin{quote}
+  Defina cuándo "$\varphi_i$ está bajo la hipótesis $\varphi_l$ en $(\varphi,\mathbf{J})$" (no hace falta que defina $\mathcal{B}^\mathbf{J}$)
+\end{quote}
+Sea $(\varphi,\mathbf{J})$ un par adecuado de tipo $\tau$, diremos que $\varphi_i$ está bajo la hipótesis $\varphi_l$ en $(\varphi,\mathbf{J})$ cuando haya en $\mathcal{B}^\mathbf{J}$ un bloque de la forma $\langle l,j\rangle$ el cual contenga a $i$.
+
+\section{$(L,s,i)/\theta$}
+\begin{quote}
+  Defina $(L,s,i)/\theta$ ($\theta$ una congruencia del reticulado terna $(L,s,i)$). No hace falta que defina el concepto de congruencia.
+\end{quote}
+Sea $(L,s,i)$ un reticulado terna. Una congruencia sobre $(L,s,i)$ será una relación de equivalencia $\theta$ sobre $L$ la cual cumpla:
+\begin{enumerate}
+  \item $x\theta x'$ y $y\theta y'$ implica $(x\ s\ y)\theta(x'\ s\ y')$ y $(x\ i\ y)\theta(x'\ i\ y')$
+\end{enumerate}
+Gracias a esta condición, podemos definir en forma inambigua sobre $L/\theta$ dos operaciones binarias $\tilde{s}$ e $\tilde{i}$, de la siguiente manera:
+\begin{equation*}
+  \begin{aligned}
+    x/\theta\ \tilde{s}\ y/\theta & = (x\ s\ y)/\theta \\
+    x/\theta\ \tilde{i}\ y/\theta & = (x\ i\ y)/\theta
+  \end{aligned}
+\end{equation*}
+La terna $(L/\theta,\tilde{s},\tilde{i})$ es llamada el cociente de $(L,s,i)$ sobre $\theta$ y la denotamos con $(L,s,i)/\theta$.
+
+\end{document}
