@@ -1,0 +1,69 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=20mm,
+ top=2mm,
+ }
+\usepackage{graphicx}
+\usepackage{titling}
+\usepackage{lipsum}  
+\usepackage{lmodern}
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\title{Combo 10 de definiciones y convenciones notacionales}
+\author{Emanuel Nicolás Herrador}
+\date{November 2024}
+ 
+\makeatletter
+\def\@maketitle{%
+  \newpage
+  \null
+  \vskip 1em%
+  \begin{center}%
+  \let \footnote \thanks
+    {\LARGE \@title \par}%
+    \vskip 1em%
+    {\large \@author\quad-\quad \@date}%
+  \end{center}%
+  \par
+  \vskip 1em}
+\makeatother
+
+\begin{document}
+
+\maketitle
+
+\section{Tesis del bloque $\langle i,j\rangle$ en $(\varphi,\mathbf{J})$}
+\begin{quote}
+  Defina "tesis del bloque $\langle i,j\rangle$ en $(\varphi,\mathbf{J})$"
+\end{quote}
+Sea $(\varphi,\mathbf{J})$ un par adecuado de tipo $\tau$ y $\langle i,j\rangle\in\mathcal{B}^\mathbf{J}$. Entonces $\varphi_j$ será la tesis del bloque $\langle i,j\rangle$ en $(\varphi,\mathbf{J})$.
+
+\section{Teoría de primer orden consistente}
+\begin{quote}
+  Defina cuándo una teoría de primer orden $(\Sigma,\tau)$ es consistente
+\end{quote}
+Una teoría $(\Sigma,\tau)$ será inconsistente cuando haya una sentencia $\varphi$ tal que $(\Sigma,\tau)\vdash(\varphi\land\neg\varphi)$.
+\newline
+Una teoría $(\Sigma,\tau)$ será consistente cuando no sea inconsistente.
+
+\section{Prueba elemental $\varphi$ en $(\Sigma,\tau)$}
+\begin{quote}
+  Dada una teoría elemental $(\Sigma,\tau)$ y una sentencia elemental pura $\varphi$ de tipo $\tau$, defina "prueba elemental $\varphi$ en $(\Sigma,\tau)$"
+\end{quote}
+Dada una teoría elemental $(\Sigma,\tau)$ y una sentencia elemental $\varphi$ la cual no posea nombres de elementos fijos, una prueba elemental de $\varphi$ en $(\Sigma,\tau)$ será una prueba de $\varphi$ que posea las siguientes características:
+\begin{enumerate}
+  \item En la prueba se parte de una estructura de tipo $\tau$ fija pero arbitraria, en el sentido de que lo único que sabemos es que ella satisface los axiomas de $\Sigma$ (i.e., es un modelo de $(\Sigma,\tau)$).
+        \newline
+        Además, esta es la única información particular que podemos usar.
+        \newline
+        Notar que este punto nos garantiza que una prueba elemental de $\varphi$ en $(\Sigma,\tau)$ es una forma sólida de justificar que cualquier estructura de tipo $\tau$ que satisfaga los axiomas de $(\Sigma,\tau)$ también satisfará $\varphi$.
+  \item Las deducciones en la prueba son muy simples y obvias de justificar con mínimas frases en castellano.
+  \item En la escritura de la prueba, lo concerniente a la matemática misma se expresa usando solo sentencias elementales de tipo $\tau$.
+\end{enumerate}
+
+\end{document}
