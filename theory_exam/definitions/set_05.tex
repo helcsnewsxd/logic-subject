@@ -1,0 +1,57 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=20mm,
+ top=2mm,
+ }
+\usepackage{graphicx}
+\usepackage{titling}
+\usepackage{lipsum}  
+\usepackage{lmodern}
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\title{Combo 5 de definiciones y convenciones notacionales}
+\author{Emanuel Nicolás Herrador}
+\date{November 2024}
+ 
+\makeatletter
+\def\@maketitle{%
+  \newpage
+  \null
+  \vskip 1em%
+  \begin{center}%
+  \let \footnote \thanks
+    {\LARGE \@title \par}%
+    \vskip 1em%
+    {\large \@author\quad-\quad \@date}%
+  \end{center}%
+  \par
+  \vskip 1em}
+\makeatother
+
+\begin{document}
+
+\maketitle
+
+\section{Notación declaratoria para términos}
+\begin{quote}
+  Explique la notación declaratoria para términos con sus $3$ convenciones notacionales (convenciones $1,2,5$ de la guía $11$)
+\end{quote}
+Si $t$ es un término de tipo $\tau$, entonces escribiremos $t=_d t(v_1,\dots,v_n)$ para declarar que $v_1,\dots,v_n$ son variables distintas (con $n\geq 1$) y tales que toda variable que ocurre en $t$ pertenece a $\{v_1,\dots,v_n\}$ (no necesariamente $v_j$ debe ocurrir en $t$).
+\newline
+El uso de declaraciones de la forma $t=_d t(v_1,\dots,v_n)$ será muy útil cuando se lo combina con ciertas convenciones notacionales que describiremos a continuación:
+\begin{itemize}
+  \item \textit{Convención 1}: Cuando hayamos hecho la declaración $t=_d t(v_1,\dots,v_n)$, si $P_1,\dots,P_n$ son palabras cualesquiera (no necesariamente términos), entonces $t(P_1,\dots,P_n)$ denotará la palabra que resulta de reemplazar (simultáneamente) cada ocurrencia de $v_1$ en $t$ por $P_1$, cada ocurrencia de $v_2$ en $t$ por $P_2$, etc.
+        \newline
+        Notar que cuando las palabras $P_i$ son términos, $t(P_1,\dots,P_n)$ es un término.
+  \item \textit{Convención 2}: Cuando hayamos declarado $t=_d t(v_1,\dots,v_n)$, si $\mathbf{A}$ es un modelo de tipo $\tau$ y $a_1,\dots,a_n\in A$, entonces con $t^\mathbf{A}[a_1,\dots,a_n]$ denotaremos al elemento $t^\mathbf{A}[\vec{b}]$, donde $\vec{b}$ es una asignación tal que a cada $v_i$ le asigna el valor $a_i$.
+  \item \textit{Convención 5}: Cuando hayamos declarado $t=_d t(v_1,\dots,v_n)$ y se de que $t=f(t_1,\dots,t_m)$, con $f\in\mathcal{F}_m$ y $t_1,\dots,t_m\in T^\tau$ únicos, supondremos tácitamente que también hemos hecho las declaraciones $t_1=_d t_1(v_1,\dots,v_n),\dots,t_m=_d t_m(v_1,\dots,v_n)$.
+        \newline
+        Esto lo podemos hacer ya que obviamente las variables que ocurren en cada uno de los $t_i$ están en $\{v_1,\dots,v_n\}$.
+\end{itemize}
+
+\end{document}
