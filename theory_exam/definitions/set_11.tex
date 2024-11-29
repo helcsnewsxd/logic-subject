@@ -45,31 +45,24 @@ El programa de lógica matemática dado es el siguiente:
 \begin{enumerate}
   \item Dar un modelo matemático del concepto de fórmula elemental de tipo $\tau$
         \begin{itemize}
-          \item \textit{Variables}
-          \item \textit{Términos y subtérminos + Unicidad de la lectura de términos + Ocurrencia y reemplazos}
-          \item \textit{Fórmulas y subfórmulas + Unicidad de la lectura de fórmulas + Ocurrencias}
-          \item \textit{Variables libres + Ocurrencias}
+          \item Sea $\tau=(\mathcal{C},\mathcal{F},\mathcal{R},a)$ un tipo, diremos que $\tau'$ es una \textit{extensión de} $\tau$ \textit{por nombres de constante} si $\tau'$ es de la forma $(\mathcal{C}',\mathcal{F},\mathcal{R},a)$ con $C'$ tal que $C\subseteq C'$
+          \item Las fórmulas de tipo $\tau$ son un modelo matemático de las fórmulas elementales puras de tipo $\tau$ (i.e., sin nombres de elementos fijos)
+          \item Los nombres de elementos fijos se usan en las pruebas elementales para denotar elementos fijos (a veces arbitrarios y otras veces que cumplen alguna propiedad)
+          \item Cuando uno realiza una prueba elemental en una teoría elemental $(\Sigma,\tau)$, comienza la misma imaginando una estructura de tipo $\tau$ de la cual lo único que sabe es que cumple las sentencias de $\Sigma$. Luego, cuando fija un elemento y le pone nombre, digamos $b$, podemos pensar que expandió su estructura imaginaria a una de tipo $(\mathcal{C}\cup\{b\},\mathcal{F},\mathcal{R},a)$ y continúa su razonamiento. Esto lo podemos hacer muchas veces a lo largo de una prueba, por lo cual su estructura imaginaria va cambiando de tipo
+          \item Esta mecánica de prueba nos deja ver que es natural modelizar las fórmulas elementales de tipo $\tau$ con fórmulas de tipo $\tau_1$, donde $\tau_1$ es alguna extensión de $\tau$ por nombres de constante
         \end{itemize}
   \item Dar una definición matemática de cuándo una fórmula elemental de tipo $\tau$ es verdadera en una estructura de tipo $\tau$ para una asignación dada de valores a las variables libres y a los nombres de constantes fijas de la fórmula
         \begin{itemize}
-          \item \textit{Asignación + Valor de un término en una estructura para una asignación + Reemplazo} $\downarrow^a_i$
-          \item \textit{Relación} $\vDash$
+          \item La definición matemática de la relación "$\mathbf{A}\vDash\varphi[\vec{a}]$"
         \end{itemize}
   \item Dar un modelo matemático del concepto de prueba elemental en una teoría elemental de tipo $\tau$. A estos objetos matemáticos los llamaremos pruebas formales de tipo $\tau$
         \begin{itemize}
-          \item \textit{Notación declaratoria de términos y fórmulas}
-          \item \textit{Teoría de primer orden}
-          \item \textit{Axiomas propios + modelos}
-          \item \textit{Reglas (Part, Exist, Evoc, Absur, ConjElim, EquivElim, DisjInt, Conm, ModPon, ConjInt, EquivInt, DisjElim, DivPorCas, Reemp, Trans, Generaliz, Elec)}
-          \item \textit{Axiomas lógicos}
-          \item \textit{Justificaciones básicas + Justificaciones + Bloques + Concatenaciones balanceadas de justificaciones}
-          \item \textit{Pares adecuados + Hipótesis y tesis + Dependencia de constantes en pares adecuados}
-          \item \textit{Prueba formal + Teorema}
+          \item La definición de prueba formal en una teoría de primer orden
         \end{itemize}
   \item Intenta probar matemáticamente que nuestro concepto de prueba formal de tipo $\tau$ es una correcta modelización matemática de la idea intuitiva de prueba elemental en una teoría elemental de tipo $\tau$
         \begin{itemize}
-          \item \textit{Teorema de Corrección}: $(\Sigma,\tau)\vdash\varphi$ implica $(\Sigma,\tau)\vDash\varphi$
-          \item \textit{Teorema de Completitud}: $(\Sigma,\tau)\vDash\varphi$ implica $(\Sigma,\tau)\vdash\varphi$
+          \item \textit{Teorema de Corrección}: $(\Sigma,\tau)\vdash\varphi$ implica $(\Sigma,\tau)\vDash\varphi$. Es decir,  asegura que nuestro concepto de prueba formal no es demasiado permisivo como para permitir probar sentencias que son falsas en algún modelo de la teoría.
+          \item \textit{Teorema de Completitud}: $(\Sigma,\tau)\vDash\varphi$ implica $(\Sigma,\tau)\vdash\varphi$. Es decir, asegura que no puede pasar que se de una prueba elemental de una sentencia $\varphi$ en una teoría $(\Sigma,\tau)$ pero que no haya una prueba formal de $\varphi$ en $(\Sigma,\tau)$.
         \end{itemize}
 \end{enumerate}
 
