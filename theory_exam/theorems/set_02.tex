@@ -115,20 +115,20 @@ Vamos a demostrar por inducción en $k$ que el lema vale $\forall\varphi\in F_k^
         \begin{itemize}
           \item $\varphi=(t\equiv s)$ con $t,s\in T^\tau$: Por lema, sabemos que $t^\mathbf{A}[\vec{a}]=t^\mathbf{A}[\vec{b}]$ y que $s^\mathbf{A}[\vec{a}]=s^\mathbf{A}[\vec{b}]$. Por ello:
                 \begin{equation*}
-                  \begin{aligned}
-                    \mathbf{A}\vDash\varphi[\vec{a}] & \iff \mathbf{A}\vDash(t[\vec{a}]\equiv s[\vec{a}]) \\
-                                                     & \iff \mathbf{A}\vDash(t[\vec{b}]\equiv s[\vec{b}]) \\
-                                                     & \iff \mathbf{A}\vDash\varphi[\vec{b}]
-                  \end{aligned}
+                  \begin{alignedat}{2}
+                    \mathbf{A}\vDash\varphi[\vec{a}] & \iff t^\mathbf{A}[\vec{a}]=s^\mathbf{A}[\vec{a}] &  & \qquad\text{Def. de }\vDash \\
+                                                     & \iff t^\mathbf{A}[\vec{b}]=s^\mathbf{A}[\vec{b}] &  & \qquad\text{Lema}           \\
+                                                     & \iff \mathbf{A}\vDash\varphi[\vec{b}]            &  & \qquad\text{Def. de }\vDash
+                  \end{alignedat}
                 \end{equation*}
                 por lo que se demuestra.
           \item $\varphi=r(t_1,\dots,t_n)$ con $r\in\mathcal{R}_n,n\geq 1$ y $t_1,\dots,t_n\in T^\tau$: Por lema, sabemos que $t_i^\mathbf{A}[\vec{a}]=t_i^\mathbf{A}[\vec{b}]$. Por ello:
                 \begin{equation*}
-                  \begin{aligned}
-                    \mathbf{A}\vDash\varphi[\vec{a}] & \iff\mathbf{A}\vDash r(t_1[\vec{a}],\dots,t_n[\vec{a}]) \\
-                                                     & \iff\mathbf{A}\vDash r(t_1[\vec{b}],\dots,t_n[\vec{b}]) \\
-                                                     & \iff\mathbf{A}\vDash \varphi[\vec{b}]
-                  \end{aligned}
+                  \begin{alignedat}{2}
+                    \mathbf{A}\vDash\varphi[\vec{a}] & \iff (t_1^\mathbf{A}[\vec{a}],\dots,t_n^\mathbf{A}[\vec{a}])\in i(r) &  & \qquad\text{Def. de }\vDash \\
+                                                     & \iff (t_1^\mathbf{A}[\vec{b}],\dots,t_n^\mathbf{A}[\vec{b}])\in i(r) &  & \qquad\text{Lema}           \\
+                                                     & \iff \mathbf{A}\vDash \varphi[\vec{b}]                               &  & \qquad\text{Def. de }\vDash
+                  \end{alignedat}
                 \end{equation*}
                 por lo que se demuestra.
         \end{itemize}
