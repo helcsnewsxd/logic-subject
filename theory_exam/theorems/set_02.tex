@@ -1,0 +1,162 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=20mm,
+ top=10mm,
+ }
+\usepackage{graphicx}
+\usepackage{titling}
+\usepackage{lipsum}  
+\usepackage{lmodern}
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\title{Combo 2 de teoremas}
+\author{Emanuel Nicolás Herrador}
+\date{November 2024}
+ 
+\makeatletter
+\def\@maketitle{%
+  \newpage
+  \null
+  \vskip 1em%
+  \begin{center}%
+  \let \footnote \thanks
+    {\LARGE \@title \par}%
+    \vskip 1em%
+    {\large \@author\quad-\quad \@date}%
+  \end{center}%
+  \par
+  \vskip 1em}
+\makeatother
+
+\begin{document}
+
+\maketitle
+
+\section*{Teorema de Dedekind}
+Sea $(L,s,i)$ un reticulado terna. La relación binaria definida por:
+\begin{equation*}
+  x\leq y\iff x\ s\ y=y
+\end{equation*}
+es un orden parcial sobre $L$ para el cual se cumple que:
+\begin{equation*}
+  \begin{aligned}
+    \text{sup}(\{x,y\}) & =x\ s\ y \\
+    \text{inf}(\{x,y\}) & =x\ i\ y
+  \end{aligned}
+\end{equation*}
+cualesquiera sean $x,y\in L$.
+\subsection*{Demostración}
+Primero, demostremos que $\leq$ es reflexiva, transitiva y antisimétrica suponiendo $x,y,z\in L$:
+\begin{enumerate}
+  \item \textit{Reflexividad}: Por reflexividad de $s$, tenemos $x\ s\ x = x$. Luego, por def. de $\leq$, tenemos $x\leq x$ por lo que se demuestra.
+  \item \textit{Transitividad}: Sea $(x\ s\ y=y)\land (y\ s\ z=z)$, entonces:
+        \begin{equation*}
+          \begin{alignedat}{2}
+            (x\ s\ y)\ s\ (y\ s\ z) & = y\ s\ z &  &                                      \\
+            x\ s\ (y\ s\ y)\ s\ z   & = y\ s\ z &  & \qquad\text{Asociatividad}           \\
+            x\ s\ y\ s\ z           & = y\ s\ z &  & \qquad\text{Reflexividad}            \\
+            x\ s\ (y\ s\ z)         & = y\ s\ z &  & \qquad\text{Asociatividad}           \\
+            x\ s\ z                 & = z       &  & \qquad\text{Por suposición anterior} \\
+          \end{alignedat}
+        \end{equation*}
+        Ahora, por def. de $\leq$, tenemos que si $x\leq y\land y\leq z$, entonces $x\leq z$, por lo que se demuestra.
+  \item \textit{Antisimetría}: Sea $(x\ s\ y=y\land y\ s\ x=x)$, por conmutatividad tenemos que $x\ s\ y=y\ s\ x$. Luego, con esto llegamos a que $x=y$. Por ello, por def. de $\leq$, esto significa que si $x\leq y\land y\leq x$, entonces $x=y$ por lo que se demuestra.
+\end{enumerate}
+
+Como $\leq$ es reflexiva, transitiva y antisimétrica, entonces por def. es un orden parcial sobre $L$. Con ello, solo queda ver que $\forall x,y\in L$ se cumple que $\text{sup}(\{x,y\})=x\ s\ y$ y que $\text{inf}(\{x,y\})=x\ i\ y$. Veamos ambos casos:
+\begin{itemize}
+  \item $\text{sup}(\{x,y\})=x\ s\ y$:
+        \begin{itemize}
+          \item Por reflexividad y asociatividad, tenemos que $x\ s\ y=(x\ s\ x)\ s\ y=x\ s\ (x\ s\ y)$ por lo que por def. de $\leq$, llegamos a que $x\leq x\ s\ y$. Del mismo modo, llegamos también a que $y\leq x\ s\ y$. Esto significa, entonces, que $x\ s\ y$ es una cota superior de $\{x,y\}$.
+          \item Sea $z$ una cota superior de $\{x,y\}$, entonces $x\leq z\land y\leq z$, por lo que por def. de $\leq$ tenemos $x\ s\ z=z\land y\ s\ z=z$. Con ello:
+                \begin{equation*}
+                  \begin{aligned}
+                    (x\ s\ z)\ s\ (y\ s\ z) & = z\ s\ z &  &                                             \\
+                    (x\ s\ y)\ s\ (z\ s\ z) & = z\ s\ z &  & \qquad\text{Asociatividad y Conmutatividad} \\
+                    (x\ s\ y)\ s\ z         & =z        &  & \qquad\text{Reflexividad}
+                  \end{aligned}
+                \end{equation*}
+                Luego, por def. de $\leq$, tenemos que $x\ s\ y\leq z$, por lo que $x\ s\ y$ es la menor cota superior de $\{x,y\}$.
+        \end{itemize}
+        Finalmente, entonces, esto significa por def. de supremo que $\text{sup}(\{x,y\})=x\ s\ y$, y se demuestra. $\blacksquare$
+  \item $\text{inf}(\{x,y\})=x\ i\ y$
+        \begin{itemize}
+          \item Notemos que $x\leq y\overset{\text{def. }\leq}{\iff}x\ s\ y=y$. Luego, aplicando ínfimo de $x$ a ambos, llegamos a que $x\ i\ y=x\ i\ (x\ s\ y)\overset{\text{Absorción}}{=}x$. Entonces, $x\leq y\iff x\ i\ y=x$ o, por conmutatividad, $y\ i\ x=x$ (def. alternativa del orden parcial).
+          \item Veamos que $x\ i\ y\overset{\text{Reflexividad}}{=}(x\ i\ x)\ i\ y\overset{\text{Asociatividad}}{=}x\ i\ (x\ i\ y)$. Luego, por def. alternativa del orden parcial, $x\ i\ y\leq x$. Del mismo modo, llegamos a que $x\ i\ y\leq y$, por lo que por def. $x\ i\ y$ es una cota inferior de $\{x,y\}$.
+          \item Sea $z$ una cota inferior de $\{x,y\}$, entonces por def. $z\leq x\land z\leq y$, por lo que por def. alternativa del orden parcial, $z\ i\ x=z\land z\ i\ y=z$. Ahora, notemos que:
+                \begin{equation*}
+                  \begin{alignedat}{2}
+                    (z\ i\ x)\ i\ (z\ i\ y) & =z\ i\ z                                                  \\
+                    (x\ i\ y)\ i\ (z\ i\ z) & =z\ i\ z &  & \qquad\text{Asociatividad y Conmutatividad} \\
+                    (x\ i\ y)\ i\ z         & =z       &  & \qquad\text{Reflexividad}
+                  \end{alignedat}
+                \end{equation*}
+                Luego, por def. alternativa de $\leq$, tenemos que $z\leq x\ i\ y$, por lo que $x\ i\ y$ es la mayor cota inferior de $\{x,y\}$.
+        \end{itemize}
+        Finalmente, entonces, esto significa que por la def. de ínfimo, $\text{inf}(\{x,y\})=x\ i\ y$.
+\end{itemize}
+
+Con todo ello, entonces, se demuestra. $\blacksquare$
+
+\section*{Lema}
+Supongamos que $\vec{a},\vec{b}$ son asignaciones tales que si $x_i\in Li(\varphi)$, entonces $a_i=b_i$. Entonces $\mathbf{A}\vDash\varphi[\vec{a}]$ sii $\mathbf{A}\vDash\varphi[\vec{b}]$
+\subsection*{Demostración}
+Por \textit{lema} sabemos que: Sea $\mathbf{A}$ una estructura de tipo $\tau$ y sea $t\in T^\tau$. Supongamos que $\vec{a},\vec{b}$ son asignaciones tales que $a_i=b_i$, cada vez que $x_i$ ocurra en $t$. Entonces $t^\mathbf{A}[\vec{a}]=t^\mathbf{A}[\vec{b}]$.
+
+\vspace{0.35cm}
+Vamos a demostrar por inducción en $k$ que el lema vale $\forall\varphi\in F_k^\tau$. Suponemos $\vec{a},\vec{b}$ asignaciones tales que si $x_i\in Li(\varphi)$, entonces $a_i=b_i$.
+\begin{itemize}
+  \item \textit{Caso base} $k=0$: Sea $\varphi\in F^\tau_0$, entonces tenemos dos casos:
+        \begin{itemize}
+          \item $\varphi=(t\equiv s)$ con $t,s\in T^\tau$: Por lema, sabemos que $t^\mathbf{A}[\vec{a}]=t^\mathbf{A}[\vec{b}]$ y que $s^\mathbf{A}[\vec{a}]=s^\mathbf{A}[\vec{b}]$. Por ello:
+                \begin{equation*}
+                  \begin{aligned}
+                    \mathbf{A}\vDash\varphi[\vec{a}] & \iff \mathbf{A}\vDash(t[\vec{a}]\equiv s[\vec{a}]) \\
+                                                     & \iff \mathbf{A}\vDash(t[\vec{b}]\equiv s[\vec{b}]) \\
+                                                     & \iff \mathbf{A}\vDash\varphi[\vec{b}]
+                  \end{aligned}
+                \end{equation*}
+                por lo que se demuestra.
+          \item $\varphi=r(t_1,\dots,t_n)$ con $r\in\mathcal{R}_n,n\geq 1$ y $t_1,\dots,t_n\in T^\tau$: Por lema, sabemos que $t_i^\mathbf{A}[\vec{a}]=t_i^\mathbf{A}[\vec{b}]$. Por ello:
+                \begin{equation*}
+                  \begin{aligned}
+                    \mathbf{A}\vDash\varphi[\vec{a}] & \iff\mathbf{A}\vDash r(t_1[\vec{a}],\dots,t_n[\vec{a}]) \\
+                                                     & \iff\mathbf{A}\vDash r(t_1[\vec{b}],\dots,t_n[\vec{b}]) \\
+                                                     & \iff\mathbf{A}\vDash \varphi[\vec{b}]
+                  \end{aligned}
+                \end{equation*}
+                por lo que se demuestra.
+        \end{itemize}
+  \item \textit{Hipótesis inductiva} $(k)$: Sea $k\in\mathbb{N}_0$, entonces $\forall\varphi\in F^\tau_k,(\mathbf{A}\vDash\varphi[\vec{a}]\iff\mathbf{A}\vDash\varphi[\vec{b}])$
+  \item \textit{Caso inductivo} $(k+1)$: Sea $\varphi\in F^\tau_{k+1}$, tenemos varios casos:
+        \begin{itemize}
+          \item Si $\varphi\in F^\tau_k$: se demuestra por HI.
+          \item Si $\varphi=(\varphi_1\eta\varphi_2)$ con $\varphi_1,\varphi_2\in F^\tau_k$ y $\eta\in\{\land,\lor,\to,\leftrightarrow\}$: Los casos son análogos, por lo que vamos a ver $\varphi=(\varphi_1\land\varphi_2)$. Como $Li(\varphi_i)\subseteq Li(\varphi)$, por HI $\mathbf{A}\vDash\varphi_i[\vec{a}]\iff\mathbf{A}\vDash\varphi_i[\vec{b}]$. Se tiene entonces que:
+                \begin{equation*}
+                  \begin{alignedat}{2}
+                    \mathbf{A}\vDash\varphi[\vec{a}] & \iff \mathbf{A}\vDash\varphi_1[\vec{a}]\text{ y }\mathbf{A}\vDash\varphi_2[\vec{a}] &  & \qquad\text{Def. de }\vDash \\
+                                                     & \iff \mathbf{A}\vDash\varphi_1[\vec{b}]\text{ y }\mathbf{A}\vDash\varphi_2[\vec{b}] &  & \qquad\text{HI}             \\
+                                                     & \iff \mathbf{A}\vDash\varphi[\vec{b}]                                               &  & \qquad\text{Def. de }\vDash \\
+                  \end{alignedat}
+                \end{equation*}
+                por lo que se demuestra.
+          \item Si $\varphi=Qx_j\varphi_1$ con $\varphi_1\in F^\tau_k$ y $Q\in\{\forall,\exists\}$: Los dos casos son análogos, por lo que vamos a ver $\varphi=\forall x_j\varphi_1$. Como $Li(\varphi_1)\subseteq Li(\varphi)\cup\{x_j\}$, por HI $\mathbf{A}\vDash\varphi_1[\vec{a}]\iff\mathbf{A}\vDash\varphi_1[\vec{b}]$. Por ello mismo, entonces, $\mathbf{A}\vDash\varphi_1[\downarrow^a_j(\vec{a})]\iff\mathbf{A}\vDash\varphi_1[\downarrow^a_j(\vec{b})]$ para todo $a\in A$. Con esto en mente, se tiene:
+                \begin{equation*}
+                  \begin{alignedat}{2}
+                    \mathbf{A}\vDash\varphi[\vec{a}] & \iff \forall a\in A,\mathbf{A}\vDash\varphi_1[\downarrow^a_j(\vec{a})] &  & \qquad\text{Def. de }\vDash \\
+                                                     & \iff \forall a\in A,\mathbf{A}\vDash\varphi_1[\downarrow^a_j(\vec{b})] &  & \qquad\text{Prop. anterior} \\
+                                                     & \iff \mathbf{A}\vDash\varphi[\vec{b}]                                  &  & \qquad\text{Def. de }\vDash
+                  \end{alignedat}
+                \end{equation*}
+                por lo que se demuestra.
+        \end{itemize}
+\end{itemize}
+
+Con todo ello, entonces, se demuestra por inducción. $\blacksquare$
+
+\end{document}
