@@ -1,0 +1,178 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=20mm,
+ top=10mm,
+ }
+\usepackage{graphicx}
+\usepackage{titling}
+\usepackage{lipsum}  
+\usepackage{lmodern}
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\title{Combo 3 de teoremas}
+\author{Emanuel Nicolás Herrador}
+\date{November 2024}
+ 
+\makeatletter
+\def\@maketitle{%
+  \newpage
+  \null
+  \vskip 1em%
+  \begin{center}%
+  \let \footnote \thanks
+    {\LARGE \@title \par}%
+    \vskip 1em%
+    {\large \@author\quad-\quad \@date}%
+  \end{center}%
+  \par
+  \vskip 1em}
+\makeatother
+
+\begin{document}
+
+\maketitle
+
+\section*{Lectura única de términos}
+Dado $t\in T^\tau$ se da una de las siguientes:
+\begin{enumerate}
+  \item $t\in Var\cup\mathcal{C}$
+  \item Hay únicos $n\geq 1,f\in\mathcal{F}_n,\ t_1,\dots,t_n\in T^\tau$ tales que $t=f(t_1,\dots,t_n)$
+\end{enumerate}
+\subsection*{Demostración}
+Por el \textit{lema de Menú para términos} sabemos que: Supongamos $t\in T^\tau_k$, con $k\geq 1$. Entonces se da alguna de las siguientes:
+\begin{enumerate}
+  \item $t\in Var\cup\mathcal{C}$
+  \item $t=f(t_1,\dots,t_n)$ con $f\in\mathcal{F}_n$, $n\geq 1$ y $t_1,\dots,t_n\in T^\tau_{k-1}$
+\end{enumerate}
+
+Por el \textit{lema de Mordizqueo de términos} sabemos que: Sean $s,t\in T^\tau$ y supongamos que hay palabras $x,y,z$, con $y\neq\varepsilon$ tales que $s=xy$ y $t=yz$. Entonces $x=z=\varepsilon$ o $s,t\in\mathcal{C}$. En particular, si un término es tramo inicial o final de otro término, entonces dichos términos son iguales.
+
+\vspace{0.6cm}
+Por el lema de "Menú para términos", solo debemos demostrar la unicidad del punto $(2)$. Supongamos $t=f(t_1,\dots,t_n)=g(s_1,\dots,s_m)$ con $n,m\geq 1,\ f\in\mathcal{F}_n,\ g\in\mathcal{F}_m,\ t_1,\dots,t_n,s_1,\dots,s_m\in T^\tau$.
+
+Notemos que claramente $f=g$, por lo que $n=m=a(f)=a(g)$. Notemos que $t_1$ es tramo inicial de $s_1$ o $s_1$ es tramo inicial de $t_1$. Por el lema de "Mordizqueo de términos", $t_1=s_1$. Análogamente, podemos probar que $t_2=s_2,\dots,t_n=s_n$. Por ello, llegamos a que efectivamente son únicos, por lo que se demuestra. $\blacksquare$
+
+\section*{Lema}
+Supongamos que $F:\mathbf{A}\to\mathbf{B}$ es un isomorfismo. Sea $\varphi\in F^\tau$. Entonces:
+\begin{equation*}
+  \mathbf{A}\vDash\varphi[(a_1,a_2,\dots)]\text{ sii }\mathbf{B}\vDash\varphi[(F(a_1),F(a_2),\dots)]
+\end{equation*}
+para cada $(a_1,a_2,\dots)\in A^N$. En particular $\mathbf{A}$ y $\mathbf{B}$ satisfacen las mismas sentencias de tipo $\tau$.
+\subsection*{Demostración}
+Durante la demostración vamos a usar el siguiente \textit{lema}: Sea $F:\mathbf{A}\to\mathbf{B}$ un homomorfismo, entonces $F(t^\mathbf{A}[(a_1,a_2,\dots)])=t^\mathbf{B}[(F(a_1),F(a_2),\dots)]\ \forall t\in T^\tau,\ (a_1,a_2,\dots)\in A^N$.
+
+\vspace{0.4cm}
+Vamos a demostrar por inducción en $k\in\mathbb{N}_0$ que el lema vale $\forall\varphi\in F^\tau_k$. Supongamos $(a_1,a_2,\dots)\in A^N$ y $F:\mathbf{A}\to\mathbf{B}$ un isomorfismo. Para mayor facilidad, denotemos con $\vec{a}$ a $(a_1,a_2,\dots)$ y con $F(\vec{a})$ a $(F(a_1),F(a_2),\dots)$. Entonces:
+\begin{itemize}
+  \item \textit{Caso base} $k=0$: Sea $\varphi\in F^\tau_0$, tenemos dos casos:
+        \begin{itemize}
+          \item $\varphi=(t\equiv s)$ con $t,s\in T^\tau$: Veamos que:
+                \begin{equation*}
+                  \begin{alignedat}{2}
+                    \mathbf{A}\vDash\varphi[\vec{a}] & \iff t^\mathbf{A}[\vec{a}]=s^\mathbf{A}[\vec{a}]       &  & \qquad\text{Def. de }\vDash                         \\
+                                                     & \iff F(t^\mathbf{A}[\vec{a}])=F(s^\mathbf{A}[\vec{a}]) &  & \qquad\text{Al ser F isomorfismo (i.e., biyectiva)} \\
+                                                     & \iff t^\mathbf{B}[F(\vec{a})]=s^\mathbf{B}[F(\vec{a})] &  & \qquad\text{Lema}                                   \\
+                                                     & \iff\mathbf{B}\vDash\varphi[F(\vec{a})]                &  & \qquad\text{Def. de }\vDash
+                  \end{alignedat}
+                \end{equation*}
+                Por lo que se demuestra.
+          \item $\varphi=r(t_1,\dots,t_n)$ con $r\in\mathcal{R}_n,\ n\geq 1,\ t_1,\dots,t_n\in T^\tau$: Veamos que:
+                \begin{equation*}
+                  \begin{alignedat}{2}
+                    \mathbf{A}\vDash\varphi[\vec{a}] & \iff(t_1^\mathbf{A}[\vec{a}],\dots,t_n^\mathbf{A}[\vec{a}])\in r^\mathbf{A}       &  & \qquad\text{Def. de }\vDash    \\
+                                                     & \iff(F(t_1^\mathbf{A}[\vec{a}]),\dots,F(t_n^\mathbf{A}[\vec{a}]))\in r^\mathbf{B} &  & \qquad F\text{ es isomorfismo} \\
+                                                     & \iff(t_1^\mathbf{B}[F(\vec{a})],\dots,t_n^\mathbf{B}[F(\vec{a})])\in r^\mathbf{B} &  & \qquad\text{Lema}              \\
+                                                     & \iff\mathbf{B}\vDash\varphi[F(\vec{a})]                                           &  & \qquad\text{Def. de }\vDash
+                  \end{alignedat}
+                \end{equation*}
+                Por lo que se demuestra.
+        \end{itemize}
+  \item \textit{Hipótesis inductiva} $(k)$: Sea $k\in\mathbb{N}_0$, entonces $\forall\varphi\in F^\tau_k,(\mathbf{A}\vDash\varphi[\vec{a}]\iff\mathbf{B}\vDash\varphi[F(\vec{a})])$
+  \item \textit{Caso inductivo} $(k+1)$: Sea $\varphi\in F^\tau_{k+1}$, tenemos varios casos:
+        \begin{itemize}
+          \item Si $\varphi\in F^\tau_k$: se demuestra por HI.
+          \item Si $\varphi=(\varphi_1\eta\varphi_2)$ con $\varphi_1,\varphi_2\in F^\tau_k$ y $\eta\in\{\land,\lor,\to,\leftrightarrow\}$: Los casos son análogos, por lo que vamos a suponer $\varphi=(\varphi_1\land\varphi_2)$. Por ello:
+                \begin{equation*}
+                  \begin{alignedat}{2}
+                    \mathbf{A}\vDash\varphi[\vec{a}] & \iff\mathbf{A}\vDash\varphi_1[\vec{a}]\text{ y }\mathbf{A}\vDash\varphi_2[\vec{a}]       &  & \qquad\text{Def. de }\vDash \\
+                                                     & \iff\mathbf{B}\vDash\varphi_1[F(\vec{a})]\text{ y }\mathbf{B}\vDash\varphi_2[F(\vec{a})] &  & \qquad\text{HI}             \\
+                                                     & \iff\mathbf{B}\vDash\varphi[F(\vec{a})]                                                  &  & \qquad\text{Def. de }\vDash
+                  \end{alignedat}
+                \end{equation*}
+                Por lo que se demuestra.
+          \item Si $\varphi=Qx_j\varphi_1$ con $\varphi_1\in F^\tau_k$ y $Q\in\{\forall,\exists\}$: Los dos casos son análogos, por lo que vamos a ver $\varphi=\forall x_j\varphi_1$. Por ello:
+                \begin{equation*}
+                  \begin{alignedat}{2}
+                    \mathbf{A}\vDash\varphi[\vec{a}] & \iff\forall a\in A,\ \mathbf{A}\vDash\varphi_1[\downarrow^a_j(\vec{a})]    &  & \qquad\text{Def. de }\vDash                         \\
+                                                     & \iff\forall a\in A,\ \mathbf{B}\vDash\varphi_1[F(\downarrow^a_j(\vec{a}))] &  & \qquad\text{HI}                                     \\
+                                                     & \iff\forall b\in B,\ \mathbf{B}\vDash\varphi_1[\downarrow^b_j(F(\vec{a}))] &  & \qquad\text{Al ser F isomorfismo (i.e., biyectivo)} \\
+                                                     & \iff\mathbf{B}\vDash\varphi[F(\vec{a})]                                    &  & \qquad\text{Def. de }\vDash
+                  \end{alignedat}
+                \end{equation*}
+                Por lo que se demuestra.
+        \end{itemize}
+\end{itemize}
+
+Con ello, se demuestra el lema. $\blacksquare$
+
+\section*{Teorema}
+Sea $T=(\Sigma,\tau)$ una teoría. Entonces $(S^\tau/\dashv\vdash_T,s^T,i^T,\ ^{c^T},0^T,1^T)$ es un álgebra de Boole.
+\newline
+Pruebe solo el item $(6)$.
+\subsection*{Demostración}
+Queremos probar que $\forall\varphi_1,\varphi_2,\varphi_3\in S^\tau,\ [\varphi_1]_T\ s^T\ ([\varphi_2]_T\ s^T\ [\varphi_3]_T)=([\varphi_1]_T\ s^T\ [\varphi_2]_T)\ s^T\ [\varphi_3]_T$.
+
+Sean $\varphi_1,\varphi_2,\varphi_3\in S^\tau$ fijas pero arbitrarios, veamos que:
+\begin{equation*}
+  \begin{aligned}
+    \ [\varphi_1]_T\ s^T\ ([\varphi_2]_T\ s^T\ [\varphi_3]_T) & =([\varphi_1]_T\ s^T\ [\varphi_2]_T)\ s^T\ [\varphi_3]_T                  \\
+                                                              & \Updownarrow\text{def. de }s^T                                            \\
+    [(\varphi_1\lor(\varphi_2\lor\varphi_3))]_T               & =[((\varphi_1\lor\varphi_2)\lor\varphi_3)]_T                              \\
+                                                              & \Updownarrow\text{Def. de clase de equivalencia en }S^\tau/\dashv\vdash_T \\
+    (\varphi_1\lor(\varphi_2\lor\varphi_3))                   & \dashv\vdash_T((\varphi_1\lor\varphi_2)\lor\varphi_3)                     \\
+                                                              & \Updownarrow\text{Def. de }\dashv\vdash_T                                 \\
+    T\vdash((\varphi_1\lor(\varphi_2\lor\varphi_3))           & \leftrightarrow((\varphi_1\lor\varphi_2)\lor\varphi_3))                   \\
+  \end{aligned}
+\end{equation*}
+
+Ahora, por \textit{lema} sabemos que: Sea $(\Sigma,\tau)$ una teoría y $(\Sigma,\tau)\vdash\varphi_1,\dots,\varphi_n$. Si $R$ es una regla distinta de $\text{GENERALIZACION}$ y $\text{ELECCION}$, y $\varphi$ se deduce de $\varphi_1,\dots,\varphi_n$ por la regla $R$, entonces $(\Sigma,\tau)\vdash\varphi$.
+
+Por ello, por el anterior lema aplicado con la regla $\text{EQUIVALENCIAINTRODUCCION}$, tenemos que probar solo que:
+\begin{equation*}
+  \begin{aligned}
+    T & \vdash((\varphi_1\lor(\varphi_2\lor\varphi_3))\to((\varphi_1\lor\varphi_2)\lor\varphi_3)) \\
+    T & \vdash(((\varphi_1\lor\varphi_2)\lor\varphi_3)\to(\varphi_1\lor(\varphi_2\lor\varphi_3)))
+  \end{aligned}
+\end{equation*}
+
+Las dos son totalmente análogas, por lo que solo vamos a dar la prueba que atestigua la primera:
+\begin{equation*}
+  \begin{alignedat}{2}
+     & 1. \quad (\varphi_1\lor(\varphi_2\lor\varphi_3))                                                  &  & \qquad\text{HIP}1                              \\
+     & \quad 2. \quad \varphi_1                                                                          &  & \qquad\text{HIP}2                              \\
+     & \qquad 3. \quad \varphi_1\lor\varphi_2                                                            &  & \qquad\text{DISJINT}(2)                        \\
+     & \qquad 4. \quad (\varphi_1\lor\varphi_2)\lor\varphi_3                                             &  & \qquad\text{TESIS}2\text{DISJINT}(3)           \\
+     & \quad 5. \quad \varphi_1\to((\varphi_1\lor\varphi_2)\lor\varphi_3)                                &  & \qquad\text{CONC}                              \\
+     & \quad 6. \quad \varphi_2\lor\varphi_3                                                             &  & \qquad\text{HIP}3                              \\
+     & \qquad 7. \quad \varphi_2                                                                         &  & \qquad\text{HIP}4                              \\
+     & \qquad\quad 8. \quad \varphi_1\lor\varphi_2                                                       &  & \qquad\text{DISJINT}(7)                        \\
+     & \qquad\quad 9. \quad (\varphi_1\lor\varphi_2)\lor\varphi_3                                        &  & \qquad\text{TESIS}4\text{DISJINT}(8)           \\
+     & \qquad 10. \quad \varphi_2\to((\varphi_1\lor\varphi_2)\lor\varphi_3)                              &  & \qquad\text{CONC}                              \\
+     & \qquad 11. \quad \varphi_3                                                                        &  & \qquad\text{HIP}5                              \\
+     & \qquad\quad 12. \quad (\varphi_1\lor\varphi_2)\lor\varphi_3                                       &  & \qquad\text{TESIS}5\text{DISJINT}(11)          \\
+     & \qquad 13. \quad \varphi_3\to((\varphi_1\lor\varphi_2)\lor\varphi_3)                              &  & \qquad\text{CONC}                              \\
+     & \qquad 14. \quad ((\varphi_1\lor\varphi_2)\lor\varphi_3)                                          &  & \qquad\text{TESIS}3\text{DIVPORCASOS}(6,10,13) \\
+     & \quad 15. \quad (\varphi_2\lor\varphi_3)\to((\varphi_1\lor\varphi_2)\lor\varphi_3)                &  & \qquad\text{CONC}                              \\
+     & \quad 16. \quad ((\varphi_1\lor\varphi_2)\lor\varphi_3)                                           &  & \qquad\text{TESIS}1\text{DIVPORCASOS}(1,5,15)  \\
+     & \quad 17. \quad (\varphi_1\lor(\varphi_2\lor\varphi_3))\to((\varphi_1\lor\varphi_2)\lor\varphi_3) &  & \qquad\text{CONC}                              \\
+  \end{alignedat}
+\end{equation*}
+
+Por lo tanto, se demuestra para toda sentencia dado que las consideramos fijas pero arbitrarias. $\blacksquare$
+
+\end{document}
