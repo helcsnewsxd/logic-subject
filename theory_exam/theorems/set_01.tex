@@ -1,0 +1,112 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=20mm,
+ top=10mm,
+ }
+\usepackage{graphicx}
+\usepackage{titling}
+\usepackage{lipsum}  
+\usepackage{lmodern}
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+
+\title{Combo 1 de teoremas}
+\author{Emanuel Nicolás Herrador}
+\date{November 2024}
+ 
+\makeatletter
+\def\@maketitle{%
+  \newpage
+  \null
+  \vskip 1em%
+  \begin{center}%
+  \let \footnote \thanks
+    {\LARGE \@title \par}%
+    \vskip 1em%
+    {\large \@author\quad-\quad \@date}%
+  \end{center}%
+  \par
+  \vskip 1em}
+\makeatother
+
+\begin{document}
+
+\maketitle
+
+\section*{Teorema del Filtro Primo}
+Sea $(L,s,i)$ un reticulado terna distributivo y $F$ un filtro. Supongamos $x_0\in L-F$. Entonces hay un filtro primo $P$ tal que $x_0\notin P$ y $F\subseteq P$.
+\subsection*{Demostración}
+Consideremos $\mathcal{F}=\{F_1:F_1\text{ es un filtro},x_0\notin F_1\text{ y }F\subseteq F_1\}$. Como $F\subseteq\mathcal{F}$, entonces $\mathcal{F}\neq\emptyset$ y, por lo tanto, $(\mathcal{F},\subseteq)$ es poset.
+
+Sea $C$ una cadena, vamos a ver que tiene cota superior:
+\begin{itemize}
+  \item Si $C=\emptyset$, entonces todo elemento de $\mathcal{F}$ es cota de $C$
+  \item Si $C\neq\emptyset$, consideremos $G=\{x:x\in F_1\text{ para }F_1\in C\}$
+        \begin{itemize}
+          \item Como $C\neq\emptyset$, existe un filtro $F_1\in C$. Luego, por def. de filtro, $F_1\neq\emptyset$. Por ello, $\exists x\in F_1$ y eso significa que $x\in G$ por lo que $G\neq\emptyset$.
+          \item Sean $x,y\in G$, entonces $\exists F_1,F_2\in C:(x\in F_1\land y\in F_2)$. Por def. de cadena, $F_1\subseteq F_2\lor F_1\supseteq F_2$. Sin pérdida de generalidad, supongamos $F_1\subseteq F_2$. Luego, $x,y\in F_2$ por lo que $x\ i\ y\in F_2$ por def. de filtro. Por ello, como $F_2\subseteq G$, tenemos que $x,y\in G\Rightarrow x\ i\ y\in G$.
+          \item Sea $x\in G$, entonces $\exists F_1:x\in F_1$. Sea $y\in L:x\leq y$, como $x\in F_1\land x\leq y$, por def. de filtro $y\in F_1$. Como $F_1\subseteq G$, entonces $y\in G$. Por ello, $x\in G\wedge x\leq y\Rightarrow y\in G$.
+          \item Debido a las tres propiedades anteriores, por def. tenemos que $G$ es un \textit{filtro}
+          \item Como $x_0\notin F_1\forall F_1\in C$, claramente $x_0\notin G$
+          \item Sea $F_1\in C$, entonces $F_1\in\mathcal{F}$, por lo que por def. $F\subseteq F_1$. Luego, como $F_1\subseteq G$, entonces $F\subseteq G$.
+          \item Como $G$ es un filtro, $x_0\notin G$ y $F\subseteq G$, entonces $G\in\mathcal{F}$.
+          \item Luego, llegamos a que $G$ es cota superior de $C$
+        \end{itemize}
+\end{itemize}
+
+Ahora, como $(\mathcal{F},\leq)$ es un poset y toda cadena de $(\mathcal{F},\leq)$ tiene cota superior, entonces por el \textbf{Lema de Zorn}, hay un elemento maximal en $(\mathcal{F},\leq)$. Sea $P$ ese elemento maximal, vamos a ver que $P$ es un filtro primo.
+
+Supongamos $x\ s\ y\in P$ y $x,y\notin P$. Como $[P\cup\{x\}),[P\cup\{y\})$ son filtros que por lema cumplen que contienen a $P$, y como $x,y\notin P$, entonces claramente $P\subsetneqq [P\cup\{x\}),[P\cup\{y\})$. Ahora, como $P$ es maximal, entonces $[P\cup\{x\}),[P\cup\{y\})\notin\mathcal{F}$, por lo que: o no son filtros, o contienen como elemento a $x_0$, o no contienen a $F$. De aquí llegamos a que $x_0\in [P\cup\{x\}),[P\cup\{y\})$.
+
+Como $x_0\in[P\cup\{x\}),[P\cup\{y\})$, por definición de filtro generado tenemos que $\exists p_1,\dots,p_n\in P$ y $\exists q_1,\dots,q_m\in P$ tales que:
+\begin{equation*}
+  \begin{aligned}
+    x_0 & \geq p_1\ i\ \dots\ i\ p_n\ i\ x \\
+    x_0 & \geq q_1\ i\ \dots\ i\ q_m\ i\ y
+  \end{aligned}
+\end{equation*}
+(Notar que colocamos a $x$ e $y$ porque sino fueran necesarios, $x_0\in [P)$ y sería absurdo ya que $[P)=P\in\mathcal{F}$ porque $P$ es maximal)
+
+Sea $p=p_1\ i\ \dots\ i\ p_n\ i\ q_1\ i\ \dots\ i\ q_m$, tenemos que:
+\begin{equation*}
+  \begin{aligned}
+    x_0 & \geq p\ i\ x \\
+    x_0 & \geq p\ i\ y \\
+  \end{aligned}
+\end{equation*}
+Luego, por propiedad de reticulado, $x_0\geq (p\ i\ x)\ s\ (p\ i\ y)$. Como el reticulado es distributivo, entonces $x_0\geq p\ i\ (x\ s\ y)$. Como $p,(x\ s\ y)\in P$, por def. de filtro $p\ i\ (x\ s\ y)\in P$. Ahora, como $P=[P)$, por def. de filtro generado tenemos que $x_0\in P$. Finalmente, como sabemos que $P\in\mathcal{F}$, entonces $x_0\notin P$ y llegamos a un absurdo que vino de suponer que $x\ s\ y\in P$ y $x,y\notin P$.
+
+Por ello, tenemos que $x\ s\ y\in P\Rightarrow(x\in P\lor y\in P)$. Luego, por ello y dado que $P\neq L$ (porque $x_0\notin P$), tenemos que $P$ es un filtro primo por def.
+
+Con todo esto, entonces, llegamos a que $P$ es un filtro primo tal que $x_0\notin P$ y $F\subseteq P$, por lo que se demuestra. $\blacksquare$
+
+\section*{Propiedades básicas de la consistencia}
+Sea $(\Sigma,\tau)$ una teoría:
+\begin{enumerate}
+  \item Si $(\Sigma,\tau)$ es inconsistente, entonces $(\Sigma,\tau)\vdash\varphi$ para toda sentencia $\varphi$
+  \item Si $(\Sigma,\tau)$ es consistente y $(\Sigma,\tau)\vdash\varphi$, entonces $(\Sigma\cup\{\varphi\},\tau)$ es consistente
+  \item Si $(\Sigma,\tau)\nvdash\neg\varphi$, entonces $(\Sigma\cup\{\varphi\},\tau)$ es consistente
+\end{enumerate}
+\subsection*{Demostración}
+Demostremos cada punto por separado:
+\begin{enumerate}
+  \item Como $(\Sigma,\tau)$ es inconsistente, por def. $\exists\psi\in S^\tau:(\Sigma,\tau)\vdash(\psi\land\neg\psi)$. Sea $\psi$ esa sentencia, podemos ver que dada una sentencia $\varphi$ se cumple que $(\Sigma,\tau)\vdash\varphi$ y la prueba que lo atestigua es:
+        \begin{equation*}
+          \begin{alignedat}{2}
+            1.\quad & \neg\varphi                      &  & \qquad\qquad\text{HIP1}           \\
+            2.\quad & \psi\lor\neg\psi                 &  & \qquad\qquad\text{TESIS1 AXIPROP} \\
+            3.\quad & \neg\varphi\to(\psi\lor\neg\psi) &  & \qquad\qquad\text{CONC}           \\
+            4.\quad & \varphi                          &  & \qquad\qquad\text{ABS}(3)         \\
+          \end{alignedat}
+        \end{equation*}
+        Con ello, se demuestra. $\blacksquare$
+  \item Supongamos que $(\Sigma,\tau)$ es consistente y $(\Sigma,\tau)\vdash\varphi$. Si $(\Sigma\cup\{\varphi\},\tau)$ fuera inconsistente, por def. $\exists\psi\in S^\tau:(\Sigma\cup\{\varphi\},\tau)\vdash(\psi\land\neg\psi)$. Luego, sea $\psi$ esa sentencia, por lema de \textit{uso de teoremas}, llegamos a que $(\Sigma,\tau)\vdash(\psi\land\neg\psi)$, por lo que $(\Sigma,\tau)$ es inconsistente por def.. Como $(\Sigma,\tau)$ es consistente por suposición y llegamos a que es inconsistente, tenemos un absurdo que vino de suponer que $(\Sigma\cup\{\varphi\},\tau)$ es inconsistente. Luego, es consistente y se demuestra. $\blacksquare$
+  \item Supongamos que $(\Sigma,\tau)\nvdash\neg\varphi$. Si $(\Sigma\cup\{\varphi\},\tau)$ fuera inconsistente, por def. $\exists\psi\in S^\tau:(\Sigma\cup\{\varphi\},\tau)\vdash(\psi\land\neg\psi)$. Sea $\psi$ esa sentencia, por \textit{lema} sabemos que eso implica que $(\Sigma,\tau)\vdash(\varphi\to(\psi\land\neg\psi))$. Ahora, como $\neg\varphi$ se deduce de $\varphi\to(\psi\land\neg\psi)$ por la regla del absurdo, llegamos a que $(\Sigma,\tau)\vdash\neg\varphi$. Con ello, llegamos a un absurdo que vino de suponer que $(\Sigma\cup\{\varphi\},\tau)$ era inconsistente. Luego, es consistente y se demuestra. $\blacksquare$
+\end{enumerate}
+
+\end{document}
