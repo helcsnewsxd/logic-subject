@@ -1,0 +1,199 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=20mm,
+ top=10mm,
+ }
+\usepackage{graphicx}
+\usepackage{titling}
+\usepackage{lipsum}  
+\usepackage{lmodern}
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\title{Combo 7 de teoremas}
+\author{Emanuel Nicolás Herrador}
+\date{November 2024}
+ 
+\makeatletter
+\def\@maketitle{%
+  \newpage
+  \null
+  \vskip 1em%
+  \begin{center}%
+  \let \footnote \thanks
+    {\LARGE \@title \par}%
+    \vskip 1em%
+    {\large \@author\quad-\quad \@date}%
+  \end{center}%
+  \par
+  \vskip 1em}
+\makeatother
+
+\begin{document}
+
+\maketitle
+
+\section*{Propiedades básicas de la deducción}
+Sea $(\Sigma,\tau)$ una teoría:
+\begin{enumerate}
+  \item (Uso de Teoremas). Si $(\Sigma,\tau)\vdash\varphi_1,\dots,\varphi_n$ y $(\Sigma\cup\{\varphi_1,\dots,\varphi_n\},\tau)\vdash\varphi$, entonces $(\Sigma,\tau)\vdash\varphi$
+  \item Supongamos $(\Sigma,\tau)\vdash\varphi_1,\dots,\varphi_n$. Si $R$ es una regla distinta de $GENERALIZACION$ y $ELECCION$, y $\varphi$ se deduce de $\varphi_1,\dots,\varphi_n$ por la regla $R$, entonces $(\Sigma,\tau)\vdash\varphi$
+  \item $(\Sigma,\tau)\vdash(\varphi\to\psi)$ sii $(\Sigma\cup\{\varphi\},\tau)\vdash\psi$
+\end{enumerate}
+\subsection*{Demostración}
+Vamos a usar los siguientes dos \textit{lemas} en la demostración:
+\begin{itemize}
+  \item \textit{Cambio de índice de hipótesis}: Sea $(\boldsymbol{\varphi},\mathbf{J})$ una prueba formal de $\varphi$ en $(\Sigma,\tau)$. Sea $m\in N$ tal que $\mathbf{J}_i\neq\text{HIPOTESIS}\bar{m}$ para cada $i=1,\dots,n(\boldsymbol{\varphi})$. Supongamos que $\mathbf{J}_i=\text{HIPOTESIS}\bar{k}$ y que $\mathbf{J}_j=\text{TESIS}\bar{k}\alpha$ con $[\alpha]_1\notin Num$. Sea $\tilde{\mathbf{J}}$ el resultado de reemplazar en $\mathbf{J}$ la justificación $\mathbf{J}_i$ por $\text{HIPOTESIS}\bar{m}$ y reemplazar la justificación $\mathbf{J}_j$ por $\text{TESIS}\bar{m}\alpha$. Entonces $(\boldsymbol{\varphi},\tilde{\mathbf{J}})$ es una prueba formal de $\varphi$ en $(\Sigma,\tau)$.
+  \item \textit{Cambio de constantes auxiliares}: Sea $(\boldsymbol{\varphi},\mathbf{J})$ una prueba formal de $\varphi$ en $(\Sigma,\tau)$. Sea $\mathcal{C}_1$ el conjunto de nombres de constante que ocurren en $\boldsymbol{\varphi}$ y que no pertenecen a $\mathcal{C}$. Sea $e\in\mathcal{C}_1$. Sea $\tilde{e}\notin\mathcal{C}\cup\mathcal{C}_1$ tal que $(\mathcal{C}\cup(\mathcal{C}_1-\{e\})\cup\{\tilde{e}\},\mathcal{F},\mathcal{R},a)$ es un tipo. Sea $\tilde{\boldsymbol{\varphi}}_i=\text{resultado de reemplazar en }\boldsymbol{\varphi}_i\text{ cada ocurrencia de }e\text{ por }\tilde{e}$. Entonces $(\tilde{\boldsymbol{\varphi}}_1\dots\tilde{\boldsymbol{\varphi}}_{n(\boldsymbol{\varphi})},\mathbf{J})$ es una prueba formal de $\varphi$ en $(\Sigma,\tau)$.
+\end{itemize}
+
+\vspace{0.4cm}
+A continuación, demostraremos cada uno de los puntos por separado.
+\subsubsection*{Punto (1)}
+Notemos que basta con hacer el caso $n=1$, porque si $n\geq 2$, entonces se obtiene aplicando $n$ veces el caso igual a $1$.
+
+Supongamos entonces que $(\Sigma,\tau)\vdash\varphi_1$ y que $(\Sigma\cup\{\varphi_1\})\vdash\varphi$. Sea $(\alpha_1\dots\alpha_h,I_1\dots I_h)$ una prueba formal de $\varphi_1$ en $(\Sigma,\tau)$; y sea $(\psi_1\dots\psi_m,J_1\dots J_m)$ una prueba formal de $\varphi$ en $(\Sigma\cup\{\varphi_1\},\tau)$. Notemos que por los \textit{lemas} anteriores podemos suponer que las pruebas no comparten ningún nombre de constante auxiliar y que tampoco comparten números asociados a hipótesis o tesis.
+
+Por ello, para cada $i=1,\dots,m$, definamos $\tilde{J}_i$ de la siguiente manera:
+\begin{itemize}
+  \item Si $J_i=\alpha\text{AXIOMAPROPIO}$ con $\alpha\in\{\varepsilon\}\cup\{\text{TESIS}\bar{k}:k\in N\}$ y $\psi_i=\varphi_1$, entonces $\tilde{J}_i=\alpha\text{EVOCACION}(\bar{h})$
+  \item Si $J_i=\alpha R(\bar{l_1},\dots,\bar{l_k})$ con $\alpha\in\{\varepsilon\}\cup\{\text{TESIS}\bar{k}:k\in N\}$, entonces $\tilde{J}_i=\alpha R(\overline{l_1+h},\dots,\overline{l_k+h})$
+  \item Sino, $\tilde{J}_i=J_i$
+\end{itemize}
+
+Luego, $(\alpha_1\dots\alpha_h\psi_1\dots\psi_m,I_1\dots I_h\tilde{J}_1\dots\tilde{J}_m)$ es una prueba formal de $\varphi$ en $(\Sigma,\tau)$, por lo que $(\Sigma,\tau)\vdash\varphi$ y se demuestra. $\blacksquare$
+
+\subsubsection*{Punto (2)}
+Notemos que:
+\begin{equation*}
+  \begin{alignedat}{2}
+    1.     & \quad \varphi_1 &  & \qquad\text{AXIOMAPROPIO} \\
+    2.     & \quad \varphi_2 &  & \qquad\text{AXIOMAPROPIO} \\
+    \vdots & \quad \vdots    &  & \qquad\vdots              \\
+    n.     & \quad \varphi_n &  & \qquad\text{AXIOMAPROPIO} \\
+    n+1.   & \quad\varphi    &  & \qquad R(1,\dots,\bar{n})
+  \end{alignedat}
+\end{equation*}
+es una prueba formal de $\varphi$ en $(\Sigma\cup\{\varphi_1,\dots,\varphi_n\},\tau)$, por lo que $(\Sigma\cup\{\varphi_1,\dots,\varphi_n\},\tau)\vdash\varphi$. Como suponemos $(\Sigma,\tau)\vdash\varphi_1,\dots,\varphi_n$, por el punto $\mathbf{(1)}$ tenemos que $(\Sigma,\tau)\vdash\varphi$ por lo que se demuestra. $\blacksquare$
+
+\subsubsection*{Punto (3)}
+Veamos los dos casos:
+\begin{itemize}
+  \item \textit{Ida}: Supongamos $(\Sigma,\tau)\vdash(\varphi\to\psi)$. Luego, claramente $(\Sigma\cup\{\varphi\},\tau)\vdash(\varphi\to\psi),\varphi$, por lo que por el punto $\mathbf{(2)}$ usando $\text{MODUSPONENS}$ tenemos que $(\Sigma\cup\{\varphi\},\tau)\vdash\psi$. Por ello, se demuestra la ida.
+  \item \textit{Vuelta}: Supongamos $(\Sigma\cup\{\varphi\},\tau)\vdash\psi$. Sea $(\varphi_1\dots\varphi_n,J_1\dots J_n)$ una prueba formal de $\psi$ en $(\Sigma\cup\{\varphi\},\tau)$, entonces para cada $i=1,\dots,n$ definamos $\tilde{J}_i$ del siguiente modo:
+        \begin{itemize}
+          \item Si $J_i=\alpha\text{AXIOMAPROPIO}$ con $\alpha\in\{\varepsilon\}\cup\{\text{TESIS}\bar{k}:k\in N\}$ y $\varphi_i=\varphi$, entonces $\tilde{J}_i=\alpha\text{EVOCACION}(1)$
+          \item Si $J_i=\alpha R(\bar{l_1},\dots,\bar{l_k})$ con $\alpha\in\{\varepsilon\}\cup\{\text{TESIS}\bar{k}:k\in N\}$, entonces $\tilde{J}_i=\alpha R(\overline{l_1+1},\dots,\overline{l_k+1})$
+          \item Sino, $\tilde{J}_i=J_i$
+        \end{itemize}
+        Sea $m$ tal que ninguna $J_i$ es igual a $\text{HIPOTESIS}\bar{m}$. Entonces
+        \begin{equation*}
+          (\varphi\varphi_1\dots\varphi_n(\varphi\to\psi),\text{HIPOTESIS}\bar{m}\tilde{J}_1\dots\tilde{J}_{n-1}TESIS\bar{m}\tilde{J}_nCONCLUSION)
+        \end{equation*}
+        es una prueba formal de $(\varphi\to\psi)$ en $(\Sigma,\tau)$. Luego, $(\Sigma,\tau)\vdash(\varphi\to\psi)$ y se demuestra la vuelta.
+\end{itemize}
+
+Por ello, se demuestra el punto $\mathbf{(3)}$. $\blacksquare$
+
+\section*{Lema}
+Sea $(L,s,i)$ un reticulado terna y sea $\theta$ una congruencia de $(L,s,i)$. Entonces:
+\begin{enumerate}
+  \item $(L/\theta,\tilde{s},\tilde{i})$ es un reticulado terna
+  \item El orden parcial $\tilde{\leq}$ asociado al reticulado terna $(L/\theta,\tilde{s},\tilde{i})$ cumple $x/\theta\tilde{\leq}y/\theta$ sii $y\theta(x\ s\ y)$
+\end{enumerate}
+\subsection*{Demostración}
+Vamos a demostrar cada punto por separado.
+
+\subsubsection*{Punto (1)}
+Debemos demostrar que $(L/\theta,\tilde{s},\tilde{i})$ cumple las siguientes propiedades:
+\begin{enumerate}
+  \item Reflexividad de $\tilde{s}$ e $\tilde{i}$: $\forall x/\theta\in L/\theta,\ x/\theta\ \tilde{s}\ x/\theta=x/\theta\ \tilde{i}\ x/\theta=x/\theta$:
+        \begin{equation*}
+          \begin{alignedat}{2}
+            x/\theta\ \tilde{s}\ x/\theta & = (x\ s\ x)/\theta &  & \qquad\text{def. de }\tilde{s} \\
+                                          & = x/\theta         &  & \qquad\text{reflexividad de }s
+          \end{alignedat}
+        \end{equation*}
+        El caso del ínfimo es análogo al del supremo.
+  \item Conmutatividad de $\tilde{s}$: $\forall x/\theta,y/\theta\in L/\theta,\ x/\theta\ \tilde{s}\ y/\theta=y/\theta\ \tilde{s}\ x/\theta$:
+        \begin{equation*}
+          \begin{alignedat}{2}
+            x/\theta\ \tilde{s}\ y/\theta & = (x\ s\ y)/\theta              &  & \qquad\text{def. de }\tilde{s}   \\
+                                          & = (y\ s\ x)/\theta              &  & \qquad\text{conmutatividad de }s \\
+                                          & = y/\theta\ \tilde{s}\ x/\theta &  & \qquad\text{def. de }\tilde{s}
+          \end{alignedat}
+        \end{equation*}
+  \item Conmutatividad de $\tilde{i}$: $\forall x/\theta,y/\theta\in L/\theta,\ x/\theta\ \tilde{i}\ y/\theta=y/\theta\ \tilde{i}\ x/\theta$: Análogo a la anterior.
+  \item Asociatividad de $\tilde{s}$: $\forall x/\theta,y/\theta,z/\theta\in L/\theta,\ (x/\theta\ \tilde{s}\ y/\theta)\ \tilde{s}\ z/\theta=x/\theta\ \tilde{s}\ (y/\theta\ \tilde{s}\ z/\theta)$:
+        \begin{equation*}
+          \begin{alignedat}{2}
+            (x/\theta\ \tilde{s}\ y/\theta)\ \tilde{s}\ z/\theta & = ((x\ s\ y)\ s\ z)/\theta                             &  & \qquad\text{def. de }\tilde{s}  \\
+                                                                 & = (x\ s\ (y\ s\ z))/\theta                             &  & \qquad\text{asociatividad de }s \\
+                                                                 & = x/\theta\ \tilde{s}\ (y/\theta\ \tilde{s}\ z/\theta) &  & \qquad\text{def. de }\tilde{s}
+          \end{alignedat}
+        \end{equation*}
+  \item Asociatividad de $\tilde{i}$: $\forall x/\theta,y/\theta,z/\theta\in L/\theta,\ (x/\theta\ \tilde{i}\ y/\theta)\ \tilde{i}\ z/\theta=x/\theta\ \tilde{i}\ (y/\theta\ \tilde{i}\ z/\theta)$: Análogo a la anterior.
+  \item Absorción: $\forall x/\theta,y/\theta\in L/\theta,\ x/\theta\ \tilde{s}\ (x/\theta\ \tilde{i}\ y/\theta)=x/\theta$:
+        \begin{equation*}
+          \begin{alignedat}{2}
+            x/\theta\ \tilde{s}\ (x/\theta\ \tilde{i}\ y/\theta) & = x/\theta\ \tilde{s}\ (x\ i\ y)/\theta &  & \qquad\text{def. de }\tilde{i} \\
+                                                                 & = (x\ s\ (x\ i\ y))/\theta              &  & \qquad\text{def. de }\tilde{s} \\
+                                                                 & = x/\theta                              &  & \qquad\text{absorción}
+          \end{alignedat}
+        \end{equation*}
+  \item Absorción: $\forall x/\theta,y/\theta\in L/\theta,\ x/\theta\ \tilde{i}\ (x/\theta\ \tilde{s}\ y/\theta)=x/\theta$: Análogo a la anterior.
+\end{enumerate}
+
+Por ello, $(L/\theta,\tilde{s},\tilde{i})$ es un reticulado terna por def. dado que $L/\theta\neq\emptyset$ y cumple las $7$ propiedades mencionadas. Finalmente, entonces, se demuestra el punto $\mathbf{(1)}$. $\blacksquare$
+
+\subsubsection*{Punto (2)}
+Tenemos que:
+\begin{equation*}
+  \begin{alignedat}{2}
+    x/\theta\ \tilde{\leq}\ y/\theta & \iff y/\theta=x/\theta\ \tilde{s}\ y/\theta &  & \qquad\text{def. de }\tilde{\leq} \\
+                                     & \iff y/\theta = (x\ s\ y)/\theta            &  & \qquad\text{def. de }\tilde{s}    \\
+                                     & \iff y\theta(x\ s\ y)
+  \end{alignedat}
+\end{equation*}
+Luego, se demuestra el punto $\mathbf{(2)}$. $\blacksquare$
+
+\section*{Lema}
+Sean $(L,s,i)$ y $(L',s',i')$ reticulados terna y sean $(L,\leq)$ y $(L',\leq')$ los posets asociados. Sea $F:L\to L'$ una función. Entonces $F$ es un isomorfismo de $(L,s,i)$ en $(L',s',i')$ sii $F$ es un isomorfismo de $(L,\leq)$ en $(L',\leq')$
+\subsection*{Demostración}
+Para la demostración, vamos a usar el siguiente \textit{lema}: Sean $(P,\leq)$ y $(P',\leq')$ posets y $F$ un isomorfismo de $(P,\leq)$ en $(P',\leq')$, entonces:
+\begin{itemize}
+  \item $\forall x,y,z\in P,\ z=\text{sup}\{x,y\}\iff F(z)=\text{sup}\{F(x),F(y)\}$
+  \item $\forall x,y,z\in P,\ z=\text{inf}\{x,y\}\iff F(z)=\text{inf}\{F(x),F(y)\}$
+\end{itemize}
+
+\vspace{0.5cm}
+Vamos a demostrar cada uno de los lados de la doble implicación por separado:
+\begin{itemize}
+  \item \textit{Ida}: Supongamos $F$ es un isomorfismo de $(L,s,i)$ en $(L',s',i')$. Por def. de isomorfismo, $F$ es biyectiva y $F,F^{-1}$ son homomorfismos. Por ello, podemos ver que, sean $x,y\in L$:
+        \begin{equation*}
+          \begin{aligned}
+            x\leq y\overset{\text{def. }\leq}{\Rightarrow}y=x\ s\ y\overset{\text{def. homomorfismo}}{\Rightarrow}F(y)=F(x\ s\ y)=F(x)\ s'\ F(y)\overset{\text{def. de }\leq}{\Rightarrow}F(x)\leq' F(y) \\
+          \end{aligned}
+        \end{equation*}
+        Con ello, llegamos a que $F$ es un homomorfismo de $(L,\leq)$ en $(L',\leq')$. Como $F$ es biyectiva y de forma análoga a la anterior podemos ver que $F^{-1}$ es un homomorfismo de $(L',\leq')$ en $(L,\leq)$, entonces $F$ es un isomorfismo de $(L,\leq)$ en $(L',\leq')$ y se demuestra la ida.
+  \item \textit{Vuelta}: Supongamos $F$ es un isomorfismo de $(L,\leq)$ en $(L',\leq')$. Por ello, tenemos que:
+        \begin{equation*}
+          \begin{alignedat}{2}
+            \forall x,y,z\in P,\ z=x\ s\ y & \iff F(z)=F(x)\ s\ F(y) &  & \qquad\text{por lema}                        \\
+            \forall x,y\in P,\ F(x\ s\ y)  & =F(x)\ s'\ F(y)         &  & \qquad\text{usando la prop. con }\Rightarrow
+          \end{alignedat}
+        \end{equation*}
+        Análogamente, llegamos también a que $\forall x,y\in P,\ F(x\ i\ y) = F(x)\ i'\ F(y)$. Por ello, $F$ es un homomorfismo de $(L,s,i)$ en $(L',s',i')$.
+
+        Ahora, como $F$ es biyectiva y de forma análoga $F^{-1}$ es un homomorfismo de $(L',s',i')$ en $(L,s,i)$, por def. $F$ es un isomorfismo.
+
+        Con ello, se demuestra la vuelta.
+\end{itemize}
+
+Por todo ello, entonces, se demuestra el lema. $\blacksquare$
+
+\end{document}
