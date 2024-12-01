@@ -1,0 +1,95 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=20mm,
+ top=10mm,
+ }
+\usepackage{graphicx}
+\usepackage{titling}
+\usepackage{lipsum}  
+\usepackage{lmodern}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{enumitem}
+
+\title{Combo 8 de teoremas}
+\author{Emanuel Nicolás Herrador}
+\date{November 2024}
+ 
+\makeatletter
+\def\@maketitle{%
+  \newpage
+  \null
+  \vskip 1em%
+  \begin{center}%
+  \let \footnote \thanks
+    {\LARGE \@title \par}%
+    \vskip 1em%
+    {\large \@author\quad-\quad \@date}%
+  \end{center}%
+  \par
+  \vskip 1em}
+\makeatother
+
+\begin{document}
+
+\maketitle
+
+\section*{Lema}
+Supongamos que $F:\mathbf{A}\to\mathbf{B}$ es un isomorfismo. Sea $\varphi=_d\varphi(v_1,\dots,v_n)\in F^\tau$. Entonces:
+\begin{equation*}
+  \mathbf{A}\vDash\varphi[a_1,\dots,a_n]\text{ sii }\mathbf{B}\vDash\varphi[F(a_1),\dots,F(a_n)]
+\end{equation*}
+para cada $a_1,\dots,a_n\in A$
+\subsection*{Demostración}
+Vamos a usar los siguientes resultados en la demostración:
+\begin{itemize}
+  \item \textit{Convención notacional}: Una vez declarado $\varphi=_d\varphi(v_1,\dots,v_n)$, si $\mathbf{A}$ es un modelo de tipo $\tau$ y $a_1,\dots,a_n\in A$, entonces $\mathbf{A}\vDash\varphi[a_1,\dots,a_n]$ significará que $\mathbf{A}\vDash\varphi[\vec{b}]$ donde $\vec{b}$ es una asignación tal que a cada $v_i$ le asigna el valor $a_i$.
+  \item \textit{Lema}: Supongamos que $F:\mathbf{A}\to\mathbf{B}$ es un isomorfismo. Sea $\varphi\in F^\tau$, entonces $\mathbf{A}\vDash\varphi[(a_1,a_2,\dots)]\iff\mathbf{B}\vDash\varphi[(F(a_1),F(a_2),\dots)]$ para cada $(a_1,a_2,\dots)\in A^N$. En particular, $\mathbf{A}$ y $\mathbf{B}$ satisfacen las mismas sentencias de tipo $\tau$.
+\end{itemize}
+
+\vspace{0.3cm}
+Ahora, supongamos $F:\mathbf{A}\to\mathbf{B}$ isomorfismo, $\varphi=_d\varphi(v_1,\dots,v_n)\in F^\tau$ y $a_1,\dots,a_n\in A$ fijos pero arbitrarios. Entonces:
+\begin{equation*}
+  \begin{alignedat}{2}
+    \mathbf{A}\vDash\varphi[a_1,a_2,\dots,a_n] & \iff\mathbf{A}\vDash\varphi[\vec{b}]\text{ con }\vec{b}\text{ tq a }v_i\text{ le asigna }a_i               &  & \qquad\text{Por Convención Notacional} \\
+                                               & \iff\mathbf{B}\vDash\varphi[(F(b_1),F(b_2),\dots)]\text{ con }\vec{b}\text{ tq a }v_i\text{ le asigna }a_i &  & \qquad\text{Por Lema}                  \\
+                                               & \iff\mathbf{B}\vDash\varphi[\vec{c}]\text{ con }\vec{c}\text{ tq a }v_i\text{ le asigna }F(a_i)                                                        \\
+                                               & \iff\mathbf{B}\vDash\varphi[F(a_1),F(a_2),\dots,F(a_n)]                                                    &  & \qquad\text{Por Convención Notacional} \\
+  \end{alignedat}
+\end{equation*}
+
+Luego, como eran fijos pero arbitrarios, se demuestra el lema para toda asignación. $\blacksquare$
+
+\section*{Lema}
+Sean $(P,\leq)$ y $(P',\leq')$ posets. Supongamos $F$ es un isomorfismo de $(P,\leq)$ en $(P',\leq')$:
+\begin{enumerate}[label=(\alph*)]
+  \item Para cada $S\subseteq P$ y cada $a\in P$, se tiene que $a$ es cota superior (resp. inferior) de $S$ sii $F(a)$ es cota superior (resp. inferior) de $F(S)$
+  \item Para cada $S\subseteq P$, se tiene que existe $\text{sup}(S)$ sii existe $\text{sup}(F(S))$ y en el caso de que existan tales elementos se tiene que $F(\text{sup}(S))=\text{sup}(F(S))$
+\end{enumerate}
+Veamos cada punto por separado.
+
+\subsubsection*{Punto $\mathbf{(a)}$}
+Vemos la ida y la vuelta por separado. Ver la cota superior e inferior es análogo, por lo que demostramos solo la primera.
+\begin{itemize}
+  \item \textit{Ida}: Supongamos $a$ cota superior de $S$. Sea $x\in F(S)$ fijo pero arbitrario y $s\in S:x=F(s)$. Como $s\leq a$, por def. de isomorfismo, $x=F(s)\leq' F(a)$. Luego, como $x$ era fijo pero arbitrario, se tiene que $F(a)$ es cota superior de $F(S)$ y se demuestra la ida.
+  \item \textit{Vuelta}: Supongamos $F(a)$ cota superior de $F(S)$ con $a\in S$. Sea $s\in S$ fijo pero arbitrario, como $F(s)\leq'F(a)$ entonces por def. de isomorfismo, $s=F^{-1}(F(s))\leq F^{-1}(F(a))=a$. Como $s$ era fijo pero arbitrario, se tiene que $a$ es cota superior de $S$ y se demuestra la vuelta.
+\end{itemize}
+
+Con ello, se demuestra la doble implicación para el caso de la cota superior. Como son análogos ambos casos de cota superior e inferior, se demuestra el punto $\textbf{(a)}$. $\blacksquare$
+
+\subsubsection*{Punto $\mathbf{(b)}$}
+Vemos la ida y la vuelta por separado:
+\begin{itemize}
+  \item \textit{Ida}: Supongamos que existe $\text{sup}(S)$. Por $\mathbf{(a)}$ sabemos que $F(\text{sup}(S))$ es cota superior de $F(S)$. Sea $b$ un elemento fijo pero arbitrario tal que es cota superior de $F(S)$, entonces por $\mathbf{(a)}$ $F^{-1}(b)$ es cota superior de $F^{-1}(F(S))=S$ por lo que $\text{sup}(S)\leq F^{-1}(b)$. Luego, con ello, por def. de isomorfismo, $F(\text{sup}(S))\leq' F(F^{-1}(b))=b$.
+
+        Con ello, como $b$ era fijo pero arbitrario, se tiene que se cumple para todo $b$ cota superior de $F(S)$. Luego, por def., $F(\text{sup}(S))$ es supremo de $F(S)$ por lo que se demuestra la ida.
+  \item \textit{Vuelta}: Es totalmente análogo al caso anterior, dado que $F$ es un isomorfismo.
+\end{itemize}
+
+Con ello, entonces se demuestra el punto $\textbf{(b)}$. $\blacksquare$
+
+\end{document}
