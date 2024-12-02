@@ -1,0 +1,186 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=20mm,
+ top=10mm,
+ }
+\usepackage{graphicx}
+\usepackage{titling}
+\usepackage{lipsum}  
+\usepackage{lmodern}
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\title{Combo 5 de teoremas}
+\author{Emanuel Nicolás Herrador}
+\date{November 2024}
+ 
+\makeatletter
+\def\@maketitle{%
+  \newpage
+  \null
+  \vskip 1em%
+  \begin{center}%
+  \let \footnote \thanks
+    {\LARGE \@title \par}%
+    \vskip 1em%
+    {\large \@author\quad-\quad \@date}%
+  \end{center}%
+  \par
+  \vskip 1em}
+\makeatother
+
+\begin{document}
+
+\maketitle
+
+\section*{Teorema de Completitud}
+Sea $T=(\Sigma,\tau)$ una teoría de primer orden. Si $T\vDash\varphi$, entonces $T\vdash\varphi$.
+
+Haga solo el caso en que $\tau$ tiene una cantidad infinita de nombres de constante que no ocurren en las sentencias de $\Sigma$. En la exposición de la prueba no es necesario que demuestre los ítems $(1)$ y $(5)$.
+
+\subsection*{Lemas que usaremos}
+\subsubsection*{Lema (A)}
+Sea $\tau$ un tipo. Hay una infinitupla $(\gamma_1,\gamma_2,\dots)\in F^{\tau N}$ tal que:
+\begin{enumerate}
+  \item $|Li(\gamma_j)|\leq 1$ para cada $j=1,2,\dots$
+  \item Si $|Li(\gamma)|\leq 1$, entonces $\gamma=\gamma_j$ para algún $j\in N$
+\end{enumerate}
+
+\subsubsection*{Lema (B): Lema del ínfimo}
+Sea $T=(\Sigma,\tau)$ una teoría y supongamos que $\tau$ tiene una cantidad infinita de nombres de constante que no ocurren en las sentencias de $\Sigma$. Entonces para cada fórmula $\varphi=_d\varphi(v)$, se tiene que en el álgebra de Lindembaum $\mathcal{A}_T$, $[\forall v\varphi(v)]_T=\text{inf}(\{[\varphi(t)]_T:t\in T^\tau_c\})$
+
+\subsubsection*{Teorema (C): Teorema de Rasiova y Sikorski}
+Sea $(B,s,i,\ ^c,0,1)$ un álgebra de Boole. Sea $x\in B:x\neq 0$. Supongamos que $(A_1,A_2,\dots)$ es una infinitupla de subconjuntos de $B$ tal que $(\exists\text{inf}(A_j))\forall j=1,2,\dots$. Entonces hay un filtro primo $P$ tal que:
+\begin{itemize}
+  \item $x\in P$
+  \item $\forall j=1,2,\dots,\ A_j\subseteq P\Rightarrow\text{inf}(A_j)\in P$
+\end{itemize}
+
+\subsection*{Demostración}
+Digamos $T=(\Sigma,\tau)$ una teoría de primer orden tal que $\tau$ tiene una cantidad infinita de nombres de constante que no ocurren en las sentencias de $\Sigma$.
+
+Vamos a probar el \textit{Teorema} por el absurdo, es decir, supongamos que $\exists\varphi_0\in S^\tau,\ (T\vDash\varphi_0\land T\nvdash\varphi_0)$.
+
+\vspace{0.3cm}
+Veamos que $[\neg\varphi_0]_T\neq 0^T$ por absurdo: Supongamos que $[\neg\varphi_0]_T=0^T$, luego:
+\begin{equation*}
+  \begin{aligned}
+    \ [\neg\varphi_0]_T=0^T & \Rightarrow \neg\varphi_0\in 0^T                              \\
+                            & \Rightarrow\neg\varphi_0\in\{\psi\in S^\tau:t\vdash\neg\psi\} \\
+                            & \Rightarrow T\vdash\neg\neg\varphi_0                          \\
+                            & \Rightarrow T\vdash\varphi_0\text{ (AXILOG)}
+  \end{aligned}
+\end{equation*}
+
+lo cual es absurdo, pues suponemos $T\nvdash\varphi_0$. Luego, efectivamente $[\neg\varphi_0]_T\neq 0^T$.
+
+\vspace{0.3cm}
+Por $\textbf{(A)}$ tenemos que hay una infinitupla $(\gamma_1,\gamma_2,\dots)\in F^{\tau N}$ tal que:
+\begin{enumerate}
+  \item $|Li(\gamma_j)|\leq 1$ para cada $j=1,2,\dots$
+  \item Si $|Li(\gamma)|\leq 1$, entonces $\gamma=\gamma_j$ para algún $j\in N$
+\end{enumerate}
+
+Para cada $j\in N$, sea $w_j\in Var:Li(\gamma_j)\subseteq\{w_j\}$, declararemos $\gamma_j=_d\gamma_j(w_j)$. Luego, por el \textbf{lema del ínfimo (B)}, tenemos que en $\mathcal{A}_T$ se tiene que $\forall j\in N,\ [\forall w_j\gamma_j(w_j)]_T=\text{inf}(\{[\gamma_j(t)]_T:t\in T^\tau_c\})$
+
+Ahora, como $\mathcal{A}_T$ es un álgebra de Boole, $[\neg\varphi_0]_T\in S^\tau/\dashv\vdash_T$ (universo de $\mathcal{A}_T$), $[\neg\varphi_0]\neq 0^T$ y $(\{[\gamma_1(t)]_T:t\in T^\tau_c\},\{[\gamma_2(t)]_T:t\in T^\tau_c\},\dots)$ es una infinitupla de subconjuntos de $S^\tau/\dashv\vdash_T$ tal que existe el ínfimo para cada uno de ellos; por el \textbf{Teorema de Rasiova y Sikorski (C)} tenemos que hay un filtro primo $P$ tal que:
+\begin{itemize}
+  \item $[\neg\varphi_0]_T\in P$
+  \item $\forall j\in N,\ (\{[\gamma_j(t)]_T:t\in T^\tau_c\}\subseteq P\Rightarrow [\forall w_j\gamma_j(w_j)]_T\in P)$
+\end{itemize}
+
+Como $(\gamma_1,\gamma_2,\dots)$ cubre todas las fórmulas con a lo sumo una variable libre, podemos reescribir las propiedades anteriores como:
+\begin{itemize}
+  \item $[\neg\varphi_0]_T\in P$
+  \item $\forall \varphi=_d\varphi(v)\in F^\tau,\ (\{[\varphi(t)]_T:t\in T^\tau_c\}\subseteq P\Rightarrow [\forall v\varphi(v)]_T\in P)$
+\end{itemize}
+
+\vspace{0.3cm}
+Definamos sobre $T^\tau_c$ la relación: $t\bowtie s$ sii $[(t\equiv s)]_T\in P$. Veamos que:
+\begin{itemize}
+  \item[(1)] $\bowtie$ es de equivalencia
+  \item[(2)] $\forall\varphi=_d\varphi(v_1,\dots,v_n)\in F^\tau,\ t_1,\dots,t_n,s_1,\dots,s_n\in T^\tau_c$, si $t_1\bowtie s_1,\dots,t_n\bowtie s_n$, entonces $[\varphi(t_1,\dots,t_n)]_T\in P$ sii $[\varphi(s_1,\dots,s_n)]_T\in P$
+        \begin{itemize}
+          \item \textit{Ida}: Supongamos $[\varphi(t_1,\dots,t_n)]_T\in P$. Entonces:
+                \begin{equation*}
+                  \begin{alignedat}{2}
+                    T\vdash((t_1\equiv s_1)\land\dots\land(t_n\equiv s_n)\land\varphi(t_1,\dots,t_n))          & \to\varphi(s_1,\dots,s_n)        &  & \qquad\text{REEMP}          \\
+                    [((t_1\equiv s_1)\land\dots\land(t_n\equiv s_n)\land\varphi(t_1,\dots,t_n))]_T             & \leq^T[\varphi(s_1,\dots,s_n)]_T &  & \qquad\text{Def. de }\leq^T \\
+                    [(t_1\equiv s_1)]_T\ i^T\ \dots\ i^T\ [(t_n\equiv s_n)]_T\ i^T\ [\varphi(t_1,\dots,t_n)]_T & \leq^T[\varphi(s_1,\dots,s_n)]_T &  & \qquad\text{Def. de }i^T    \\
+                  \end{alignedat}
+                \end{equation*}
+                Como $P$ es un filtro, por def.:
+                \begin{itemize}
+                  \item $x,y\in P\Rightarrow x\ i\ y\in P$
+                  \item $x\in P\land x\leq y\Rightarrow y\in P$
+                \end{itemize}
+
+                Luego, como $\forall i\in\{1,\dots,n\},\ [(t_i\equiv s_i)]_T\in P$, entonces nos queda que:
+                \begin{equation*}
+                  [\varphi(t_1,\dots,t_n)]_T\in P\Rightarrow[\varphi(s_1,\dots,s_n)]_T\in P
+                \end{equation*}
+                Por lo que se demuestra este caso.
+          \item \textit{Vuelta}: Es análoga al caso anterior.
+        \end{itemize}
+        Con ello, se demuestra esta propiedad. $\blacksquare$
+  \item[(3)] $\forall f\in\mathcal{F}_n,\ t_1,\dots,t_n,s_1,\dots,s_n\in T^\tau_c$, entonces $(t_1\bowtie s_1,\dots,t_n\bowtie s_n)\Rightarrow(f(t_1,\dots,t_n)\bowtie f(s_1,\dots,s_n))$
+
+        \vspace{0.1cm}
+        Sean $\varphi=(f(v_1,\dots,v_n)\equiv f(s_1,\dots,s_n))$ y $\varphi=_d\varphi(v_1,\dots,v_n)$, entonces: $T\vdash\varphi(s_1,\dots,s_n)\overset{\text{def. }1^T}{\Rightarrow}\varphi(s_1,\dots,s_n)\in 1^T\Rightarrow[\varphi(s_1,\dots,s_n)]_T=1^T\overset{(x\in P\land x\leq y\Rightarrow y\in P)}{\Rightarrow}[\varphi(s_1,\dots,s_n)]_T\in P\overset{\text{por }(2)}{\Rightarrow}[\varphi(t_1,\dots,t_n)]_T\in P$
+
+        Luego, $[(f(t_1,\dots,t_n)\equiv f(s_1,\dots,s_n))]_T\in P$, por lo que por def. de $\bowtie$, $f(t_1,\dots,t_n)\bowtie f(s_1,\dots,s_n)$.
+
+        Con ello, se demuestra esta propiedad. $\blacksquare$
+\end{itemize}
+
+\vspace{0.3cm}
+Definamos ahora un modelo $\mathbf{A}_P$ de tipo $\tau$ tal que:
+\begin{itemize}
+  \item Universo de $\mathbf{A}_P=T^\tau_c/\!\bowtie$
+  \item $c^{\mathbf{A}_P}=c/\!\bowtie,\ \forall c\in\mathcal{C}$
+  \item $f^{\mathbf{A}_P}(t_1/\!\bowtie,\dots,t_n/\!\bowtie)=f(t_1,\dots,t_n)/\!\bowtie,\ \forall f\in\mathcal{F}_n,\ t_1,\dots,t_n\in T^\tau_c$
+  \item $r^{\mathbf{A}_P}=\{(t_1/\!\bowtie,\dots,t_n/\!\bowtie):[r(t_1,\dots,t_n)]_T\in P\},\ \forall r\in\mathcal{R}_n$
+\end{itemize}
+Notar que $f^{\mathbf{A}_P}$ es inambigua por la propiedad $(3)$ vista antes. Con ello, veamos que se cumple que:
+\begin{enumerate}
+  \item[(4)] $\forall t=_dt(v_1,\dots,v_n)\in T^\tau,\ t_1,\dots,t_n\in T^\tau_c,\ (t^{\mathbf{A}_P}[t_1/\!\bowtie,\dots,t_n/\!\bowtie]=t(t_1,\dots,t_n)/\!\bowtie)$
+
+        \vspace{0.1cm}
+        Vamos a demostrar por inducción en $k\in N_0$ que el lema vale $\forall t\in T^\tau_k$.
+        \begin{itemize}
+          \item \textit{Caso base} $(k=0)$: Sea $t=_dt(v_1,\dots,v_n)\in T^\tau_0$, tenemos dos casos:
+                \begin{itemize}
+                  \item Si $t\in Var$: Luego, $t=v_j$ para $j\in\{1,\dots,n\}$. Por ello: $t^{\mathbf{A}_P}[t_1/\!\bowtie,\dots,t_n/\!\bowtie]=t_j/\!\bowtie\overset{\text{conv. not.}}{=}v_j(t_1,\dots,t_n)/\!\bowtie=t(t_1,\dots,t_n)/\!\bowtie$. Por ello, se demuestra este caso.
+                  \item Si $t\in\mathcal{C}$: Luego, $t=c$ para algún $c\in\mathcal{C}$. De forma similar, $t^{\mathbf{A}_P}[t_1/\!\bowtie,\dots,t_n/\!\bowtie]=c^{\mathbf{A}_P}=c/\!\bowtie\overset{\text{conv. not.}}{=}c(t_1,\dots,t_n)/\!\bowtie=t(t_1,\dots,t_n)/\!\bowtie$. Por ello, se demuestra este caso.
+                \end{itemize}
+                Luego, se demuestra el caso base.
+          \item \textit{Hipótesis inductiva} $(k)$: Sea $k\in N_0$, entonces $\forall t=_d t(v_1,\dots,v_n)\in T^\tau_k,\ t_1,\dots,t_n\in T^\tau_c,\ (t^{\mathbf{A}_P}[t_1/\!\bowtie,\dots,t_n/\!\bowtie]=t(t_1,\dots,t_n)/\!\bowtie)$
+          \item \textit{Caso inductivo} $(k+1)$: Sea $t=_dt(v_1,\dots,v_n)\in T^\tau_{k+1}$, entonces tenemos dos casos:
+                \begin{itemize}
+                  \item Si $t\in T^\tau_k$: Se demuestra por HI.
+                  \item Si $t=f(s_1,\dots,s_m)$ con $f\in\mathcal{F}_m,\ s_1,\dots,s_m\in T^\tau_k$: Luego:
+                        \begin{equation*}
+                          \begin{alignedat}{2}
+                            t^{\mathbf{A}_P}[t_1/\!\bowtie,\dots,t_n/\!\bowtie] & =f^{\mathbf{A}_P}(s_1^{\mathbf{A}_P}[t_1/\!\bowtie,\dots,t_n/\!\bowtie],\dots,s_m^{\mathbf{A}_P}[t_1/\!\bowtie,\dots,t_n/\!\bowtie]) &  & \qquad\text{}                         \\
+                                                                                & =f^{\mathbf{A}_P}(s_1(t_1,\dots,t_n)/\!\bowtie,\dots,s_m(t_1,\dots,t_n)/\!\bowtie)                                                   &  & \qquad\text{HI}                       \\
+                                                                                & =f(s_1(t_1,\dots,t_n),\dots,s_m(t_1,\dots,t_n))/\!\bowtie                                                                            &  & \qquad\text{Def. de }f^{\mathbf{A}_P} \\
+                                                                                & =f(s_1,\dots,s_m)(t_1,\dots,t_n)/\!\bowtie                                                                                           &  & \qquad\text{conv. not.}               \\
+                                                                                & =t(t_1,\dots,t_n)/\!\bowtie
+                          \end{alignedat}
+                        \end{equation*}
+                        Por ello, se demuestra el paso inductivo.
+                \end{itemize}
+                Con todo esto, se demuestra la propiedad $(4)$. $\blacksquare$
+        \end{itemize}
+  \item[(5)] $\forall\varphi=_d\varphi(v_1,\dots,v_n)\in F^\tau,\ t_1,\dots,t_n\in T^\tau_c,\ (\mathbf{A}_P\vDash\varphi[t_1/\!\bowtie,\dots,t_n/\!\bowtie]\iff[\varphi(t_1,\dots,t_n)]_T\in P)$
+\end{enumerate}
+
+Con esto, notemos que $(5)$ nos dice que, en particular, $\forall\psi\in S^\tau,\ (\mathbf{A}_P\vDash\psi\iff[\psi]_T\in P)$. Por ello, como $1^T, [\neg\varphi_0]_T\in P$, entonces tenemos que $\mathbf{A}_P\vDash \neg\varphi_0$ y $\forall\psi\in\Sigma,\ \mathbf{A}_P\vDash\psi$. Esto significa, entonces, que por def. $\mathbf{A}_P$ es un modelo de la teoría $T=(\Sigma,\tau)$
+
+Como $\mathbf{A}_P$ es un modelo de la teoría $T$ y $T\vDash\varphi_0$, entonces $\mathbf{A}_P\vDash\varphi_0$. Luego, llegamos a un absurdo, que vino de suponer $T\nvdash\varphi_0$, dado que $\mathbf{A}_P\vDash\neg\varphi_0$ también. Por ello, $T\vdash\varphi_0$ y se demuestra. $\blacksquare$
+
+\end{document}
