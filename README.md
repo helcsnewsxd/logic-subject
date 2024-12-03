@@ -16,6 +16,8 @@ El _equipo docente_ está compuesto por:
 
 ### Guías, resúmenes y ejercicios resueltos
 
+<div align="center">
+
 <!-- prettier-ignore -->
 | Unidad | Tema | Material | Resumen |
 | ------ | ---- | -------- | ------- |
@@ -35,8 +37,57 @@ El _equipo docente_ está compuesto por:
 | 13 | El álgebra de Lindenbaum | [Teoría](./classes/guide_13/theory.pdf) | [Markdown](./classes/guide_13/summary.md) y [PDF](./classes/guide_13/summary.pdf) |
 | 14 | Teorema de completitud | [Teoría](./classes/guide_14/theory.pdf) | [Markdown](./classes/guide_14/summary.md) y [PDF](./classes/guide_14/summary.pdf) |
 
+</div>
+
 ### Ejercicios Extras
+
+<div align="center">
 
 | Ejercicio              | Solución                                                                                                    |
 | ---------------------- | ----------------------------------------------------------------------------------------------------------- |
 | Equivalencia elemental | [LaTeX](./extras/elementary_equivalence/solution.tex) y [PDF](./extras/elementary_equivalence/solution.pdf) |
+
+</div>
+
+## Combos para el final teórico
+
+La lista de combos para el final teórico se puede encontrar [aquí](./theory_exam/chosen_sets.pdf).
+
+### Combos de definiciones y convenciones notacionales
+
+<div align="center">
+
+<!-- prettier-ignore -->
+| Combo | Solución |
+| ----- | -------- |
+| 1 | [LaTeX](./theory_exam/definitions/set_01.tex) y [PDF](./theory_exam/definitions/set_01.pdf) |
+| 2 | [LaTeX](./theory_exam/definitions/set_02.tex) y [PDF](./theory_exam/definitions/set_02.pdf) |
+| 3 | [LaTeX](./theory_exam/definitions/set_03.tex) y [PDF](./theory_exam/definitions/set_03.pdf) |
+| 4 | [LaTeX](./theory_exam/definitions/set_04.tex) y [PDF](./theory_exam/definitions/set_04.pdf) |
+| 5 | [LaTeX](./theory_exam/definitions/set_05.tex) y [PDF](./theory_exam/definitions/set_05.pdf) |
+| 6 | [LaTeX](./theory_exam/definitions/set_06.tex) y [PDF](./theory_exam/definitions/set_06.pdf) |
+| 7 | [LaTeX](./theory_exam/definitions/set_07.tex) y [PDF](./theory_exam/definitions/set_07.pdf) |
+| 8 | [LaTeX](./theory_exam/definitions/set_08.tex) y [PDF](./theory_exam/definitions/set_08.pdf) |
+| 9 | [LaTeX](./theory_exam/definitions/set_09.tex) y [PDF](./theory_exam/definitions/set_09.pdf) |
+| 10 | [LaTeX](./theory_exam/definitions/set_10.tex) y [PDF](./theory_exam/definitions/set_10.pdf) |
+| 11 | [LaTeX](./theory_exam/definitions/set_11.tex) y [PDF](./theory_exam/definitions/set_11.pdf) |
+
+</div>
+
+### Combos de teoremas
+
+<div align="center">
+
+<!-- prettier-ignore -->
+| Combo | Solución |
+| ----- | -------- |
+| 1 | [LaTeX](./theory_exam/theorems/set_01.tex) y [PDF](./theory_exam/theorems/set_01.pdf) |
+| 2 | [LaTeX](./theory_exam/theorems/set_02.tex) y [PDF](./theory_exam/theorems/set_02.pdf) |
+| 3 | [LaTeX](./theory_exam/theorems/set_03.tex) y [PDF](./theory_exam/theorems/set_03.pdf) |
+| 4 | [LaTeX](./theory_exam/theorems/set_04.tex) y [PDF](./theory_exam/theorems/set_04.pdf) |
+| 5 | [LaTeX](./theory_exam/theorems/set_05.tex) y [PDF](./theory_exam/theorems/set_05.pdf) |
+| 6 | [LaTeX](./theory_exam/theorems/set_06.tex) y [PDF](./theory_exam/theorems/set_06.pdf) |
+| 7 | [LaTeX](./theory_exam/theorems/set_07.tex) y [PDF](./theory_exam/theorems/set_07.pdf) |
+| 8 | [LaTeX](./theory_exam/theorems/set_08.tex) y [PDF](./theory_exam/theorems/set_08.pdf) |
+
+</div>
