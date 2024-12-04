@@ -98,10 +98,10 @@ Demostremos cada punto por separado:
   \item Como $(\Sigma,\tau)$ es inconsistente, por def. $\exists\psi\in S^\tau:(\Sigma,\tau)\vdash(\psi\land\neg\psi)$. Sea $\psi$ esa sentencia, podemos ver que dada una sentencia $\varphi$ se cumple que $(\Sigma,\tau)\vdash\varphi$ y la prueba que lo atestigua es:
         \begin{equation*}
           \begin{alignedat}{2}
-            1.\quad & \neg\varphi                      &  & \qquad\qquad\text{HIP1}           \\
-            2.\quad & \psi\lor\neg\psi                 &  & \qquad\qquad\text{TESIS1 AXIPROP} \\
-            3.\quad & \neg\varphi\to(\psi\lor\neg\psi) &  & \qquad\qquad\text{CONC}           \\
-            4.\quad & \varphi                          &  & \qquad\qquad\text{ABS}(3)         \\
+            1.\quad & \neg\varphi                       &  & \qquad\qquad\text{HIP1}           \\
+            2.\quad & \psi\land\neg\psi                 &  & \qquad\qquad\text{TESIS1 AXIPROP} \\
+            3.\quad & \neg\varphi\to(\psi\land\neg\psi) &  & \qquad\qquad\text{CONC}           \\
+            4.\quad & \varphi                           &  & \qquad\qquad\text{ABS}(3)         \\
           \end{alignedat}
         \end{equation*}
         Con ello, se demuestra. $\blacksquare$
