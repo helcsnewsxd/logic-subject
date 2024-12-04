@@ -61,7 +61,7 @@ Sea $C$ una cadena, vamos a ver que tiene cota superior:
 
 Ahora, como $(\mathcal{F},\subseteq)$ es un poset y toda cadena de $(\mathcal{F},\subseteq)$ tiene cota superior, entonces por el \textbf{Lema de Zorn}, hay un elemento maximal en $(\mathcal{F},\subseteq)$. Sea $P$ ese elemento maximal, vamos a ver que $P$ es un filtro primo.
 
-Supongamos $x\ s\ y\in P$ y $x,y\notin P$. Como $[P\cup\{x\}),[P\cup\{y\})$ son filtros que por lema cumplen que contienen a $P$, y como $x,y\notin P$, entonces claramente $P\subsetneqq [P\cup\{x\}),[P\cup\{y\})$. Ahora, como $P$ es maximal, entonces $[P\cup\{x\}),[P\cup\{y\})\notin\mathcal{F}$, por lo que: o no son filtros, o contienen como elemento a $x_0$, o no contienen a $F$. De aquí llegamos a que $x_0\in [P\cup\{x\}),[P\cup\{y\})$.
+Supongamos $x\ s\ y\in P$ y $x,y\notin P$. Como $[P\cup\{x\}),[P\cup\{y\})$ son filtros que por lema cumplen que contienen a $P\cup\{x\}$ y a $P\cup\{y\}$ respectivamente, y como $x,y\notin P$, entonces claramente $P\subsetneqq [P\cup\{x\}),[P\cup\{y\})$. Ahora, como $P$ es maximal, entonces $[P\cup\{x\}),[P\cup\{y\})\notin\mathcal{F}$, por lo que: o no son filtros, o contienen como elemento a $x_0$, o no contienen a $F$. De aquí llegamos a que $x_0\in [P\cup\{x\}),[P\cup\{y\})$.
 
 Como $x_0\in[P\cup\{x\}),[P\cup\{y\})$, por definición de filtro generado tenemos que $\exists p_1,\dots,p_n\in P$ y $\exists q_1,\dots,q_m\in P$ tales que:
 \begin{equation*}
