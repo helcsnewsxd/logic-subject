@@ -105,6 +105,15 @@ Vamos a demostrar por inducción en $k\in\mathbb{N}_0$ que el lema vale $\forall
                   \end{alignedat}
                 \end{equation*}
                 Por lo que se demuestra.
+          \item Si $\varphi=\neg\varphi_1$ con $\varphi_1\in F^\tau_k$ único: Veamos que
+                \begin{equation*}
+                  \begin{alignedat}{2}
+                    \mathbf{A}\vDash\varphi[\vec{a}] & \iff\mathbf{A}\nvDash\varphi_1[\vec{a}]    &  & \qquad\text{Def. de }\vDash \\
+                                                     & \iff\mathbf{B}\nvDash\varphi_1[F(\vec{a})] &  & \qquad\text{HI}             \\
+                                                     & \iff\mathbf{B}\vDash\varphi[F(\vec{a})]    &  & \qquad\text{Def. de }\vDash
+                  \end{alignedat}
+                \end{equation*}
+                Por lo que se demuestra.
           \item Si $\varphi=Qx_j\varphi_1$ con $\varphi_1\in F^\tau_k$ y $Q\in\{\forall,\exists\}$: Los dos casos son análogos, por lo que vamos a ver $\varphi=\forall x_j\varphi_1$. Por ello:
                 \begin{equation*}
                   \begin{alignedat}{2}
