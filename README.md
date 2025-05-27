@@ -1,3 +1,8 @@
+> [!note]
+> This repository contains theoretical notes and practical exercises from the Logic course of the Computer Science degree at FAMAF – Universidad Nacional de Córdoba.
+>
+> All materials are in Spanish, as they were created for academic use and course submission.
+
 # Lógica
 
 El presente repositorio contiene todo el material correspondiente a la cursada de la materia de _Lógica_ de 4to año de la Licenciatura en Ciencias de la Computación de FAMAF durante el año 2024.
